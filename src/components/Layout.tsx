@@ -59,7 +59,7 @@ const Layout = ({ children }: LayoutProps) => {
       <div className="mx-auto max-w-screen-xl px-6 md:px-12 lg:px-24">
         <div className="lg:flex lg:justify-between lg:gap-8">
           {/* Sidebar */}
-          <aside className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between py-6 md:py-12 lg:py-24">
+          <aside className="lg:flex lg:max-h-full lg:w-1/2 lg:flex-col py-6 md:py-12 lg:py-24">
             <div className="lg:max-w-md space-y-8">
               {/* Personalized Header */}
               <div className="animate-fade-in-up">
