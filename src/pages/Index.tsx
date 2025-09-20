@@ -1,24 +1,26 @@
 import Layout from '../components/Layout';
 import ExperienceCard from '../components/ExperienceCard';
 import ProjectCard from '../components/ProjectCard';
-import WritingCard from '../components/WritingCard';
+import AnimatedSkillBadge from '../components/AnimatedSkillBadge';
+import PersonalizedFooter from '../components/PersonalizedFooter';
+import { GraduationCap, Award, Target } from 'lucide-react';
 
 const Index = () => {
   return (
     <Layout>
       {/* About Section */}
-      <section id="about" className="mb-8 scroll-mt-8 md:mb-12 lg:mb-16 lg:scroll-mt-12">
-        <div className="sticky top-0 z-20 -mx-6 mb-2 w-screen bg-navy/75 px-6 py-3 backdrop-blur md:-mx-12 md:px-12 lg:-mx-24 lg:px-24 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:py-0 lg:opacity-0">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-slate lg:sr-only">About</h2>
+      <section id="about" className="mb-12 scroll-mt-8 md:mb-16 lg:mb-20 lg:scroll-mt-12">
+        <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-midnight/80 px-6 py-4 backdrop-blur md:-mx-12 md:px-12 lg:-mx-24 lg:px-24 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:py-0 lg:opacity-0">
+          <h2 className="text-sm font-bold uppercase tracking-widest text-cool-gray lg:sr-only">About</h2>
         </div>
-        <div>
-          <p className="mb-4">
+        <div className="space-y-6 animate-fade-in-up">
+          <p className="text-lg leading-relaxed text-silver">
             I'm a Software Engineering student who enjoys turning ideas into useful, well-crafted products. I focus on clear problem framing, thoughtful UI/UX, and reliable engineering—from front-end work in React/TypeScript to back-end APIs with .NET and SQL.
           </p>
-          <p className="mb-4">
+          <p className="leading-relaxed text-cool-gray">
             I value teamwork, clarity, and incremental improvement, and I'm motivated by building things that genuinely help people. Currently pursuing my{' '}
             <a
-              className="font-medium text-slate hover:text-green focus-visible:text-green"
+              className="font-medium text-amber hover:text-copper focus-visible:text-copper transition-colors duration-300 glow-on-hover px-1 py-0.5 rounded"
               href="https://www.yasar.edu.tr/"
               target="_blank"
               rel="noreferrer noopener"
@@ -28,23 +30,30 @@ const Index = () => {
             </a>
             , where I've gained hands-on experience with modern web technologies and software development practices.
           </p>
-          <p className="mb-4">
+          <p className="leading-relaxed text-cool-gray">
             My technical expertise spans across front-end development with React, Vite, TypeScript, and Tailwind CSS, as well as back-end development using .NET 8, REST APIs, and SQL databases. I also have experience with Java ecosystem including JavaFX and Gradle, and comprehensive testing using Selenium WebDriver and JUnit 5.
           </p>
-          <p>
-            When I'm not coding, I enjoy exploring new technologies, contributing to open-source projects, and finding creative solutions to everyday problems through software development.
-          </p>
+          
+          {/* Personal mission statement */}
+          <div className="mt-8 p-6 bg-gradient-to-r from-deep-blue/50 to-ocean-blue/30 rounded-xl border border-steel-blue/30 animated-border">
+            <div className="flex items-start gap-3">
+              <Target className="h-5 w-5 text-amber mt-1 flex-shrink-0" />
+              <p className="text-silver font-medium">
+                "When I'm not coding, I enjoy exploring new technologies, contributing to open-source projects, and finding creative solutions to everyday problems through software development."
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="mb-8 scroll-mt-8 md:mb-12 lg:mb-16 lg:scroll-mt-12">
-        <div className="sticky top-0 z-20 -mx-6 mb-2 w-screen bg-navy/75 px-6 py-3 backdrop-blur md:-mx-12 md:px-12 lg:-mx-24 lg:px-24 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:py-0 lg:opacity-0">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-slate lg:sr-only">Experience</h2>
+      <section id="experience" className="mb-12 scroll-mt-8 md:mb-16 lg:mb-20 lg:scroll-mt-12">
+        <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-midnight/80 px-6 py-4 backdrop-blur md:-mx-12 md:px-12 lg:-mx-24 lg:px-24 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:py-0 lg:opacity-0">
+          <h2 className="text-sm font-bold uppercase tracking-widest text-cool-gray lg:sr-only">Experience</h2>
         </div>
-        <div>
-          <ol className="group/list">
-            <li className="mb-12">
+        <div className="animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+          <ol className="group/list space-y-8">
+            <li>
               <ExperienceCard
                 period="2023 — Present"
                 title="Volunteer Developer & Project Lead"
@@ -62,13 +71,13 @@ const Index = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="mb-8 scroll-mt-8 md:mb-12 lg:mb-16 lg:scroll-mt-12">
-        <div className="sticky top-0 z-20 -mx-6 mb-2 w-screen bg-navy/75 px-6 py-3 backdrop-blur md:-mx-12 md:px-12 lg:-mx-24 lg:px-24 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:py-0 lg:opacity-0">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-slate lg:sr-only">Projects</h2>
+      <section id="projects" className="mb-12 scroll-mt-8 md:mb-16 lg:mb-20 lg:scroll-mt-12">
+        <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-midnight/80 px-6 py-4 backdrop-blur md:-mx-12 md:px-12 lg:-mx-24 lg:px-24 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:py-0 lg:opacity-0">
+          <h2 className="text-sm font-bold uppercase tracking-widest text-cool-gray lg:sr-only">Projects</h2>
         </div>
-        <div>
-          <ul className="group/list">
-            <li className="mb-12">
+        <div className="animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+          <ul className="group/list space-y-8">
+            <li>
               <ProjectCard
                 title="YU-Sync — Course Scheduling App"
                 description="A volunteer web app that applies backtracking to help students compose valid schedules with preference handling (e.g., avoiding certain days). Front end with React + TypeScript + Tailwind; clean, mobile-first UI with robust state management and form flows for multi-step selection."
@@ -78,21 +87,21 @@ const Index = () => {
                 ]}
               />
             </li>
-            <li className="mb-12">
+            <li>
               <ProjectCard
                 title="3D Ray-Tracer Simulation"
                 description="A Java-based ray tracer with a JavaFX UI for rendering previews and a small gallery of development steps. Includes a 'development journey' section documenting design choices and iterations."
                 technologies={['Java', 'JavaFX', 'Gradle']}
               />
             </li>
-            <li className="mb-12">
+            <li>
               <ProjectCard
                 title="Avo Breeze — E-commerce Demo"
                 description="A full-stack demo that showcases a production-style architecture with .NET 8 Web API, SQL database, JWT authentication, and Iyzico payment integration on the backend, paired with a React frontend using Bootstrap UI."
                 technologies={['.NET 8', 'React', 'SQL', 'Bootstrap', 'JWT', 'Iyzico']}
               />
             </li>
-            <li className="mb-12">
+            <li>
               <ProjectCard
                 title="Art Gallery Swing UI"
                 description="A SQL-focused Java Swing application for artwork listing, bidding, rating, and sales. Most business logic implemented in the database layer with stored procedures, functions, views, and triggers."
@@ -107,22 +116,26 @@ const Index = () => {
       </section>
 
       {/* Education & Skills Section */}
-      <section id="writing" className="mb-8 scroll-mt-8 md:mb-12 lg:mb-16 lg:scroll-mt-12">
-        <div className="sticky top-0 z-20 -mx-6 mb-2 w-screen bg-navy/75 px-6 py-3 backdrop-blur md:-mx-12 md:px-12 lg:-mx-24 lg:px-24 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:py-0 lg:opacity-0">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-slate lg:sr-only">Education & Skills</h2>
+      <section id="writing" className="mb-12 scroll-mt-8 md:mb-16 lg:mb-20 lg:scroll-mt-12">
+        <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-midnight/80 px-6 py-4 backdrop-blur md:-mx-12 md:px-12 lg:-mx-24 lg:px-24 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:py-0 lg:opacity-0">
+          <h2 className="text-sm font-bold uppercase tracking-widest text-cool-gray lg:sr-only">Education & Skills</h2>
         </div>
-        <div>
-          <div className="mb-8">
-            <h3 className="text-lg font-medium text-lightest-slate mb-4">Education</h3>
-            <div className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 hover:!opacity-100 group-hover/list:opacity-50">
-              <div className="mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate sm:col-span-2">
+        <div className="space-y-12 animate-fade-in-up" style={{ animationDelay: '600ms' }}>
+          {/* Education */}
+          <div>
+            <div className="flex items-center gap-3 mb-6">
+              <GraduationCap className="h-6 w-6 text-amber" />
+              <h3 className="text-xl font-semibold text-pearl">Education</h3>
+            </div>
+            <div className="group relative grid pb-4 transition-all sm:grid-cols-8 sm:gap-8 hover:!opacity-100 group-hover/list:opacity-50 p-6 bg-gradient-to-r from-deep-blue/30 to-ocean-blue/20 rounded-xl border border-steel-blue/20 animated-border glow-on-hover">
+              <div className="mb-2 mt-1 text-sm font-semibold uppercase tracking-wide text-amber sm:col-span-2">
                 2023 — Present
               </div>
               <div className="sm:col-span-6">
-                <h4 className="font-medium leading-snug text-lightest-slate">
+                <h4 className="font-medium leading-snug text-pearl text-lg">
                   <div>
                     <a
-                      className="inline-flex items-baseline font-medium leading-tight text-lightest-slate hover:text-green focus-visible:text-green  group/link text-base"
+                      className="inline-flex items-baseline font-medium leading-tight text-pearl hover:text-amber focus-visible:text-amber group/link transition-colors duration-300"
                       href="https://www.yasar.edu.tr/"
                       target="_blank"
                       rel="noreferrer noopener"
@@ -155,71 +168,81 @@ const Index = () => {
             </div>
           </div>
 
+          {/* Skills */}
           <div>
-            <h3 className="text-lg font-medium text-lightest-slate mb-4">Technical Skills</h3>
-            <div className="space-y-4">
+            <div className="flex items-center gap-3 mb-6">
+              <Award className="h-6 w-6 text-copper" />
+              <h3 className="text-xl font-semibold text-pearl">Technical Skills</h3>
+            </div>
+            <div className="space-y-8">
               <div>
-                <h4 className="text-sm font-medium text-slate mb-2">Front-end Development</h4>
-                <div className="flex flex-wrap gap-2">
-                  {['React', 'Vite', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Bootstrap'].map((skill) => (
-                    <span key={skill} className="inline-flex items-center rounded-full bg-green/10 px-2 py-1 text-xs font-medium text-green ring-1 ring-inset ring-green/20">
-                      {skill}
-                    </span>
+                <h4 className="text-base font-medium text-silver mb-4 flex items-center gap-2">
+                  <span className="w-2 h-2 bg-amber rounded-full"></span>
+                  Front-end Development
+                </h4>
+                <div className="flex flex-wrap gap-3">
+                  {['React', 'Vite', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Bootstrap'].map((skill, index) => (
+                    <AnimatedSkillBadge key={skill} skill={skill} category="frontend" delay={index * 100} />
                   ))}
                 </div>
               </div>
               
               <div>
-                <h4 className="text-sm font-medium text-slate mb-2">Back-end Development</h4>
-                <div className="flex flex-wrap gap-2">
-                  {['.NET 8', 'REST APIs', 'SQL', 'MySQL', 'SQL Server', 'JWT'].map((skill) => (
-                    <span key={skill} className="inline-flex items-center rounded-full bg-green/10 px-2 py-1 text-xs font-medium text-green ring-1 ring-inset ring-green/20">
-                      {skill}
-                    </span>
+                <h4 className="text-base font-medium text-silver mb-4 flex items-center gap-2">
+                  <span className="w-2 h-2 bg-copper rounded-full"></span>
+                  Back-end Development
+                </h4>
+                <div className="flex flex-wrap gap-3">
+                  {['.NET 8', 'REST APIs', 'SQL', 'MySQL', 'SQL Server', 'JWT'].map((skill, index) => (
+                    <AnimatedSkillBadge key={skill} skill={skill} category="backend" delay={index * 100} />
                   ))}
                 </div>
               </div>
               
               <div>
-                <h4 className="text-sm font-medium text-slate mb-2">Java Ecosystem</h4>
-                <div className="flex flex-wrap gap-2">
-                  {['Java', 'JavaFX', 'Gradle'].map((skill) => (
-                    <span key={skill} className="inline-flex items-center rounded-full bg-green/10 px-2 py-1 text-xs font-medium text-green ring-1 ring-inset ring-green/20">
-                      {skill}
-                    </span>
+                <h4 className="text-base font-medium text-silver mb-4 flex items-center gap-2">
+                  <span className="w-2 h-2 bg-ember rounded-full"></span>
+                  Java Ecosystem
+                </h4>
+                <div className="flex flex-wrap gap-3">
+                  {['Java', 'JavaFX', 'Gradle'].map((skill, index) => (
+                    <AnimatedSkillBadge key={skill} skill={skill} category="java" delay={index * 100} />
                   ))}
                 </div>
               </div>
               
               <div>
-                <h4 className="text-sm font-medium text-slate mb-2">Testing & QA</h4>
-                <div className="flex flex-wrap gap-2">
-                  {['Selenium WebDriver', 'JUnit 5', 'Black-box Testing'].map((skill) => (
-                    <span key={skill} className="inline-flex items-center rounded-full bg-green/10 px-2 py-1 text-xs font-medium text-green ring-1 ring-inset ring-green/20">
-                      {skill}
-                    </span>
+                <h4 className="text-base font-medium text-silver mb-4 flex items-center gap-2">
+                  <span className="w-2 h-2 bg-amber rounded-full"></span>
+                  Testing & QA
+                </h4>
+                <div className="flex flex-wrap gap-3">
+                  {['Selenium WebDriver', 'JUnit 5', 'Black-box Testing'].map((skill, index) => (
+                    <AnimatedSkillBadge key={skill} skill={skill} category="testing" delay={index * 100} />
                   ))}
                 </div>
               </div>
               
               <div>
-                <h4 className="text-sm font-medium text-slate mb-2">Tools & Platforms</h4>
-                <div className="flex flex-wrap gap-2">
-                  {['GitHub', 'Vercel', 'Iyzico'].map((skill) => (
-                    <span key={skill} className="inline-flex items-center rounded-full bg-green/10 px-2 py-1 text-xs font-medium text-green ring-1 ring-inset ring-green/20">
-                      {skill}
-                    </span>
+                <h4 className="text-base font-medium text-silver mb-4 flex items-center gap-2">
+                  <span className="w-2 h-2 bg-copper rounded-full"></span>
+                  Tools & Platforms
+                </h4>
+                <div className="flex flex-wrap gap-3">
+                  {['GitHub', 'Vercel', 'Iyzico'].map((skill, index) => (
+                    <AnimatedSkillBadge key={skill} skill={skill} category="tools" delay={index * 100} />
                   ))}
                 </div>
               </div>
               
               <div>
-                <h4 className="text-sm font-medium text-slate mb-2">Languages</h4>
-                <div className="flex flex-wrap gap-2">
-                  {['Turkish (Native)', 'English (B1+ Intermediate)'].map((skill) => (
-                    <span key={skill} className="inline-flex items-center rounded-full bg-green/10 px-2 py-1 text-xs font-medium text-green ring-1 ring-inset ring-green/20">
-                      {skill}
-                    </span>
+                <h4 className="text-base font-medium text-silver mb-4 flex items-center gap-2">
+                  <span className="w-2 h-2 bg-ember rounded-full"></span>
+                  Languages
+                </h4>
+                <div className="flex flex-wrap gap-3">
+                  {['Turkish (Native)', 'English (B1+ Intermediate)'].map((skill, index) => (
+                    <AnimatedSkillBadge key={skill} skill={skill} category="languages" delay={index * 100} />
                   ))}
                 </div>
               </div>
@@ -227,6 +250,8 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      <PersonalizedFooter />
     </Layout>
   );
 };

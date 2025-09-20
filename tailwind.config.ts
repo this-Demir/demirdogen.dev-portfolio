@@ -20,17 +20,19 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         
-        // Brittany Chiang Color System
-        navy: "hsl(var(--navy))",
-        "light-navy": "hsl(var(--light-navy))",
-        "lightest-navy": "hsl(var(--lightest-navy))",
-        "navy-shadow": "hsl(var(--navy-shadow))",
-        "dark-slate": "hsl(var(--dark-slate))",
-        slate: "hsl(var(--slate))",
-        "light-slate": "hsl(var(--light-slate))",
-        "lightest-slate": "hsl(var(--lightest-slate))",
-        green: "hsl(var(--green))",
-        "green-tint": "hsl(var(--green-tint))",
+        // Demir's Custom Color System
+        midnight: "hsl(var(--midnight))",
+        "deep-blue": "hsl(var(--deep-blue))",
+        "ocean-blue": "hsl(var(--ocean-blue))",
+        "steel-blue": "hsl(var(--steel-blue))",
+        "slate-blue": "hsl(var(--slate-blue))",
+        "cool-gray": "hsl(var(--cool-gray))",
+        silver: "hsl(var(--silver))",
+        pearl: "hsl(var(--pearl))",
+        snow: "hsl(var(--snow))",
+        amber: "hsl(var(--amber))",
+        ember: "hsl(var(--ember))",
+        copper: "hsl(var(--copper))",
         
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -62,8 +64,8 @@ export default {
         },
       },
       fontFamily: {
-        'sans': ['Calibre', 'Inter', 'San Francisco', 'SF Pro Text', '-apple-system', 'system-ui', 'sans-serif'],
-        'mono': ['SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'monospace'],
+        'sans': ['Inter Variable', 'Inter', 'SF Pro Text', '-apple-system', 'system-ui', 'sans-serif'],
+        'mono': ['JetBrains Mono', 'Fira Code', 'SF Mono', 'Monaco', 'monospace'],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -72,25 +74,81 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
+        // Demir's custom animations
+        "fade-in-up": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(2rem)"
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)"
+          }
+        },
+        "slide-in-left": {
+          "0%": {
+            opacity: "0",
+            transform: "translateX(-2rem)"
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateX(0)"
+          }
+        },
+        "scale-in": {
+          "0%": {
+            opacity: "0",
+            transform: "scale(0.95)"
+          },
+          "100%": {
+            opacity: "1",
+            transform: "scale(1)"
+          }
+        },
+        "glow-pulse": {
+          "0%, 100%": {
+            boxShadow: "0 0 20px hsl(var(--amber) / 0.4)"
+          },
+          "50%": {
+            boxShadow: "0 0 40px hsl(var(--amber) / 0.6)"
+          }
+        },
+        "gradient-shift": {
+          "0%": {
+            backgroundPosition: "0% 50%"
+          },
+          "50%": {
+            backgroundPosition: "100% 50%"
+          },
+          "100%": {
+            backgroundPosition: "0% 50%"
+          }
+        },
+        "bounce-subtle": {
+          "0%, 100%": {
+            transform: "translateY(0)"
+          },
+          "50%": {
+            transform: "translateY(-0.25rem)"
+          }
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in-up": "fade-in-up 0.6s var(--ease-out-quart)",
+        "slide-in-left": "slide-in-left 0.6s var(--ease-out-quart)",
+        "scale-in": "scale-in 0.3s var(--ease-spring)",
+        "glow-pulse": "glow-pulse 2s ease-in-out infinite",
+        "gradient-shift": "gradient-shift 3s ease-in-out infinite",
+        "bounce-subtle": "bounce-subtle 2s ease-in-out infinite",
       },
     },
   },

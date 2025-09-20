@@ -2,71 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Brittany Chiang Design System - Exact Colors */
+/* Demir Demirdöğen Unique Design System */
 
 @layer base {
   :root {
-    /* Brittany Chiang Color Palette */
-    --navy: 220 26% 14%;
-    --light-navy: 220 23% 17%;
-    --lightest-navy: 220 21% 22%;
-    --navy-shadow: 220 30% 5%;
-    --dark-slate: 220 13% 18%;
-    --slate: 220 9% 46%;
-    --light-slate: 220 9% 65%;
-    --lightest-slate: 220 14% 96%;
-    --white: 0 0% 100%;
-    --green: 162 96% 70%;
-    --green-tint: 162 96% 88%;
+    /* Demir's Custom Color Palette - Inspired by Turkish sunset & tech aesthetics */
+    --midnight: 216 28% 7%;
+    --deep-blue: 217 32% 12%; 
+    --ocean-blue: 218 24% 18%;
+    --steel-blue: 219 16% 24%;
+    --slate-blue: 220 12% 32%;
+    --cool-gray: 221 8% 48%;
+    --silver: 222 6% 68%;
+    --pearl: 223 12% 88%;
+    --snow: 224 20% 96%;
+    --amber: 42 100% 62%;
+    --ember: 14 90% 58%;
+    --copper: 24 85% 55%;
+    
+    /* Unique Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--amber)), hsl(var(--ember)));
+    --gradient-secondary: linear-gradient(180deg, hsl(var(--deep-blue)), hsl(var(--ocean-blue)));
+    --gradient-accent: linear-gradient(90deg, hsl(var(--copper)), hsl(var(--amber)));
+    --gradient-glow: radial-gradient(circle, hsl(var(--amber) / 0.2), transparent 70%);
     
     /* Design System Variables */
-    --background: var(--navy);
-    --foreground: var(--lightest-slate);
+    --background: var(--midnight);
+    --foreground: var(--snow);
     
-    --card: var(--light-navy);
-    --card-foreground: var(--lightest-slate);
+    --card: var(--deep-blue);
+    --card-foreground: var(--pearl);
     
-    --popover: var(--light-navy);
-    --popover-foreground: var(--lightest-slate);
+    --popover: var(--ocean-blue);
+    --popover-foreground: var(--snow);
     
-    --primary: var(--green);
-    --primary-foreground: var(--navy);
+    --primary: var(--amber);
+    --primary-foreground: var(--midnight);
     
-    --secondary: var(--dark-slate);
-    --secondary-foreground: var(--light-slate);
+    --secondary: var(--steel-blue);
+    --secondary-foreground: var(--silver);
     
-    --muted: var(--dark-slate);
-    --muted-foreground: var(--slate);
+    --muted: var(--slate-blue);
+    --muted-foreground: var(--cool-gray);
     
-    --accent: var(--green);
-    --accent-foreground: var(--navy);
+    --accent: var(--copper);
+    --accent-foreground: var(--midnight);
     
     --destructive: 0 84% 60%;
-    --destructive-foreground: var(--white);
+    --destructive-foreground: var(--snow);
     
-    --border: var(--lightest-navy);
-    --input: var(--lightest-navy);
-    --ring: var(--green);
+    --border: var(--ocean-blue);
+    --input: var(--steel-blue);
+    --ring: var(--amber);
     
-    --radius: 0.25rem;
+    --radius: 0.5rem;
     
     /* Custom Properties */
-    --font-mono: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
-    --font-sans: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Monaco', monospace;
+    --font-sans: 'Inter Variable', 'Inter', 'SF Pro Text', -apple-system, system-ui, sans-serif;
     
-    --nav-height: 100px;
-    --nav-scroll-height: 70px;
-    --tab-height: 42px;
-    --tab-width: 120px;
+    /* Animation Easing */
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    --ease-in-out-cubic: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-spring: cubic-bezier(0.68, -0.55, 0.265, 1.55);
     
-    --easing: cubic-bezier(0.645, 0.045, 0.355, 1);
-    --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-    
-    --hamburger-width: 30px;
-    --ham-before: top 0.1s ease-in 0.25s, opacity 0.1s ease-in;
-    --ham-before-active: top 0.1s ease-out, opacity 0.1s ease-out 0.12s;
-    --ham-after: bottom 0.1s ease-in 0.25s, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
-    --ham-after-active: bottom 0.1s ease-out, transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
+    /* Shadows */
+    --shadow-glow: 0 0 20px hsl(var(--amber) / 0.3);
+    --shadow-elegant: 0 8px 32px hsl(var(--midnight) / 0.4);
+    --shadow-depth: 0 4px 16px hsl(var(--midnight) / 0.6);
   }
 }
 
@@ -79,16 +82,46 @@
     @apply bg-background text-foreground;
   }
 
-  /* Mouse spotlight effect */
+  /* Enhanced mouse spotlight effect with gradient */
   .group:hover .group-hover\:bg-gradient-to-r {
-    background: radial-gradient(600px at var(--mouse-x, 0) var(--mouse-y, 0), rgba(29, 78, 216, 0.15), transparent 80%);
+    background: radial-gradient(800px at var(--mouse-x, 0) var(--mouse-y, 0), 
+      hsla(var(--amber), 0.08), 
+      hsla(var(--copper), 0.04) 40%, 
+      transparent 70%);
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--deep-blue));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, hsl(var(--amber)), hsl(var(--copper)));
+    border-radius: 0.25rem;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, hsl(var(--copper)), hsl(var(--ember)));
+  }
+
+  /* Selection styling */
+  ::selection {
+    background: hsl(var(--amber) / 0.3);
+    color: hsl(var(--snow));
   }
 }
 
 @layer utilities {
-  /* Custom spotlight effect */
+  /* Enhanced spotlight effect with multiple gradients */
   .spotlight::before {
-    background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.06), transparent 40%);
+    background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), 
+      hsla(var(--amber), 0.15), 
+      hsla(var(--copper), 0.08) 30%, 
+      transparent 60%);
     border-radius: inherit;
     content: "";
     height: 100%;
@@ -96,12 +129,82 @@
     opacity: 0;
     position: absolute;
     top: 0px;
-    transition: opacity 500ms;
+    transition: opacity 600ms var(--ease-out-quart);
     width: 100%;
-    z-index: 3;
+    z-index: 1;
   }
   
   .spotlight:hover::before {
     opacity: 1;
+  }
+
+  /* Glow effect for interactive elements */
+  .glow-on-hover {
+    transition: all 0.3s var(--ease-out-quart);
+  }
+  
+  .glow-on-hover:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-0.125rem);
+  }
+
+  /* Text gradient effect */
+  .text-gradient {
+    background: var(--gradient-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Animated border */
+  .animated-border {
+    position: relative;
+  }
+  
+  .animated-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    background: var(--gradient-accent);
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    -webkit-mask-composite: xor;
+    opacity: 0;
+    transition: opacity 0.3s var(--ease-out-quart);
+  }
+  
+  .animated-border:hover::before {
+    opacity: 1;
+  }
+
+  /* Floating animation */
+  .float-animation {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-0.625rem); }
+  }
+
+  /* Typewriter effect */
+  .typewriter {
+    overflow: hidden;
+    border-right: 0.15em solid hsl(var(--amber));
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: hsl(var(--amber)); }
   }
 }
