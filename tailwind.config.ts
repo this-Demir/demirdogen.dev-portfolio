@@ -19,6 +19,19 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        
+        // Brittany Chiang Color System
+        navy: "hsl(var(--navy))",
+        "light-navy": "hsl(var(--light-navy))",
+        "lightest-navy": "hsl(var(--lightest-navy))",
+        "navy-shadow": "hsl(var(--navy-shadow))",
+        "dark-slate": "hsl(var(--dark-slate))",
+        slate: "hsl(var(--slate))",
+        "light-slate": "hsl(var(--light-slate))",
+        "lightest-slate": "hsl(var(--lightest-slate))",
+        green: "hsl(var(--green))",
+        "green-tint": "hsl(var(--green-tint))",
+        
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -47,16 +60,10 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
-        },
+      },
+      fontFamily: {
+        'sans': ['Calibre', 'Inter', 'San Francisco', 'SF Pro Text', '-apple-system', 'system-ui', 'sans-serif'],
+        'mono': ['SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'monospace'],
       },
       borderRadius: {
         lg: "var(--radius)",
