@@ -8,7 +8,7 @@ const Index = () => {
     <Layout>
       {/* About Section */}
       <section id="about" className="mb-8 scroll-mt-8 md:mb-12 lg:mb-16 lg:scroll-mt-12">
-        <div className="sticky top-0 z-20 -mx-1.5 mb-2 w-screen bg-navy/75 px-1.5 py-3 backdrop-blur md:-mx-3 md:px-3 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+        <div className="sticky top-0 z-20 -mx-6 mb-2 w-screen bg-navy/75 px-6 py-3 backdrop-blur md:-mx-12 md:px-12 lg:-mx-24 lg:px-24 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:py-0 lg:opacity-0">
           <h2 className="text-sm font-bold uppercase tracking-widest text-slate lg:sr-only">About</h2>
         </div>
         <div>
@@ -96,7 +96,7 @@ const Index = () => {
 
       {/* Experience Section */}
       <section id="experience" className="mb-8 scroll-mt-8 md:mb-12 lg:mb-16 lg:scroll-mt-12">
-        <div className="sticky top-0 z-20 -mx-1.5 mb-2 w-screen bg-navy/75 px-1.5 py-3 backdrop-blur md:-mx-3 md:px-3 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+        <div className="sticky top-0 z-20 -mx-6 mb-2 w-screen bg-navy/75 px-6 py-3 backdrop-blur md:-mx-12 md:px-12 lg:-mx-24 lg:px-24 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:py-0 lg:opacity-0">
           <h2 className="text-sm font-bold uppercase tracking-widest text-slate lg:sr-only">Experience</h2>
         </div>
         <div>
@@ -205,7 +205,7 @@ const Index = () => {
 
       {/* Projects Section */}
       <section id="projects" className="mb-8 scroll-mt-8 md:mb-12 lg:mb-16 lg:scroll-mt-12">
-        <div className="sticky top-0 z-20 -mx-1.5 mb-2 w-screen bg-navy/75 px-1.5 py-3 backdrop-blur md:-mx-3 md:px-3 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+        <div className="sticky top-0 z-20 -mx-6 mb-2 w-screen bg-navy/75 px-6 py-3 backdrop-blur md:-mx-12 md:px-12 lg:-mx-24 lg:px-24 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:py-0 lg:opacity-0">
           <h2 className="text-sm font-bold uppercase tracking-widest text-slate lg:sr-only">Projects</h2>
         </div>
         <div>
@@ -287,7 +287,7 @@ const Index = () => {
 
       {/* Writing Section */}
       <section id="writing" className="mb-8 scroll-mt-8 md:mb-12 lg:mb-16 lg:scroll-mt-12">
-        <div className="sticky top-0 z-20 -mx-1.5 mb-2 w-screen bg-navy/75 px-1.5 py-3 backdrop-blur md:-mx-3 md:px-3 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+        <div className="sticky top-0 z-20 -mx-6 mb-2 w-screen bg-navy/75 px-6 py-3 backdrop-blur md:-mx-12 md:px-12 lg:-mx-24 lg:px-24 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:py-0 lg:opacity-0">
           <h2 className="text-sm font-bold uppercase tracking-widest text-slate lg:sr-only">Writing</h2>
         </div>
         <div>
