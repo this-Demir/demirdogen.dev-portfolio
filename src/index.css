@@ -78,4 +78,30 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Mouse spotlight effect */
+  .group:hover .group-hover\:bg-gradient-to-r {
+    background: radial-gradient(600px at var(--mouse-x, 0) var(--mouse-y, 0), rgba(29, 78, 216, 0.15), transparent 80%);
+  }
+}
+
+@layer utilities {
+  /* Custom spotlight effect */
+  .spotlight::before {
+    background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.06), transparent 40%);
+    border-radius: inherit;
+    content: "";
+    height: 100%;
+    left: 0px;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    transition: opacity 500ms;
+    width: 100%;
+    z-index: 3;
+  }
+  
+  .spotlight:hover::before {
+    opacity: 1;
+  }
 }

@@ -45,9 +45,9 @@ const Layout = ({ children }: LayoutProps) => {
         Skip to Content
       </a>
 
-      <div className="lg:flex">
+      <div className="lg:flex lg:gap-4">
         {/* Sidebar */}
-        <aside className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24 px-6 md:px-12 lg:px-24">
+        <aside className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24 px-6 md:px-12 lg:px-16">
           <div>
             {/* Header */}
             <div className="mb-16">
@@ -183,7 +183,7 @@ const Layout = ({ children }: LayoutProps) => {
         </aside>
 
         {/* Main Content */}
-        <main id="content" className="pt-24 lg:w-1/2 lg:py-24 px-6 md:px-12 lg:px-24">
+        <main id="content" className="pt-24 lg:w-1/2 lg:py-24 px-6 md:px-12 lg:px-16">
           {children}
         </main>
       </div>
