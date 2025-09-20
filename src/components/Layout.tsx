@@ -57,14 +57,14 @@ const Layout = ({ children }: LayoutProps) => {
               <div className="mb-4 lg:mb-8">
                 <h1 className="text-3xl font-bold sm:text-4xl lg:text-5xl">
                   <a href="/" className="group">
-                    Brittany Chiang
+                    Demir Demirdöğen
                   </a>
                 </h1>
                 <h2 className="mt-2 text-base font-medium text-slate sm:text-lg lg:text-xl">
-                  Front End Engineer
+                  Software Engineering Student
                 </h2>
                 <p className="mt-3 max-w-xs leading-normal text-slate text-sm lg:text-base">
-                  I build accessible, pixel-perfect digital experiences for the web.
+                  I enjoy turning ideas into useful, well-crafted products with clear problem framing and thoughtful UI/UX.
                 </p>
               </div>
 
@@ -75,7 +75,7 @@ const Layout = ({ children }: LayoutProps) => {
                     { id: 'about', label: 'About' },
                     { id: 'experience', label: 'Experience' },
                     { id: 'projects', label: 'Projects' },
-                    { id: 'writing', label: 'Writing' }
+                    { id: 'writing', label: 'Skills' }
                   ].map(({ id, label }) => (
                     <li key={id}>
                       <button
@@ -109,78 +109,13 @@ const Layout = ({ children }: LayoutProps) => {
               {/* Social Links */}
               <div className="mt-8 lg:mt-16 flex items-center space-x-3 lg:space-x-5">
                 <a
-                  href="https://github.com/bchiang7"
+                  href="https://github.com/this-Demir"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-slate hover:text-lightest-slate transition-colors"
                   aria-label="GitHub"
                 >
                   <Github className="h-5 w-5 lg:h-6 lg:w-6" />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/bchiang7/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-slate hover:text-lightest-slate transition-colors"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="h-5 w-5 lg:h-6 lg:w-6" />
-                </a>
-                <a
-                  href="https://codepen.io/bchiang7"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-slate hover:text-lightest-slate transition-colors"
-                  aria-label="CodePen"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    role="img"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-5 w-5 lg:h-6 lg:w-6"
-                  >
-                    <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
-                    <line x1="12" y1="22" x2="12" y2="15.5"></line>
-                    <polyline points="22,8.5 12,15.5 2,8.5"></polyline>
-                    <polyline points="2,15.5 12,8.5 22,15.5"></polyline>
-                    <line x1="12" y1="2" x2="12" y2="8.5"></line>
-                  </svg>
-                </a>
-                <a
-                  href="https://www.instagram.com/bchiang7/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-slate hover:text-lightest-slate transition-colors"
-                  aria-label="Instagram"
-                >
-                  <Instagram className="h-5 w-5 lg:h-6 lg:w-6" />
-                </a>
-                <a
-                  href="https://www.goodreads.com/user/show/53158614-brittany-chiang"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-slate hover:text-lightest-slate transition-colors"
-                  aria-label="Goodreads"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    role="img"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-5 w-5 lg:h-6 lg:w-6"
-                  >
-                    <path d="M6 2c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2H6z"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
-                  </svg>
                 </a>
               </div>
             </div>
