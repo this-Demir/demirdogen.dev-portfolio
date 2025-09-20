@@ -7,8 +7,8 @@ const Index = () => {
   return (
     <Layout>
       {/* About Section */}
-      <section id="about" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
-        <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-navy/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+      <section id="about" className="mb-8 scroll-mt-8 md:mb-12 lg:mb-16 lg:scroll-mt-12">
+        <div className="sticky top-0 z-20 -mx-1.5 mb-2 w-screen bg-navy/75 px-1.5 py-3 backdrop-blur md:-mx-3 md:px-3 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
           <h2 className="text-sm font-bold uppercase tracking-widest text-slate lg:sr-only">About</h2>
         </div>
         <div>
@@ -95,13 +95,13 @@ const Index = () => {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
-        <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-navy/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+      <section id="experience" className="mb-8 scroll-mt-8 md:mb-12 lg:mb-16 lg:scroll-mt-12">
+        <div className="sticky top-0 z-20 -mx-1.5 mb-2 w-screen bg-navy/75 px-1.5 py-3 backdrop-blur md:-mx-3 md:px-3 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
           <h2 className="text-sm font-bold uppercase tracking-widest text-slate lg:sr-only">Experience</h2>
         </div>
         <div>
           <ol className="group/list">
-            <li className="mb-12">
+            <li className="mb-6 lg:mb-8">
               <ExperienceCard
                 period="2024 — Present"
                 title="Senior Frontend Engineer, Accessibility"
@@ -160,7 +160,7 @@ const Index = () => {
                 ]}
               />
             </li>
-            <li className="mb-12">
+            <li className="mb-6 lg:mb-8">
               <ExperienceCard
                 period="Summer 2015"
                 title="Creative Technologist Co-op"
@@ -204,8 +204,8 @@ const Index = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
-        <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-navy/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+      <section id="projects" className="mb-8 scroll-mt-8 md:mb-12 lg:mb-16 lg:scroll-mt-12">
+        <div className="sticky top-0 z-20 -mx-1.5 mb-2 w-screen bg-navy/75 px-1.5 py-3 backdrop-blur md:-mx-3 md:px-3 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
           <h2 className="text-sm font-bold uppercase tracking-widest text-slate lg:sr-only">Projects</h2>
         </div>
         <div>
@@ -231,7 +231,7 @@ const Index = () => {
                 ]}
               />
             </li>
-            <li className="mb-12">
+            <li className="mb-6 lg:mb-8">
               <ProjectCard
                 title="Halcyon Theme"
                 description="Minimal dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more."
@@ -286,8 +286,8 @@ const Index = () => {
       </section>
 
       {/* Writing Section */}
-      <section id="writing" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
-        <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-navy/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+      <section id="writing" className="mb-8 scroll-mt-8 md:mb-12 lg:mb-16 lg:scroll-mt-12">
+        <div className="sticky top-0 z-20 -mx-1.5 mb-2 w-screen bg-navy/75 px-1.5 py-3 backdrop-blur md:-mx-3 md:px-3 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
           <h2 className="text-sm font-bold uppercase tracking-widest text-slate lg:sr-only">Writing</h2>
         </div>
         <div>

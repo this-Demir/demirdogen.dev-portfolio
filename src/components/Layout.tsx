@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Github, Linkedin, Instagram, ExternalLink } from 'lucide-react';
+import MouseFlashlight from './MouseFlashlight';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -36,7 +37,8 @@ const Layout = ({ children }: LayoutProps) => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-navy font-sans text-lightest-slate">
+    <div className="min-h-screen bg-navy font-sans text-lightest-slate relative">
+      <MouseFlashlight />
       {/* Skip to content link */}
       <a
         href="#content"
@@ -45,28 +47,28 @@ const Layout = ({ children }: LayoutProps) => {
         Skip to Content
       </a>
 
-      <div className="lg:flex lg:gap-4">
+      <div className="lg:flex lg:gap-8">
         {/* Sidebar */}
-        <aside className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24 px-6 md:px-12 lg:px-16">
+        <aside className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between py-6 px-1.5 md:py-12 md:px-3 lg:py-6 lg:px-6">
           <div>
             {/* Header */}
-            <div className="mb-16">
-              <h1 className="text-4xl font-bold sm:text-5xl">
+            <div className="mb-4 lg:mb-8">
+              <h1 className="text-3xl font-bold sm:text-4xl lg:text-5xl">
                 <a href="/" className="group">
                   Brittany Chiang
                 </a>
               </h1>
-              <h2 className="mt-3 text-lg font-medium text-slate sm:text-xl">
+              <h2 className="mt-2 text-base font-medium text-slate sm:text-lg lg:text-xl">
                 Front End Engineer
               </h2>
-              <p className="mt-4 max-w-xs leading-normal text-slate">
+              <p className="mt-3 max-w-xs leading-normal text-slate text-sm lg:text-base">
                 I build accessible, pixel-perfect digital experiences for the web.
               </p>
             </div>
 
             {/* Navigation */}
             <nav className="nav hidden lg:block" aria-label="In-page jump links">
-              <ul className="mt-16 w-max">
+              <ul className="mt-4 lg:mt-8 w-max">
                 {[
                   { id: 'about', label: 'About' },
                   { id: 'experience', label: 'Experience' },
@@ -76,15 +78,15 @@ const Layout = ({ children }: LayoutProps) => {
                   <li key={id}>
                     <button
                       onClick={() => scrollToSection(id)}
-                      className={`group flex items-center py-3 ${
+                      className={`group flex items-center py-2 ${
                         activeSection === id ? 'active' : ''
                       }`}
                     >
                       <span
-                        className={`nav-indicator mr-4 h-px w-8 bg-slate transition-all group-hover:w-16 group-hover:bg-lightest-slate ${
+                        className={`nav-indicator mr-3 h-px w-2 bg-slate transition-all group-hover:w-4 group-hover:bg-lightest-slate ${
                           activeSection === id
-                            ? 'w-16 bg-lightest-slate'
-                            : 'group-focus-visible:w-16 group-focus-visible:bg-lightest-slate'
+                            ? 'w-4 bg-lightest-slate'
+                            : 'group-focus-visible:w-4 group-focus-visible:bg-lightest-slate'
                         }`}
                       ></span>
                       <span
@@ -104,7 +106,7 @@ const Layout = ({ children }: LayoutProps) => {
           </div>
 
           {/* Social Links */}
-          <div className="mt-16 flex items-center space-x-5">
+          <div className="mt-8 lg:mt-16 flex items-center space-x-3 lg:space-x-5">
             <a
               href="https://github.com/bchiang7"
               target="_blank"
@@ -112,7 +114,7 @@ const Layout = ({ children }: LayoutProps) => {
               className="text-slate hover:text-lightest-slate transition-colors"
               aria-label="GitHub"
             >
-              <Github className="h-6 w-6" />
+              <Github className="h-5 w-5 lg:h-6 lg:w-6" />
             </a>
             <a
               href="https://www.linkedin.com/in/bchiang7/"
@@ -121,7 +123,7 @@ const Layout = ({ children }: LayoutProps) => {
               className="text-slate hover:text-lightest-slate transition-colors"
               aria-label="LinkedIn"
             >
-              <Linkedin className="h-6 w-6" />
+              <Linkedin className="h-5 w-5 lg:h-6 lg:w-6" />
             </a>
             <a
               href="https://codepen.io/bchiang7"
@@ -139,7 +141,7 @@ const Layout = ({ children }: LayoutProps) => {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="h-6 w-6"
+                className="h-5 w-5 lg:h-6 lg:w-6"
               >
                 <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
                 <line x1="12" y1="22" x2="12" y2="15.5"></line>
@@ -155,7 +157,7 @@ const Layout = ({ children }: LayoutProps) => {
               className="text-slate hover:text-lightest-slate transition-colors"
               aria-label="Instagram"
             >
-              <Instagram className="h-6 w-6" />
+              <Instagram className="h-5 w-5 lg:h-6 lg:w-6" />
             </a>
             <a
               href="https://www.goodreads.com/user/show/53158614-brittany-chiang"
@@ -173,7 +175,7 @@ const Layout = ({ children }: LayoutProps) => {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="h-6 w-6"
+                className="h-5 w-5 lg:h-6 lg:w-6"
               >
                 <path d="M6 2c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2H6z"></path>
                 <polyline points="22,6 12,13 2,6"></polyline>
@@ -183,7 +185,7 @@ const Layout = ({ children }: LayoutProps) => {
         </aside>
 
         {/* Main Content */}
-        <main id="content" className="pt-24 lg:w-1/2 lg:py-24 px-6 md:px-12 lg:px-16">
+        <main id="content" className="pt-6 lg:w-1/2 lg:py-6 px-1.5 md:px-3 lg:px-6">
           {children}
         </main>
       </div>
