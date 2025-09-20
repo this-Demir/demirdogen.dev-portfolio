@@ -51,7 +51,7 @@ const Layout = ({ children }: LayoutProps) => {
       <div className="mx-auto max-w-screen-xl px-6 md:px-12 lg:px-24">
         <div className="lg:flex lg:justify-between lg:gap-4">
           {/* Sidebar - Centered content */}
-          <aside className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-center py-6 md:py-12 lg:py-24">
+          <aside className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between py-6 md:py-12 lg:py-24">
             <div className="lg:max-w-md">
               {/* Header */}
               <div className="mb-4 lg:mb-8">
