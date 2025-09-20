@@ -20,7 +20,7 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         
-        // Demir's Custom Color System
+        // Demir's Custom Color System - UI/UX focused
         midnight: "hsl(var(--midnight))",
         "deep-blue": "hsl(var(--deep-blue))",
         "ocean-blue": "hsl(var(--ocean-blue))",
@@ -30,9 +30,9 @@ export default {
         silver: "hsl(var(--silver))",
         pearl: "hsl(var(--pearl))",
         snow: "hsl(var(--snow))",
-        amber: "hsl(var(--amber))",
-        ember: "hsl(var(--ember))",
-        copper: "hsl(var(--copper))",
+        "ui-blue": "hsl(var(--ui-blue))",
+        "ui-purple": "hsl(var(--ui-purple))",
+        "ui-teal": "hsl(var(--ui-teal))",
         
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -114,10 +114,10 @@ export default {
         },
         "glow-pulse": {
           "0%, 100%": {
-            boxShadow: "0 0 20px hsl(var(--amber) / 0.4)"
+            boxShadow: "0 0 20px hsl(var(--ui-blue) / 0.4)"
           },
           "50%": {
-            boxShadow: "0 0 40px hsl(var(--amber) / 0.6)"
+            boxShadow: "0 0 40px hsl(var(--ui-blue) / 0.6)"
           }
         },
         "gradient-shift": {

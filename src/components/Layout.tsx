@@ -43,14 +43,14 @@ const Layout = ({ children }: LayoutProps) => {
       
       {/* Ambient background effects */}
       <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-amber/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-copper/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-ui-blue/5 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-ui-purple/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
       </div>
       
       {/* Skip to content link */}
       <a
         href="#content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-amber text-midnight px-4 py-2 rounded-lg z-50 font-medium animate-scale-in"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-ui-blue text-midnight px-4 py-2 rounded-lg z-50 font-medium animate-scale-in"
       >
         Skip to Content
       </a>
@@ -84,17 +84,17 @@ const Layout = ({ children }: LayoutProps) => {
                       >
                         <span className="text-xl mr-3 group-hover:animate-bounce-subtle">{icon}</span>
                         <span
-                          className={`nav-indicator mr-4 h-px bg-cool-gray transition-all duration-300 group-hover:w-8 group-hover:bg-amber ${
+                          className={`nav-indicator mr-4 h-px bg-cool-gray transition-all duration-300 group-hover:w-8 group-hover:bg-ui-blue ${
                             activeSection === id
-                              ? 'w-8 bg-amber'
-                              : 'w-4 group-focus-visible:w-8 group-focus-visible:bg-amber'
+                              ? 'w-8 bg-ui-blue'
+                              : 'w-4 group-focus-visible:w-8 group-focus-visible:bg-ui-blue'
                           }`}
                         ></span>
                         <span
                           className={`nav-text text-sm font-semibold uppercase tracking-wider transition-all duration-300 ${
                             activeSection === id
-                              ? 'text-amber'
-                              : 'text-cool-gray group-hover:text-amber group-focus-visible:text-amber'
+                              ? 'text-ui-blue'
+                              : 'text-cool-gray group-hover:text-ui-blue group-focus-visible:text-ui-blue'
                           }`}
                         >
                           {label}
@@ -112,7 +112,7 @@ const Layout = ({ children }: LayoutProps) => {
                     href="https://github.com/this-Demir"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative text-cool-gray hover:text-amber transition-all duration-300 glow-on-hover p-2 rounded-lg hover:bg-deep-blue/30"
+                    className="group relative text-cool-gray hover:text-ui-blue transition-all duration-300 glow-on-hover p-2 rounded-lg hover:bg-deep-blue/30"
                     aria-label="GitHub Profile"
                   >
                     <Github className="h-6 w-6 lg:h-7 lg:w-7 group-hover:animate-bounce-subtle" />
@@ -126,7 +126,7 @@ const Layout = ({ children }: LayoutProps) => {
                     href="https://yu-sync.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative text-cool-gray hover:text-copper transition-all duration-300 glow-on-hover px-3 py-2 rounded-lg hover:bg-deep-blue/30 text-sm font-medium"
+                    className="group relative text-cool-gray hover:text-ui-purple transition-all duration-300 glow-on-hover px-3 py-2 rounded-lg hover:bg-deep-blue/30 text-sm font-medium"
                     aria-label="YU-Sync Project"
                   >
                     YU-Sync
@@ -139,7 +139,7 @@ const Layout = ({ children }: LayoutProps) => {
                 {/* Contact info */}
                 <div className="mt-8 text-sm text-cool-gray">
                   <p className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-amber rounded-full animate-pulse"></span>
+                    <span className="w-2 h-2 bg-ui-blue rounded-full animate-pulse"></span>
                     Available for exciting opportunities
                   </p>
                 </div>

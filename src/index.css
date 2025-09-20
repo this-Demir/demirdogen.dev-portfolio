@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    /* Demir's Custom Color Palette - Inspired by Turkish sunset & tech aesthetics */
+    /* Demir's Custom Color Palette - Modern UI/UX focused */
     --midnight: 216 28% 7%;
     --deep-blue: 217 32% 12%; 
     --ocean-blue: 218 24% 18%;
@@ -16,15 +16,15 @@
     --silver: 222 6% 68%;
     --pearl: 223 12% 88%;
     --snow: 224 20% 96%;
-    --amber: 42 100% 62%;
-    --ember: 14 90% 58%;
-    --copper: 24 85% 55%;
+    --ui-blue: 230 70% 60%;
+    --ui-purple: 270 70% 65%;
+    --ui-teal: 180 60% 55%;
     
-    /* Unique Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--amber)), hsl(var(--ember)));
+    /* Unique Gradients - UI/UX focused */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--ui-blue)), hsl(var(--ui-purple)));
     --gradient-secondary: linear-gradient(180deg, hsl(var(--deep-blue)), hsl(var(--ocean-blue)));
-    --gradient-accent: linear-gradient(90deg, hsl(var(--copper)), hsl(var(--amber)));
-    --gradient-glow: radial-gradient(circle, hsl(var(--amber) / 0.2), transparent 70%);
+    --gradient-accent: linear-gradient(90deg, hsl(var(--ui-teal)), hsl(var(--ui-blue)));
+    --gradient-glow: radial-gradient(circle, hsl(var(--ui-blue) / 0.2), transparent 70%);
     
     /* Design System Variables */
     --background: var(--midnight);
@@ -36,7 +36,7 @@
     --popover: var(--ocean-blue);
     --popover-foreground: var(--snow);
     
-    --primary: var(--amber);
+    --primary: var(--ui-blue);
     --primary-foreground: var(--midnight);
     
     --secondary: var(--steel-blue);
@@ -45,7 +45,7 @@
     --muted: var(--slate-blue);
     --muted-foreground: var(--cool-gray);
     
-    --accent: var(--copper);
+    --accent: var(--ui-purple);
     --accent-foreground: var(--midnight);
     
     --destructive: 0 84% 60%;
@@ -53,7 +53,7 @@
     
     --border: var(--ocean-blue);
     --input: var(--steel-blue);
-    --ring: var(--amber);
+    --ring: var(--ui-blue);
     
     --radius: 0.5rem;
     
@@ -67,7 +67,7 @@
     --ease-spring: cubic-bezier(0.68, -0.55, 0.265, 1.55);
     
     /* Shadows */
-    --shadow-glow: 0 0 20px hsl(var(--amber) / 0.3);
+    --shadow-glow: 0 0 20px hsl(var(--ui-blue) / 0.3);
     --shadow-elegant: 0 8px 32px hsl(var(--midnight) / 0.4);
     --shadow-depth: 0 4px 16px hsl(var(--midnight) / 0.6);
   }
@@ -85,8 +85,8 @@
   /* Enhanced mouse spotlight effect with gradient */
   .group:hover .group-hover\:bg-gradient-to-r {
     background: radial-gradient(800px at var(--mouse-x, 0) var(--mouse-y, 0), 
-      hsla(var(--amber), 0.08), 
-      hsla(var(--copper), 0.04) 40%, 
+      hsla(var(--ui-blue), 0.08), 
+      hsla(var(--ui-purple), 0.04) 40%, 
       transparent 70%);
   }
 
@@ -100,17 +100,17 @@
   }
   
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, hsl(var(--amber)), hsl(var(--copper)));
+    background: linear-gradient(135deg, hsl(var(--ui-blue)), hsl(var(--ui-purple)));
     border-radius: 0.25rem;
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, hsl(var(--copper)), hsl(var(--ember)));
+    background: linear-gradient(135deg, hsl(var(--ui-purple)), hsl(var(--ui-teal)));
   }
 
   /* Selection styling */
   ::selection {
-    background: hsl(var(--amber) / 0.3);
+    background: hsl(var(--ui-blue) / 0.3);
     color: hsl(var(--snow));
   }
 }
@@ -119,8 +119,8 @@
   /* Enhanced spotlight effect with multiple gradients */
   .spotlight::before {
     background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), 
-      hsla(var(--amber), 0.15), 
-      hsla(var(--copper), 0.08) 30%, 
+      hsla(var(--ui-blue), 0.15), 
+      hsla(var(--ui-purple), 0.08) 30%, 
       transparent 60%);
     border-radius: inherit;
     content: "";
@@ -192,7 +192,7 @@
   /* Typewriter effect */
   .typewriter {
     overflow: hidden;
-    border-right: 0.15em solid hsl(var(--amber));
+    border-right: 0.15em solid hsl(var(--ui-blue));
     white-space: nowrap;
     margin: 0 auto;
     animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
@@ -205,6 +205,6 @@
   
   @keyframes blink-caret {
     from, to { border-color: transparent; }
-    50% { border-color: hsl(var(--amber)); }
+    50% { border-color: hsl(var(--ui-blue)); }
   }
 }
