@@ -70,19 +70,18 @@ const Layout = ({ children }: LayoutProps) => {
               <nav className="nav hidden lg:block" aria-label="In-page jump links">
                 <ul className="mt-8 w-max">
                   {[
-                    { id: 'about', label: 'About', icon: '👋' },
-                    { id: 'experience', label: 'Experience', icon: '💼' },
-                    { id: 'projects', label: 'Projects', icon: '🚀' },
-                    { id: 'writing', label: 'Skills', icon: '⚡' }
-                  ].map(({ id, label, icon }, index) => (
-                    <li key={id} className="animate-slide-in-left" style={{ animationDelay: `${index * 100}ms` }}>
+                    { id: 'about', label: 'About' },
+                    { id: 'experience', label: 'Experience' },
+                    { id: 'projects', label: 'Projects' },
+                    { id: 'writing', label: 'Skills' }
+                  ].map(({ id, label }, index) => (
+                    <li key={id}>
                       <button
                         onClick={() => scrollToSection(id)}
                         className={`group flex items-center py-3 px-4 rounded-lg transition-all duration-300 hover:bg-deep-blue/50 ${
                           activeSection === id ? 'active bg-deep-blue/30' : ''
                         }`}
                       >
-                        <span className="text-xl mr-3 group-hover:animate-bounce-subtle">{icon}</span>
                         <span
                           className={`nav-indicator mr-4 h-px bg-cool-gray transition-all duration-300 group-hover:w-8 group-hover:bg-ui-blue ${
                             activeSection === id

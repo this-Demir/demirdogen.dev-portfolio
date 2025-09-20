@@ -7,12 +7,12 @@ interface AnimatedSkillBadgeProps {
 }
 
 const categoryColors = {
-  frontend: 'from-amber to-copper',
-  backend: 'from-copper to-ember',
-  java: 'from-ember to-amber',
-  testing: 'from-amber via-copper to-ember',
-  tools: 'from-copper to-amber',
-  languages: 'from-ember to-copper'
+  frontend: 'from-ui-blue to-ui-teal',
+  backend: 'from-ui-purple to-ui-blue',
+  java: 'from-ui-teal to-ui-purple',
+  testing: 'from-ui-blue via-ui-purple to-ui-teal',
+  tools: 'from-ui-purple to-ui-teal',
+  languages: 'from-ui-teal to-ui-blue'
 };
 
 const AnimatedSkillBadge = ({ skill, category, delay = 0 }: AnimatedSkillBadgeProps) => {

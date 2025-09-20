@@ -20,7 +20,7 @@ const Index = () => {
           <p className="leading-relaxed text-cool-gray">
             I value teamwork, clarity, and incremental improvement, and I'm motivated by building things that genuinely help people. Currently pursuing my{' '}
             <a
-              className="font-medium text-amber hover:text-copper focus-visible:text-copper transition-colors duration-300 glow-on-hover px-1 py-0.5 rounded"
+              className="font-medium text-ui-blue hover:text-ui-purple focus-visible:text-ui-purple transition-colors duration-300 glow-on-hover px-1 py-0.5 rounded"
               href="https://www.yasar.edu.tr/"
               target="_blank"
               rel="noreferrer noopener"
@@ -37,7 +37,7 @@ const Index = () => {
           {/* Personal mission statement */}
           <div className="mt-8 p-6 bg-gradient-to-r from-deep-blue/50 to-ocean-blue/30 rounded-xl border border-steel-blue/30 animated-border">
             <div className="flex items-start gap-3">
-              <Target className="h-5 w-5 text-amber mt-1 flex-shrink-0" />
+              <Target className="h-5 w-5 text-ui-blue mt-1 flex-shrink-0" />
               <p className="text-silver font-medium">
                 "When I'm not coding, I enjoy exploring new technologies, contributing to open-source projects, and finding creative solutions to everyday problems through software development."
               </p>
@@ -124,18 +124,18 @@ const Index = () => {
           {/* Education */}
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <GraduationCap className="h-6 w-6 text-amber" />
+              <GraduationCap className="h-6 w-6 text-ui-blue" />
               <h3 className="text-xl font-semibold text-pearl">Education</h3>
             </div>
             <div className="group relative grid pb-4 transition-all sm:grid-cols-8 sm:gap-8 hover:!opacity-100 group-hover/list:opacity-50 p-6 bg-gradient-to-r from-deep-blue/30 to-ocean-blue/20 rounded-xl border border-steel-blue/20 animated-border glow-on-hover">
-              <div className="mb-2 mt-1 text-sm font-semibold uppercase tracking-wide text-amber sm:col-span-2">
+              <div className="mb-2 mt-1 text-sm font-semibold uppercase tracking-wide text-ui-blue sm:col-span-2">
                 2023 — Present
               </div>
               <div className="sm:col-span-6">
                 <h4 className="font-medium leading-snug text-pearl text-lg">
                   <div>
                     <a
-                      className="inline-flex items-baseline font-medium leading-tight text-pearl hover:text-amber focus-visible:text-amber group/link transition-colors duration-300"
+                      className="inline-flex items-baseline font-medium leading-tight text-pearl hover:text-ui-blue focus-visible:text-ui-blue group/link transition-colors duration-300"
                       href="https://www.yasar.edu.tr/"
                       target="_blank"
                       rel="noreferrer noopener"
@@ -171,13 +171,13 @@ const Index = () => {
           {/* Skills */}
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <Award className="h-6 w-6 text-copper" />
+              <Award className="h-6 w-6 text-ui-purple" />
               <h3 className="text-xl font-semibold text-pearl">Technical Skills</h3>
             </div>
             <div className="space-y-8">
               <div>
                 <h4 className="text-base font-medium text-silver mb-4 flex items-center gap-2">
-                  <span className="w-2 h-2 bg-amber rounded-full"></span>
+                  <span className="w-2 h-2 bg-ui-blue rounded-full"></span>
                   Front-end Development
                 </h4>
                 <div className="flex flex-wrap gap-3">
@@ -189,7 +189,7 @@ const Index = () => {
               
               <div>
                 <h4 className="text-base font-medium text-silver mb-4 flex items-center gap-2">
-                  <span className="w-2 h-2 bg-copper rounded-full"></span>
+                  <span className="w-2 h-2 bg-ui-purple rounded-full"></span>
                   Back-end Development
                 </h4>
                 <div className="flex flex-wrap gap-3">
@@ -201,7 +201,7 @@ const Index = () => {
               
               <div>
                 <h4 className="text-base font-medium text-silver mb-4 flex items-center gap-2">
-                  <span className="w-2 h-2 bg-ember rounded-full"></span>
+                  <span className="w-2 h-2 bg-ui-teal rounded-full"></span>
                   Java Ecosystem
                 </h4>
                 <div className="flex flex-wrap gap-3">
@@ -213,7 +213,7 @@ const Index = () => {
               
               <div>
                 <h4 className="text-base font-medium text-silver mb-4 flex items-center gap-2">
-                  <span className="w-2 h-2 bg-amber rounded-full"></span>
+                  <span className="w-2 h-2 bg-ui-blue rounded-full"></span>
                   Testing & QA
                 </h4>
                 <div className="flex flex-wrap gap-3">
@@ -225,7 +225,7 @@ const Index = () => {
               
               <div>
                 <h4 className="text-base font-medium text-silver mb-4 flex items-center gap-2">
-                  <span className="w-2 h-2 bg-copper rounded-full"></span>
+                  <span className="w-2 h-2 bg-ui-purple rounded-full"></span>
                   Tools & Platforms
                 </h4>
                 <div className="flex flex-wrap gap-3">
@@ -237,7 +237,7 @@ const Index = () => {
               
               <div>
                 <h4 className="text-base font-medium text-silver mb-4 flex items-center gap-2">
-                  <span className="w-2 h-2 bg-ember rounded-full"></span>
+                  <span className="w-2 h-2 bg-ui-teal rounded-full"></span>
                   Languages
                 </h4>
                 <div className="flex flex-wrap gap-3">
