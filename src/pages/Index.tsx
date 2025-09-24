@@ -146,6 +146,24 @@ const Index = () => {
             </div>
             <div className="space-y-6">
               <div className="group relative grid pb-4 transition-all sm:grid-cols-8 sm:gap-8 hover:!opacity-100 group-hover/list:opacity-50 p-6 bg-gradient-to-r from-deep-blue/30 to-ocean-blue/20 rounded-xl border border-steel-blue/20 animated-border glow-on-hover">
+                <div className="mb-2 mt-1 text-sm font-semibold uppercase tracking-wide text-ui-teal sm:col-span-2">
+                  2019 — 2023
+                </div>
+                <div className="sm:col-span-6">
+                  <h4 className="font-medium leading-snug text-pearl text-lg">
+                    <div>
+                      <span>
+                        Science High School{' '}
+                        <span className="inline-block">
+                          — Doğa Koleji Fen Lisesi
+                        </span>
+                      </span>
+                    </div>
+                  </h4>
+                </div>
+              </div>
+              
+              <div className="group relative grid pb-4 transition-all sm:grid-cols-8 sm:gap-8 hover:!opacity-100 group-hover/list:opacity-50 p-6 bg-gradient-to-r from-deep-blue/30 to-ocean-blue/20 rounded-xl border border-steel-blue/20 animated-border glow-on-hover">
                 <div className="mb-2 mt-1 text-sm font-semibold uppercase tracking-wide text-ui-blue sm:col-span-2">
                   2023 — Present
                 </div>
@@ -180,24 +198,6 @@ const Index = () => {
                           </span>
                         </span>
                       </a>
-                    </div>
-                  </h4>
-                </div>
-              </div>
-              
-              <div className="group relative grid pb-4 transition-all sm:grid-cols-8 sm:gap-8 hover:!opacity-100 group-hover/list:opacity-50 p-6 bg-gradient-to-r from-deep-blue/30 to-ocean-blue/20 rounded-xl border border-steel-blue/20 animated-border glow-on-hover">
-                <div className="mb-2 mt-1 text-sm font-semibold uppercase tracking-wide text-ui-teal sm:col-span-2">
-                  2019 — 2023
-                </div>
-                <div className="sm:col-span-6">
-                  <h4 className="font-medium leading-snug text-pearl text-lg">
-                    <div>
-                      <span>
-                        Science High School{' '}
-                        <span className="inline-block">
-                          — Doğa Koleji Fen Lisesi
-                        </span>
-                      </span>
                     </div>
                   </h4>
                 </div>
