@@ -86,7 +86,6 @@ const Index = () => {
         </div>
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-pearl mb-2">Featured Projects</h2>
-          <p className="text-cool-gray">A selection of projects that showcase my development skills and problem-solving approach.</p>
         </div>
         <div className="animate-fade-in-up" style={{ animationDelay: '400ms' }}>
           <ul className="group/list space-y-8">

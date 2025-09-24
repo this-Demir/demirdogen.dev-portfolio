@@ -46,6 +46,9 @@ const ProjectCard = ({
           </a>
         </h3>
         
+        <div className="mt-2 text-sm leading-normal text-slate">
+          {description}
+        </div>
         
         {stats && (
           <div className="mt-2 text-sm font-medium text-slate">
