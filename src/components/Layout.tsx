@@ -55,10 +55,11 @@ const Layout = ({ children }: LayoutProps) => {
         Skip to Content
       </a>
 
-      {/* Main Layout Container */}
-      <div className="lg:flex">
-        {/* Left Sidebar - Sticky */}
-        <div className="lg:sticky lg:top-0 lg:w-1/2 lg:h-screen lg:flex lg:flex-col lg:justify-between px-6 py-6 md:px-12 md:py-12 lg:px-24 lg:py-24">
+      {/* Main Layout Container - Centered with more padding */}
+      <div className="max-w-7xl mx-auto px-8 md:px-16 lg:px-24">
+        <div className="lg:flex lg:gap-8">
+          {/* Left Sidebar - Sticky */}
+          <div className="lg:sticky lg:top-0 lg:w-1/2 lg:h-screen lg:flex lg:flex-col lg:justify-between py-6 md:py-12 lg:py-24">
           <div className="space-y-8">
             {/* Personalized Header */}
             <div className="animate-fade-in-up">
@@ -120,15 +121,19 @@ const Layout = ({ children }: LayoutProps) => {
                 </span>
               </a>
               
-              {/* Custom link to YU-Sync */}
+              {/* Custom link to YU-Sync with logo */}
               <a
                 href="https://yu-sync.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative text-cool-gray hover:text-ui-purple transition-all duration-300 glow-on-hover px-3 py-2 rounded-lg hover:bg-deep-blue/30 text-sm font-medium"
+                className="group relative text-cool-gray hover:text-ui-purple transition-all duration-300 glow-on-hover p-2 rounded-lg hover:bg-deep-blue/30"
                 aria-label="YU-Sync Project"
               >
-                YU-Sync
+                <img 
+                  src="/src/assets/yu-sync-logo.png" 
+                  alt="YU-Sync Logo" 
+                  className="h-6 w-6 lg:h-7 lg:w-7 group-hover:animate-bounce-subtle"
+                />
                 <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
                   Live Project
                 </span>
@@ -145,11 +150,12 @@ const Layout = ({ children }: LayoutProps) => {
           </div>
         </div>
 
-        {/* Right Content Area - Scrollable */}
-        <div className="lg:w-1/2 px-6 py-6 md:px-12 md:py-12 lg:px-24 lg:py-24">
+          {/* Right Content Area - Scrollable */}
+          <div className="lg:w-1/2 py-6 md:py-12 lg:py-24">
           <main id="content">
             {children}
           </main>
+          </div>
         </div>
       </div>
     </div>
