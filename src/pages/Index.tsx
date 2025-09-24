@@ -2,6 +2,7 @@ import Layout from '../components/Layout';
 import ExperienceCard from '../components/ExperienceCard';
 import ProjectCard from '../components/ProjectCard';
 import AnimatedSkillBadge from '../components/AnimatedSkillBadge';
+import VolunteerBadge from '../components/VolunteerBadge';
 import PersonalizedFooter from '../components/PersonalizedFooter';
 import { GraduationCap, Award, Target } from 'lucide-react';
 
@@ -59,8 +60,16 @@ const Index = () => {
                 title="Volunteer Developer & Project Lead"
                 company="YU-Sync"
                 companyUrl="https://yu-sync.com"
-                description="Built a volunteer scheduling app to help Yaşar University students select courses more easily. Drove the project from concept to a working web app and coordinated contributions, with an emphasis on simple UX and robust logic for backtracking-based course planning."
-                technologies={['React', 'TypeScript', 'Tailwind CSS', 'JavaScript']}
+                description={
+                  <div className="space-y-3">
+                    <p>Built a volunteer scheduling app to help Yaşar University students select courses more easily. Drove the project from concept to a working web app and coordinated contributions, with an emphasis on simple UX and robust logic for backtracking-based course planning.</p>
+                    <div className="flex flex-wrap gap-2 mt-3">
+                      <VolunteerBadge type="volunteer" />
+                      <VolunteerBadge type="users" delay={100} />
+                    </div>
+                  </div>
+                }
+                technologies={['React', 'TypeScript', 'Tailwind CSS', 'JavaScript', 'Python']}
                 links={[
                   { label: 'yu-sync.com', url: 'https://yu-sync.com' }
                 ]}
@@ -80,8 +89,16 @@ const Index = () => {
             <li>
               <ProjectCard
                 title="YU-Sync — Course Scheduling App"
-                description="A volunteer web app that applies backtracking to help students compose valid schedules with preference handling (e.g., avoiding certain days). Front end with React + TypeScript + Tailwind; clean, mobile-first UI with robust state management and form flows for multi-step selection."
-                technologies={['React', 'TypeScript', 'Tailwind CSS', 'JavaScript']}
+                description={
+                  <div className="space-y-3">
+                    <p>A volunteer web app that applies backtracking to help students compose valid schedules with preference handling (e.g., avoiding certain days). Front end with React + TypeScript + Tailwind; clean, mobile-first UI with robust state management and form flows for multi-step selection.</p>
+                    <div className="flex flex-wrap gap-2 mt-3">
+                      <VolunteerBadge type="volunteer" />
+                      <VolunteerBadge type="users" delay={100} />
+                    </div>
+                  </div>
+                }
+                technologies={['React', 'TypeScript', 'Tailwind CSS', 'JavaScript', 'Python']}
                 links={[
                   { label: 'yu-sync.com', url: 'https://yu-sync.com' }
                 ]}
@@ -127,43 +144,63 @@ const Index = () => {
               <GraduationCap className="h-6 w-6 text-ui-blue" />
               <h3 className="text-xl font-semibold text-pearl">Education</h3>
             </div>
-            <div className="group relative grid pb-4 transition-all sm:grid-cols-8 sm:gap-8 hover:!opacity-100 group-hover/list:opacity-50 p-6 bg-gradient-to-r from-deep-blue/30 to-ocean-blue/20 rounded-xl border border-steel-blue/20 animated-border glow-on-hover">
-              <div className="mb-2 mt-1 text-sm font-semibold uppercase tracking-wide text-ui-blue sm:col-span-2">
-                2023 — Present
+            <div className="space-y-6">
+              <div className="group relative grid pb-4 transition-all sm:grid-cols-8 sm:gap-8 hover:!opacity-100 group-hover/list:opacity-50 p-6 bg-gradient-to-r from-deep-blue/30 to-ocean-blue/20 rounded-xl border border-steel-blue/20 animated-border glow-on-hover">
+                <div className="mb-2 mt-1 text-sm font-semibold uppercase tracking-wide text-ui-blue sm:col-span-2">
+                  2023 — Present
+                </div>
+                <div className="sm:col-span-6">
+                  <h4 className="font-medium leading-snug text-pearl text-lg">
+                    <div>
+                      <a
+                        className="inline-flex items-baseline font-medium leading-tight text-pearl hover:text-ui-blue focus-visible:text-ui-blue group/link transition-colors duration-300"
+                        href="https://www.yasar.edu.tr/"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        aria-label="Yaşar University (opens in a new tab)"
+                      >
+                        <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+                        <span>
+                          B.Sc. Software Engineering{' '}
+                          <span className="inline-block">
+                            — Yaşar University
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px"
+                              aria-hidden="true"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                                clipRule="evenodd"
+                              ></path>
+                            </svg>
+                          </span>
+                        </span>
+                      </a>
+                    </div>
+                  </h4>
+                </div>
               </div>
-              <div className="sm:col-span-6">
-                <h4 className="font-medium leading-snug text-pearl text-lg">
-                  <div>
-                    <a
-                      className="inline-flex items-baseline font-medium leading-tight text-pearl hover:text-ui-blue focus-visible:text-ui-blue group/link transition-colors duration-300"
-                      href="https://www.yasar.edu.tr/"
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      aria-label="Yaşar University (opens in a new tab)"
-                    >
-                      <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+              
+              <div className="group relative grid pb-4 transition-all sm:grid-cols-8 sm:gap-8 hover:!opacity-100 group-hover/list:opacity-50 p-6 bg-gradient-to-r from-deep-blue/30 to-ocean-blue/20 rounded-xl border border-steel-blue/20 animated-border glow-on-hover">
+                <div className="mb-2 mt-1 text-sm font-semibold uppercase tracking-wide text-ui-teal sm:col-span-2">
+                  2019 — 2023
+                </div>
+                <div className="sm:col-span-6">
+                  <h4 className="font-medium leading-snug text-pearl text-lg">
+                    <div>
                       <span>
-                        B.Sc. Software Engineering{' '}
+                        Science High School{' '}
                         <span className="inline-block">
-                          — Yaşar University
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                            className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px"
-                            aria-hidden="true"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
-                              clipRule="evenodd"
-                            ></path>
-                          </svg>
+                          — Doğa Koleji Fen Lisesi
                         </span>
                       </span>
-                    </a>
-                  </div>
-                </h4>
+                    </div>
+                  </h4>
+                </div>
               </div>
             </div>
           </div>
@@ -193,7 +230,7 @@ const Index = () => {
                   Back-end Development
                 </h4>
                 <div className="flex flex-wrap gap-3">
-                  {['.NET 8', 'REST APIs', 'SQL', 'MySQL', 'SQL Server', 'JWT'].map((skill, index) => (
+                  {['.NET 8', 'REST APIs', 'SQL', 'MySQL', 'SQL Server', 'JWT', 'Python'].map((skill, index) => (
                     <AnimatedSkillBadge key={skill} skill={skill} category="backend" delay={index * 100} />
                   ))}
                 </div>

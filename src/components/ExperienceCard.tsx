@@ -7,7 +7,7 @@ interface ExperienceCardProps {
   title: string;
   company: string;
   companyUrl?: string;
-  description: string;
+  description: React.ReactNode;
   technologies: string[];
   links?: Array<{
     label: string;
@@ -54,9 +54,9 @@ const ExperienceCard = ({
           </div>
         </h3>
         
-        <p className="mt-2 text-sm leading-normal text-slate">
+        <div className="mt-2 text-sm leading-normal text-slate">
           {description}
-        </p>
+        </div>
         
         {links.length > 0 && (
           <ul className="mt-2 flex flex-wrap" aria-label="Related links">

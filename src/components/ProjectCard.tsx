@@ -4,7 +4,7 @@ import SpotlightCard from './SpotlightCard';
 
 interface ProjectCardProps {
   title: string;
-  description: string;
+  description: React.ReactNode;
   image?: string;
   imageAlt?: string;
   technologies?: string[];
@@ -46,9 +46,9 @@ const ProjectCard = ({
           </a>
         </h3>
         
-        <p className="mt-2 text-sm leading-normal text-slate">
+        <div className="mt-2 text-sm leading-normal text-slate">
           {description}
-        </p>
+        </div>
         
         {stats && (
           <div className="mt-2 text-sm font-medium text-slate">

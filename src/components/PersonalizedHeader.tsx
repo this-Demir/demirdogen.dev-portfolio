@@ -26,9 +26,9 @@ const PersonalizedHeader = () => {
       {/* Personal tagline with icons */}
       <div className="space-y-4">
         <p className="max-w-sm leading-relaxed text-cool-gray text-base lg:text-lg">
-          Turning ideas into well-crafted digital experiences with{' '}
-          <span className="text-ui-blue font-medium">thoughtful design</span> and{' '}
-          <span className="text-ui-purple font-medium">reliable engineering</span>.
+          Constantly learning and growing while building{' '}
+          <span className="text-ui-blue font-medium">meaningful projects</span> that make a{' '}
+          <span className="text-ui-purple font-medium">positive impact</span> in people's lives.
         </p>
         
         {/* Quick facts with icons */}
