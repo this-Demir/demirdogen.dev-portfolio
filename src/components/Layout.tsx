@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Github } from 'lucide-react';
 import MouseFlashlight from './MouseFlashlight';
 import PersonalizedHeader from './PersonalizedHeader';
+import LanguageToggle from './LanguageToggle';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -9,6 +11,7 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   const [activeSection, setActiveSection] = useState('about');
+  const { t } = useLanguage();
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
@@ -52,7 +55,7 @@ const Layout = ({ children }: LayoutProps) => {
         href="#content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-ui-blue text-midnight px-4 py-2 rounded-lg z-50 font-medium animate-scale-in"
       >
-        Skip to Content
+        {t('accessibility.skipToContent')}
       </a>
 
       {/* Main Layout Container - Centered with more padding */}
@@ -70,10 +73,10 @@ const Layout = ({ children }: LayoutProps) => {
             <nav className="nav hidden lg:block" aria-label="In-page jump links">
               <ul className="mt-16 w-max">
                 {[
-                  { id: 'about', label: 'About' },
-                  { id: 'experience', label: 'Experience' },
-                  { id: 'projects', label: 'Projects' },
-                  { id: 'writing', label: 'Skills' }
+                  { id: 'about', label: t('nav.about') },
+                  { id: 'experience', label: t('nav.experience') },
+                  { id: 'projects', label: t('nav.projects') },
+                  { id: 'writing', label: t('nav.writing') }
                 ].map(({ id, label }, index) => (
                   <li key={id}>
                     <button
@@ -107,7 +110,7 @@ const Layout = ({ children }: LayoutProps) => {
 
           {/* Bottom Section - Social Links */}
           <div className="mt-auto animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-            <div className="flex items-center space-x-6">
+            <div className="flex items-center space-x-4">
               <a
                 href="https://github.com/this-Demir"
                 target="_blank"
@@ -117,7 +120,7 @@ const Layout = ({ children }: LayoutProps) => {
               >
                 <Github className="h-6 w-6 lg:h-7 lg:w-7 group-hover:animate-bounce-subtle" />
                 <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                  View Projects
+                  {t('contact.github')}
                 </span>
               </a>
               
@@ -132,7 +135,7 @@ const Layout = ({ children }: LayoutProps) => {
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                 </svg>
                 <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                  Contact Me
+                  {t('contact.email')}
                 </span>
               </a>
               
@@ -150,16 +153,19 @@ const Layout = ({ children }: LayoutProps) => {
                   className="h-6 w-6 lg:h-7 lg:w-7 group-hover:animate-bounce-subtle"
                 />
                 <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                  Live Project
+                  {t('contact.yuSync')}
                 </span>
               </a>
+
+              {/* Language Toggle */}
+              <LanguageToggle />
             </div>
             
             {/* Contact info */}
             <div className="mt-8 text-sm text-cool-gray">
               <p className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-ui-blue rounded-full animate-pulse"></span>
-                Available for exciting opportunities
+                {t('header.availability')}
               </p>
             </div>
           </div>
