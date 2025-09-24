@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Heart, Users } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
 
 interface VolunteerBadgeProps {
   type: 'volunteer' | 'users';
@@ -9,17 +8,16 @@ interface VolunteerBadgeProps {
 
 const VolunteerBadge = ({ type, delay = 0 }: VolunteerBadgeProps) => {
   const [isHovered, setIsHovered] = useState(false);
-  const { t } = useLanguage();
   
   const badges = {
     volunteer: {
       icon: <Heart className="h-4 w-4" />,
-      tooltip: t('volunteer.yuSync.description'),
+      tooltip: 'Volunteer made for Yaşar University students to generate schedules easily',
       gradient: 'from-ui-blue to-ui-purple'
     },
     users: {
       icon: <Users className="h-4 w-4" />,
-      tooltip: t('volunteer.impact.description'),
+      tooltip: '6000 students and 14000 page views during enrollment time',
       gradient: 'from-ui-purple to-ui-teal'
     }
   };

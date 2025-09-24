@@ -5,23 +5,21 @@ import AnimatedSkillBadge from '../components/AnimatedSkillBadge';
 import VolunteerBadge from '../components/VolunteerBadge';
 import PersonalizedFooter from '../components/PersonalizedFooter';
 import { GraduationCap, Award, Target } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
 
 const Index = () => {
-  const { t } = useLanguage();
   return (
     <Layout>
       {/* About Section */}
       <section id="about" className="mb-12 scroll-mt-8 md:mb-16 lg:mb-20 lg:scroll-mt-12">
         <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-midnight/80 px-6 py-4 backdrop-blur md:-mx-12 md:px-12 lg:-mx-24 lg:px-24 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:py-0 lg:opacity-0">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-cool-gray lg:sr-only">{t('about.title')}</h2>
+          <h2 className="text-sm font-bold uppercase tracking-widest text-cool-gray lg:sr-only">About</h2>
         </div>
         <div className="space-y-6 animate-fade-in-up">
           <p className="text-lg leading-relaxed text-silver">
-            {t('about.paragraph1')}
+            I'm a Software Engineering student who enjoys turning ideas into useful, well-crafted products. I focus on clear problem framing, thoughtful UI/UX, and reliable engineering—from front-end work in React/TypeScript to back-end APIs with .NET and SQL.
           </p>
           <p className="leading-relaxed text-cool-gray">
-            {t('about.paragraph2')}{' '}
+            I value teamwork, clarity, and incremental improvement, and I'm motivated by building things that genuinely help people. Currently pursuing my{' '}
             <a
               className="font-medium text-ui-blue hover:text-ui-purple focus-visible:text-ui-purple transition-colors duration-300 glow-on-hover px-1 py-0.5 rounded"
               href="https://www.yasar.edu.tr/"
@@ -29,9 +27,12 @@ const Index = () => {
               rel="noreferrer noopener"
               aria-label="Yaşar University (opens in a new tab)"
             >
-              {t('experience.yasar.company')}
+              Bachelor's degree in Software Engineering at Yaşar University
             </a>
-            {t('about.paragraph3')}
+            , where I've gained hands-on experience with modern web technologies and software development practices.
+          </p>
+          <p className="leading-relaxed text-cool-gray">
+            My technical expertise spans across front-end development with React, Vite, TypeScript, and Tailwind CSS, as well as back-end development using .NET 8, REST APIs, and SQL databases. I also have experience with Java ecosystem including JavaFX and Gradle, and comprehensive testing using Selenium WebDriver and JUnit 5.
           </p>
           
           {/* Personal mission statement */}
@@ -49,7 +50,7 @@ const Index = () => {
       {/* Experience Section */}
       <section id="experience" className="mb-12 scroll-mt-8 md:mb-16 lg:mb-20 lg:scroll-mt-12">
         <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-midnight/80 px-6 py-4 backdrop-blur md:-mx-12 md:px-12 lg:-mx-24 lg:px-24 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:py-0 lg:opacity-0">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-cool-gray lg:sr-only">{t('experience.title')}</h2>
+          <h2 className="text-sm font-bold uppercase tracking-widest text-cool-gray lg:sr-only">Experience</h2>
         </div>
         <div className="animate-fade-in-up" style={{ animationDelay: '200ms' }}>
           <ol className="group/list space-y-8">
@@ -81,19 +82,19 @@ const Index = () => {
       {/* Projects Section */}
       <section id="projects" className="mb-12 scroll-mt-8 md:mb-16 lg:mb-20 lg:scroll-mt-12">
         <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-midnight/80 px-6 py-4 backdrop-blur md:-mx-12 md:px-12 lg:-mx-24 lg:px-24 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:py-0 lg:opacity-0">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-cool-gray lg:sr-only">{t('projects.title')}</h2>
+          <h2 className="text-sm font-bold uppercase tracking-widest text-cool-gray lg:sr-only">Projects</h2>
         </div>
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-pearl mb-2">{t('projects.title')}</h2>
+          <h2 className="text-2xl font-bold text-pearl mb-2">Featured Projects</h2>
         </div>
         <div className="animate-fade-in-up" style={{ animationDelay: '400ms' }}>
           <ul className="group/list space-y-8">
             <li>
               <ProjectCard
-                title={t('projects.yuSync.title')}
+                title="YU-Sync — Course Scheduling App"
                 description={
                   <div className="space-y-3">
-                    <p>{t('projects.yuSync.description')}</p>
+                    <p>A volunteer web app that applies backtracking to help students compose valid schedules with preference handling (e.g., avoiding certain days). Front end with React + TypeScript + Tailwind; clean, mobile-first UI with robust state management and form flows for multi-step selection.</p>
                     <div className="flex flex-wrap gap-2 mt-3">
                       <VolunteerBadge type="volunteer" />
                       <VolunteerBadge type="users" delay={100} />
@@ -102,7 +103,7 @@ const Index = () => {
                 }
                 technologies={['React', 'TypeScript', 'Tailwind CSS', 'JavaScript', 'Python']}
                 links={[
-                  { label: t('projects.yuSync.viewProject'), url: 'https://yu-sync.com' }
+                  { label: 'yu-sync.com', url: 'https://yu-sync.com' }
                 ]}
               />
             </li>
@@ -137,14 +138,14 @@ const Index = () => {
       {/* Education & Skills Section */}
       <section id="writing" className="mb-12 scroll-mt-8 md:mb-16 lg:mb-20 lg:scroll-mt-12">
         <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-midnight/80 px-6 py-4 backdrop-blur md:-mx-12 md:px-12 lg:-mx-24 lg:px-24 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:py-0 lg:opacity-0">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-cool-gray lg:sr-only">{t('skills.title')}</h2>
+          <h2 className="text-sm font-bold uppercase tracking-widest text-cool-gray lg:sr-only">Education & Skills</h2>
         </div>
         <div className="space-y-12 animate-fade-in-up" style={{ animationDelay: '600ms' }}>
           {/* Education */}
           <div>
             <div className="flex items-center gap-3 mb-6">
               <GraduationCap className="h-6 w-6 text-ui-blue" />
-              <h3 className="text-xl font-semibold text-pearl">{t('experience.education')}</h3>
+              <h3 className="text-xl font-semibold text-pearl">Education</h3>
             </div>
             <div className="space-y-6">
               <div className="group relative grid pb-4 transition-all sm:grid-cols-8 sm:gap-8 hover:!opacity-100 group-hover/list:opacity-50 p-6 bg-gradient-to-r from-deep-blue/30 to-ocean-blue/20 rounded-xl border border-steel-blue/20 animated-border glow-on-hover">
@@ -155,9 +156,9 @@ const Index = () => {
                   <h4 className="font-medium leading-snug text-pearl text-lg">
                     <div>
                       <span>
-                        {t('experience.doga.title')}{' '}
+                        Science High School{' '}
                         <span className="inline-block">
-                          — {t('experience.doga.company')}
+                          — Doğa Koleji Fen Lisesi
                         </span>
                       </span>
                     </div>
@@ -211,13 +212,13 @@ const Index = () => {
           <div>
             <div className="flex items-center gap-3 mb-6">
               <Award className="h-6 w-6 text-ui-purple" />
-              <h3 className="text-xl font-semibold text-pearl">{t('skills.title')}</h3>
+              <h3 className="text-xl font-semibold text-pearl">Technical Skills</h3>
             </div>
             <div className="space-y-8">
               <div>
                 <h4 className="text-base font-medium text-silver mb-4 flex items-center gap-2">
                   <span className="w-2 h-2 bg-ui-blue rounded-full"></span>
-                  {t('skills.frontend')}
+                  Front-end Development
                 </h4>
                 <div className="flex flex-wrap gap-3">
                   {['React', 'Vite', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Bootstrap'].map((skill, index) => (
@@ -229,7 +230,7 @@ const Index = () => {
               <div>
                 <h4 className="text-base font-medium text-silver mb-4 flex items-center gap-2">
                   <span className="w-2 h-2 bg-ui-purple rounded-full"></span>
-                  {t('skills.backend')}
+                  Back-end Development
                 </h4>
                 <div className="flex flex-wrap gap-3">
                   {['.NET 8', 'REST APIs', 'SQL', 'MySQL', 'SQL Server', 'JWT', 'Python'].map((skill, index) => (
@@ -264,8 +265,8 @@ const Index = () => {
               
               <div>
                 <h4 className="text-base font-medium text-silver mb-4 flex items-center gap-2">
-                  <span className="w-2 h-2 bg-ui-teal rounded-full"></span>
-                  {t('skills.tools')}
+                  <span className="w-2 h-2 bg-ui-purple rounded-full"></span>
+                  Tools & Platforms
                 </h4>
                 <div className="flex flex-wrap gap-3">
                   {['GitHub', 'Vercel', 'Iyzico'].map((skill, index) => (
@@ -277,15 +278,15 @@ const Index = () => {
               <div>
                 <h4 className="text-base font-medium text-silver mb-4 flex items-center gap-2">
                   <span className="w-2 h-2 bg-ui-teal rounded-full"></span>
-                  {t('skills.languages')}
+                  Languages
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="bg-gradient-to-r from-ui-teal/20 to-ui-blue/10 p-4 rounded-xl border border-ui-teal/20">
                     <div className="flex items-center gap-3 mb-2">
                       <span className="text-2xl">🇹🇷</span>
                       <div>
-                        <h5 className="font-semibold text-pearl">{t('languages.turkish')}</h5>
-                        <span className="text-sm text-ui-teal">{t('languages.native')}</span>
+                        <h5 className="font-semibold text-pearl">Turkish</h5>
+                        <span className="text-sm text-ui-teal">Native Speaker</span>
                       </div>
                     </div>
                     <div className="w-full bg-slate/20 rounded-full h-2">
@@ -297,8 +298,8 @@ const Index = () => {
                     <div className="flex items-center gap-3 mb-2">
                       <span className="text-2xl">🇺🇸</span>
                       <div>
-                        <h5 className="font-semibold text-pearl">{t('languages.english')}</h5>
-                        <span className="text-sm text-ui-blue">{t('languages.fluent')}</span>
+                        <h5 className="font-semibold text-pearl">English</h5>
+                        <span className="text-sm text-ui-blue">B1+ Intermediate</span>
                       </div>
                     </div>
                     <div className="w-full bg-slate/20 rounded-full h-2">
