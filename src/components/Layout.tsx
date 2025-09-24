@@ -121,6 +121,21 @@ const Layout = ({ children }: LayoutProps) => {
                 </span>
               </a>
               
+              {/* Email contact */}
+              <a
+                href="mailto:demirdemirdogen@gmail.com"
+                className="group relative text-cool-gray hover:text-ui-teal transition-all duration-300 glow-on-hover p-2 rounded-lg hover:bg-deep-blue/30"
+                aria-label="Email Contact"
+              >
+                <svg className="h-6 w-6 lg:h-7 lg:w-7 group-hover:animate-bounce-subtle" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                </svg>
+                <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                  Contact Me
+                </span>
+              </a>
+              
               {/* Custom link to YU-Sync with logo */}
               <a
                 href="https://yu-sync.com"

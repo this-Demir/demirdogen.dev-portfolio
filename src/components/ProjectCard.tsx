@@ -80,9 +80,9 @@ const ProjectCard = ({
         )}
         
         {technologies.length > 0 && (
-          <ul className="mt-2 flex flex-wrap" aria-label="Technologies used">
+          <ul className="mt-2 flex flex-wrap gap-1.5" aria-label="Technologies used">
             {technologies.map((tech) => (
-              <li key={tech} className="mr-1.5 mt-2">
+              <li key={tech} className="flex-shrink-0">
                 <TechBadge>{tech}</TechBadge>
               </li>
             ))}
