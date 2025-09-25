@@ -105,6 +105,8 @@ const Index = () => {
                 links={[
                   { label: 'yu-sync.com', url: 'https://yu-sync.com' }
                 ]}
+                image="/src/assets/yu-sync-logo.png"
+                imageAlt="YU-Sync Logo"
               />
             </li>
             <li>
@@ -148,6 +150,27 @@ const Index = () => {
               <h3 className="text-xl font-semibold text-pearl">Education</h3>
             </div>
             <div className="space-y-6">
+              <div className="group relative grid pb-4 transition-all sm:grid-cols-8 sm:gap-8 hover:!opacity-100 group-hover/list:opacity-50 p-6 bg-gradient-to-r from-deep-blue/30 to-ocean-blue/20 rounded-xl border border-steel-blue/20 animated-border glow-on-hover">
+                <div className="mb-2 mt-1 text-sm font-semibold uppercase tracking-wide text-ui-purple sm:col-span-2">
+                  2020 — 2023
+                </div>
+                <div className="sm:col-span-6">
+                  <h4 className="font-medium leading-snug text-pearl text-lg">
+                    <div>
+                      <span>
+                        Science & Innovation Program{' '}
+                        <span className="inline-block">
+                          — DENEYAP Technology Workshops
+                        </span>
+                      </span>
+                    </div>
+                  </h4>
+                  <p className="text-sm text-cool-gray mt-2">
+                    Advanced technology and innovation program focused on STEM education, programming, and project-based learning.
+                  </p>
+                </div>
+              </div>
+              
               <div className="group relative grid pb-4 transition-all sm:grid-cols-8 sm:gap-8 hover:!opacity-100 group-hover/list:opacity-50 p-6 bg-gradient-to-r from-deep-blue/30 to-ocean-blue/20 rounded-xl border border-steel-blue/20 animated-border glow-on-hover">
                 <div className="mb-2 mt-1 text-sm font-semibold uppercase tracking-wide text-ui-teal sm:col-span-2">
                   2019 — 2023
@@ -214,36 +237,39 @@ const Index = () => {
               <Award className="h-6 w-6 text-ui-purple" />
               <h3 className="text-xl font-semibold text-pearl">Technical Skills</h3>
             </div>
-            <div className="space-y-8">
-              <div>
-                <h4 className="text-base font-medium text-silver mb-4 flex items-center gap-2">
-                  <span className="w-2 h-2 bg-ui-blue rounded-full"></span>
-                  Front-end Development
-                </h4>
-                <div className="flex flex-wrap gap-3">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Frontend Skills */}
+              <div className="bg-gradient-to-br from-ui-blue/10 to-ui-blue/5 p-6 rounded-xl border border-ui-blue/20 hover:border-ui-blue/40 transition-all duration-300 glow-on-hover">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-3 h-3 bg-ui-blue rounded-full animate-pulse"></div>
+                  <h4 className="text-lg font-semibold text-pearl">Front-end Development</h4>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
                   {['React', 'Vite', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Bootstrap'].map((skill, index) => (
                     <AnimatedSkillBadge key={skill} skill={skill} category="frontend" delay={index * 100} />
                   ))}
                 </div>
               </div>
               
-              <div>
-                <h4 className="text-base font-medium text-silver mb-4 flex items-center gap-2">
-                  <span className="w-2 h-2 bg-ui-purple rounded-full"></span>
-                  Back-end Development
-                </h4>
-                <div className="flex flex-wrap gap-3">
+              {/* Backend Skills */}
+              <div className="bg-gradient-to-br from-ui-purple/10 to-ui-purple/5 p-6 rounded-xl border border-ui-purple/20 hover:border-ui-purple/40 transition-all duration-300 glow-on-hover">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-3 h-3 bg-ui-purple rounded-full animate-pulse"></div>
+                  <h4 className="text-lg font-semibold text-pearl">Back-end Development</h4>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
                   {['.NET 8', 'REST APIs', 'SQL', 'MySQL', 'SQL Server', 'JWT', 'Python'].map((skill, index) => (
                     <AnimatedSkillBadge key={skill} skill={skill} category="backend" delay={index * 100} />
                   ))}
                 </div>
               </div>
               
-              <div>
-                <h4 className="text-base font-medium text-silver mb-4 flex items-center gap-2">
-                  <span className="w-2 h-2 bg-ui-teal rounded-full"></span>
-                  Java Ecosystem
-                </h4>
+              {/* Java Skills */}
+              <div className="bg-gradient-to-br from-ui-teal/10 to-ui-teal/5 p-6 rounded-xl border border-ui-teal/20 hover:border-ui-teal/40 transition-all duration-300 glow-on-hover">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-3 h-3 bg-ui-teal rounded-full animate-pulse"></div>
+                  <h4 className="text-lg font-semibold text-pearl">Java Ecosystem</h4>
+                </div>
                 <div className="flex flex-wrap gap-3">
                   {['Java', 'JavaFX', 'Gradle'].map((skill, index) => (
                     <AnimatedSkillBadge key={skill} skill={skill} category="java" delay={index * 100} />
@@ -251,11 +277,12 @@ const Index = () => {
                 </div>
               </div>
               
-              <div>
-                <h4 className="text-base font-medium text-silver mb-4 flex items-center gap-2">
-                  <span className="w-2 h-2 bg-ui-blue rounded-full"></span>
-                  Testing & QA
-                </h4>
+              {/* Testing Skills */}
+              <div className="bg-gradient-to-br from-ui-blue/10 to-ui-teal/5 p-6 rounded-xl border border-ui-blue/20 hover:border-ui-teal/40 transition-all duration-300 glow-on-hover">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-3 h-3 bg-gradient-to-r from-ui-blue to-ui-teal rounded-full animate-pulse"></div>
+                  <h4 className="text-lg font-semibold text-pearl">Testing & QA</h4>
+                </div>
                 <div className="flex flex-wrap gap-3">
                   {['Selenium WebDriver', 'JUnit 5', 'Black-box Testing'].map((skill, index) => (
                     <AnimatedSkillBadge key={skill} skill={skill} category="testing" delay={index * 100} />
@@ -263,47 +290,53 @@ const Index = () => {
                 </div>
               </div>
               
-              <div>
-                <h4 className="text-base font-medium text-silver mb-4 flex items-center gap-2">
-                  <span className="w-2 h-2 bg-ui-purple rounded-full"></span>
-                  Tools & Platforms
-                </h4>
-                <div className="flex flex-wrap gap-3">
-                  {['GitHub', 'Vercel', 'Iyzico'].map((skill, index) => (
-                    <AnimatedSkillBadge key={skill} skill={skill} category="tools" delay={index * 100} />
-                  ))}
+              {/* Tools & Platforms */}
+              <div className="lg:col-span-2">
+                <div className="bg-gradient-to-r from-ui-purple/10 via-ui-blue/10 to-ui-teal/10 p-6 rounded-xl border border-ui-purple/20 hover:border-ui-blue/40 transition-all duration-300 glow-on-hover">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-3 h-3 bg-gradient-to-r from-ui-purple via-ui-blue to-ui-teal rounded-full animate-pulse"></div>
+                    <h4 className="text-lg font-semibold text-pearl">Tools & Platforms</h4>
+                  </div>
+                  <div className="flex flex-wrap gap-3 justify-center">
+                    {['GitHub', 'Vercel', 'Iyzico'].map((skill, index) => (
+                      <AnimatedSkillBadge key={skill} skill={skill} category="tools" delay={index * 100} />
+                    ))}
+                  </div>
                 </div>
               </div>
               
-              <div>
-                <h4 className="text-base font-medium text-silver mb-4 flex items-center gap-2">
-                  <span className="w-2 h-2 bg-ui-teal rounded-full"></span>
-                  Languages
-                </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="bg-gradient-to-r from-ui-teal/20 to-ui-blue/10 p-4 rounded-xl border border-ui-teal/20">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="text-2xl">🇹🇷</span>
-                      <div>
-                        <h5 className="font-semibold text-pearl">Turkish</h5>
-                        <span className="text-sm text-ui-teal">Native Speaker</span>
-                      </div>
-                    </div>
-                    <div className="w-full bg-slate/20 rounded-full h-2">
-                      <div className="bg-ui-teal h-2 rounded-full w-full"></div>
-                    </div>
+              {/* Languages */}
+              <div className="lg:col-span-2">
+                <div className="bg-gradient-to-r from-ui-teal/10 to-ui-blue/10 p-6 rounded-xl border border-ui-teal/20 hover:border-ui-blue/40 transition-all duration-300 glow-on-hover">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-3 h-3 bg-gradient-to-r from-ui-teal to-ui-blue rounded-full animate-pulse"></div>
+                    <h4 className="text-lg font-semibold text-pearl">Languages</h4>
                   </div>
-                  
-                  <div className="bg-gradient-to-r from-ui-blue/20 to-ui-purple/10 p-4 rounded-xl border border-ui-blue/20">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="text-2xl">🇺🇸</span>
-                      <div>
-                        <h5 className="font-semibold text-pearl">English</h5>
-                        <span className="text-sm text-ui-blue">B1+ Intermediate</span>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="bg-gradient-to-r from-ui-teal/20 to-ui-blue/10 p-4 rounded-xl border border-ui-teal/20">
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="text-2xl">🇹🇷</span>
+                        <div>
+                          <h5 className="font-semibold text-pearl">Turkish</h5>
+                          <span className="text-sm text-ui-teal">Native Speaker</span>
+                        </div>
+                      </div>
+                      <div className="w-full bg-slate/20 rounded-full h-2">
+                        <div className="bg-ui-teal h-2 rounded-full w-full"></div>
                       </div>
                     </div>
-                    <div className="w-full bg-slate/20 rounded-full h-2">
-                      <div className="bg-ui-blue h-2 rounded-full w-3/4"></div>
+                    
+                    <div className="bg-gradient-to-r from-ui-blue/20 to-ui-purple/10 p-4 rounded-xl border border-ui-blue/20">
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="text-2xl">🇺🇸</span>
+                        <div>
+                          <h5 className="font-semibold text-pearl">English</h5>
+                          <span className="text-sm text-ui-blue">B1+ Intermediate</span>
+                        </div>
+                      </div>
+                      <div className="w-full bg-slate/20 rounded-full h-2">
+                        <div className="bg-ui-blue h-2 rounded-full w-3/4"></div>
+                      </div>
                     </div>
                   </div>
                 </div>
