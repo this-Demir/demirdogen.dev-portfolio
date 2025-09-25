@@ -304,13 +304,13 @@ const Index = () => {
                <div className="lg:col-span-2">
                  <div className="p-6">
                    <div className="flex items-center gap-3 mb-6">
-                     <span className="text-xl">🌍</span>
+                     <div className="w-3 h-3 bg-gradient-to-r from-ui-teal to-ui-blue rounded-full animate-pulse"></div>
                      <h4 className="text-lg font-semibold text-pearl">Languages</h4>
                    </div>
                    <div className="flex gap-12 justify-center">
                      <div className="text-center">
                        <div className="flex items-center justify-center gap-3 mb-2">
-                         <span className="text-3xl">🇹🇷</span>
+                         <span className="text-lg text-ui-teal">🗣️</span>
                        </div>
                        <div>
                          <h5 className="font-semibold text-pearl text-lg">Turkish</h5>
@@ -320,7 +320,7 @@ const Index = () => {
                      
                      <div className="text-center">
                        <div className="flex items-center justify-center gap-3 mb-2">
-                         <span className="text-3xl">🇺🇸</span>
+                         <span className="text-lg text-ui-blue">💬</span>
                        </div>
                        <div>
                          <h5 className="font-semibold text-pearl text-lg">English</h5>
@@ -335,12 +335,12 @@ const Index = () => {
                <div className="lg:col-span-2">
                  <div className="p-6">
                    <div className="flex items-center gap-3 mb-6">
-                     <span className="text-xl">🎯</span>
+                     <div className="w-3 h-3 bg-gradient-to-r from-ui-purple via-ui-blue to-ui-teal rounded-full animate-pulse"></div>
                      <h4 className="text-lg font-semibold text-pearl">Personal Interests</h4>
                    </div>
                    <div className="grid grid-cols-2 gap-6">
                      <div className="flex items-center gap-3">
-                       <span className="text-2xl">🤺</span>
+                       <span className="text-lg text-ui-purple">⚔️</span>
                        <div>
                          <h5 className="font-semibold text-pearl">Former National Fencer</h5>
                          <span className="text-sm text-ui-purple">Turkey National Team</span>
@@ -348,7 +348,7 @@ const Index = () => {
                      </div>
                      
                      <div className="flex items-center gap-3">
-                       <span className="text-2xl">🎮</span>
+                       <span className="text-lg text-ui-blue">🎯</span>
                        <div>
                          <h5 className="font-semibold text-pearl">Gaming Enthusiast</h5>
                          <span className="text-sm text-ui-blue">Online Games</span>
@@ -356,7 +356,7 @@ const Index = () => {
                      </div>
                      
                      <div className="flex items-center gap-3">
-                       <span className="text-2xl">✈️</span>
+                       <span className="text-lg text-ui-teal">🗺️</span>
                        <div>
                          <h5 className="font-semibold text-pearl">Travel Explorer</h5>
                          <span className="text-sm text-ui-teal">World Traveler</span>
@@ -364,7 +364,7 @@ const Index = () => {
                      </div>
                      
                      <div className="flex items-center gap-3">
-                       <span className="text-2xl">📚</span>
+                       <span className="text-lg text-ui-purple">⚡</span>
                        <div>
                          <h5 className="font-semibold text-pearl">Tech Learning</h5>
                          <span className="text-sm text-ui-purple">New Technologies</span>
