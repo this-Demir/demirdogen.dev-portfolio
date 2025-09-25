@@ -1,22 +1,16 @@
-# Welcome to your Lovable project
+# Demir Demirdöğen - Portfolio
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/ad2be26c-feda-4ec7-9a39-f52aebb5a0fb
+**URL**: https://demir-portfolio.vercel.app
 
 ## How can I edit this code?
 
 There are several ways of editing your application.
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/ad2be26c-feda-4ec7-9a39-f52aebb5a0fb) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
 **Use your preferred IDE**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+If you want to work locally using your own IDE, you can clone this repo and push changes.
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
@@ -62,12 +56,17 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/ad2be26c-feda-4ec7-9a39-f52aebb5a0fb) and click on Share -> Publish.
+This project can be deployed to various platforms like Vercel, Netlify, or GitHub Pages.
 
-## Can I connect a custom domain to my Lovable project?
+For Vercel deployment:
+1. Push your code to a GitHub repository
+2. Connect your GitHub account to Vercel
+3. Import the repository and deploy
+
+## Can I connect a custom domain to my project?
 
 Yes, you can!
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+To connect a custom domain, navigate to your hosting provider's dashboard (e.g., Vercel) and configure the domain settings.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Read more here: [Setting up a custom domain](https://vercel.com/docs/concepts/projects/custom-domains)
