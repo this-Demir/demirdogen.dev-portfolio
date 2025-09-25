@@ -52,8 +52,11 @@ const Index = () => {
         <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-midnight/80 px-6 py-4 backdrop-blur md:-mx-12 md:px-12 lg:-mx-24 lg:px-24 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:py-0 lg:opacity-0">
           <h2 className="text-sm font-bold uppercase tracking-widest text-cool-gray lg:sr-only">Experience</h2>
         </div>
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold text-pearl mb-2">Experience</h2>
+        <div className="flex items-center gap-3 mb-8">
+          <div className="w-6 h-6 bg-ui-blue rounded-full flex items-center justify-center">
+            <div className="w-3 h-3 bg-white rounded-full"></div>
+          </div>
+          <h2 className="text-xl font-semibold text-pearl">Experience</h2>
         </div>
         <div className="animate-fade-in-up" style={{ animationDelay: '200ms' }}>
           <ol className="group/list space-y-8">
@@ -87,23 +90,18 @@ const Index = () => {
         <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-midnight/80 px-6 py-4 backdrop-blur md:-mx-12 md:px-12 lg:-mx-24 lg:px-24 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:py-0 lg:opacity-0">
           <h2 className="text-sm font-bold uppercase tracking-widest text-cool-gray lg:sr-only">Projects</h2>
         </div>
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold text-pearl mb-2">Featured Projects</h2>
+        <div className="flex items-center gap-3 mb-8">
+          <div className="w-6 h-6 bg-ui-purple rounded-full flex items-center justify-center">
+            <div className="w-3 h-3 bg-white rounded-full"></div>
+          </div>
+          <h2 className="text-xl font-semibold text-pearl">Featured Projects</h2>
         </div>
         <div className="animate-fade-in-up" style={{ animationDelay: '400ms' }}>
           <ul className="group/list space-y-8">
             <li>
               <ProjectCard
                 title="YU-Sync — Course Scheduling App"
-                description={
-                  <div className="space-y-3">
-                    <p>A volunteer web app that applies backtracking to help students compose valid schedules with preference handling (e.g., avoiding certain days). Front end with React + TypeScript + Tailwind; clean, mobile-first UI with robust state management and form flows for multi-step selection.</p>
-                    <div className="flex flex-wrap gap-2 mt-3">
-                      <VolunteerBadge type="volunteer" />
-                      <VolunteerBadge type="users" delay={100} />
-                    </div>
-                  </div>
-                }
+                description="A comprehensive web application that revolutionizes course scheduling for Yaşar University students. Built with modern React architecture and TypeScript for type safety, the app features a responsive design using Tailwind CSS that adapts seamlessly to mobile and desktop interfaces. The core algorithm implements sophisticated backtracking logic to generate conflict-free schedules while respecting user preferences like avoiding specific days or time slots. The frontend includes multi-step form flows with robust state management, real-time validation, and intuitive UX patterns for complex data entry scenarios."
                 technologies={['React', 'TypeScript', 'Tailwind', 'JavaScript', 'Python']}
                 links={[
                   { label: 'yu-sync.com', url: 'https://yu-sync.com' }
@@ -152,6 +150,24 @@ const Index = () => {
             </div>
             <div className="space-y-6">
               <div className="group relative grid pb-4 transition-all sm:grid-cols-8 sm:gap-8 hover:!opacity-100 group-hover/list:opacity-50 p-6 bg-gradient-to-r from-deep-blue/30 to-ocean-blue/20 rounded-xl border border-steel-blue/20 animated-border glow-on-hover">
+                <div className="mb-2 mt-1 text-sm font-semibold uppercase tracking-wide text-ui-teal sm:col-span-2">
+                  2019 — 2023
+                </div>
+                <div className="sm:col-span-6">
+                  <h4 className="font-medium leading-snug text-pearl text-lg">
+                    <div>
+                      <span>
+                        Science High School{' '}
+                        <span className="inline-block">
+                          — Doğa Koleji Fen Lisesi
+                        </span>
+                      </span>
+                    </div>
+                  </h4>
+                </div>
+              </div>
+              
+              <div className="group relative grid pb-4 transition-all sm:grid-cols-8 sm:gap-8 hover:!opacity-100 group-hover/list:opacity-50 p-6 bg-gradient-to-r from-deep-blue/30 to-ocean-blue/20 rounded-xl border border-steel-blue/20 animated-border glow-on-hover">
                 <div className="mb-2 mt-1 text-sm font-semibold uppercase tracking-wide text-ui-purple sm:col-span-2">
                   2020 — 2023
                 </div>
@@ -169,24 +185,6 @@ const Index = () => {
                   <p className="text-sm text-cool-gray mt-2">
                     Advanced technology and innovation program focused on STEM education, programming, and project-based learning.
                   </p>
-                </div>
-              </div>
-              
-              <div className="group relative grid pb-4 transition-all sm:grid-cols-8 sm:gap-8 hover:!opacity-100 group-hover/list:opacity-50 p-6 bg-gradient-to-r from-deep-blue/30 to-ocean-blue/20 rounded-xl border border-steel-blue/20 animated-border glow-on-hover">
-                <div className="mb-2 mt-1 text-sm font-semibold uppercase tracking-wide text-ui-teal sm:col-span-2">
-                  2019 — 2023
-                </div>
-                <div className="sm:col-span-6">
-                  <h4 className="font-medium leading-snug text-pearl text-lg">
-                    <div>
-                      <span>
-                        Science High School{' '}
-                        <span className="inline-block">
-                          — Doğa Koleji Fen Lisesi
-                        </span>
-                      </span>
-                    </div>
-                  </h4>
                 </div>
               </div>
               
@@ -313,16 +311,79 @@ const Index = () => {
                     <div className="w-3 h-3 bg-gradient-to-r from-ui-teal to-ui-blue rounded-full animate-pulse"></div>
                     <h4 className="text-lg font-semibold text-pearl">Languages</h4>
                   </div>
-                  <div className="flex flex-wrap gap-3 justify-center">
-                    {['Turkish (Native)', 'English (B1+)'].map((skill, index) => (
-                      <AnimatedSkillBadge key={skill} skill={skill} category="languages" delay={index * 100} />
-                    ))}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="bg-gradient-to-r from-ui-teal/20 to-ui-blue/10 p-4 rounded-xl border border-ui-teal/20">
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="text-2xl">🇹🇷</span>
+                        <div>
+                          <h5 className="font-semibold text-pearl">Turkish</h5>
+                          <span className="text-sm text-ui-teal">Native Speaker</span>
+                        </div>
+                      </div>
+                      <div className="w-full bg-slate/20 rounded-full h-2">
+                        <div className="bg-ui-teal h-2 rounded-full w-full"></div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-gradient-to-r from-ui-blue/20 to-ui-purple/10 p-4 rounded-xl border border-ui-blue/20">
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="text-2xl">🇺🇸</span>
+                        <div>
+                          <h5 className="font-semibold text-pearl">English</h5>
+                          <span className="text-sm text-ui-blue">B1+ Intermediate</span>
+                        </div>
+                      </div>
+                      <div className="w-full bg-slate/20 rounded-full h-2">
+                        <div className="bg-ui-blue h-2 rounded-full w-3/4"></div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+              </div>
+              
+              {/* Soft Skills */}
+              <div className="lg:col-span-2">
+                <div className="bg-gradient-to-r from-ui-purple/10 via-ui-blue/10 to-ui-teal/10 p-6 rounded-xl border border-ui-purple/20 hover:border-ui-blue/40 transition-all duration-300 glow-on-hover">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-3 h-3 bg-gradient-to-r from-ui-purple via-ui-blue to-ui-teal rounded-full animate-pulse"></div>
+                    <h4 className="text-lg font-semibold text-pearl">Personal Interests</h4>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="bg-gradient-to-r from-ui-purple/20 to-ui-blue/10 p-4 rounded-xl border border-ui-purple/20">
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="text-2xl">🤺</span>
+                        <div>
+                          <h5 className="font-semibold text-pearl">Former National Fencer</h5>
+                          <span className="text-sm text-ui-purple">Competitive Sports</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-gradient-to-r from-ui-blue/20 to-ui-teal/10 p-4 rounded-xl border border-ui-blue/20">
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="text-2xl">🎮</span>
+                        <div>
+                          <h5 className="font-semibold text-pearl">Gaming Enthusiast</h5>
+                          <span className="text-sm text-ui-blue">Online Games</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-gradient-to-r from-ui-teal/20 to-ui-blue/10 p-4 rounded-xl border border-ui-teal/20">
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="text-2xl">✈️</span>
+                        <div>
+                          <h5 className="font-semibold text-pearl">Travel Explorer</h5>
+                          <span className="text-sm text-ui-teal">World Traveler</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
       </section>
 
       <PersonalizedFooter />
