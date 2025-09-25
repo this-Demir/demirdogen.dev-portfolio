@@ -105,8 +105,6 @@ const Index = () => {
                 links={[
                   { label: 'yu-sync.com', url: 'https://yu-sync.com' }
                 ]}
-                image="/src/assets/yu-sync-logo.png"
-                imageAlt="YU-Sync Logo"
               />
             </li>
             <li>
