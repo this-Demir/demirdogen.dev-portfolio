@@ -52,6 +52,9 @@ const Index = () => {
         <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-midnight/80 px-6 py-4 backdrop-blur md:-mx-12 md:px-12 lg:-mx-24 lg:px-24 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:py-0 lg:opacity-0">
           <h2 className="text-sm font-bold uppercase tracking-widest text-cool-gray lg:sr-only">Experience</h2>
         </div>
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-pearl mb-2">Experience</h2>
+        </div>
         <div className="animate-fade-in-up" style={{ animationDelay: '200ms' }}>
           <ol className="group/list space-y-8">
             <li>
@@ -69,7 +72,7 @@ const Index = () => {
                     </div>
                   </div>
                 }
-                technologies={['React', 'TypeScript', 'Tailwind CSS', 'JavaScript', 'Python']}
+                technologies={['React', 'TypeScript', 'Tailwind', 'JavaScript', 'Python']}
                 links={[
                   { label: 'yu-sync.com', url: 'https://yu-sync.com' }
                 ]}
@@ -101,7 +104,7 @@ const Index = () => {
                     </div>
                   </div>
                 }
-                technologies={['React', 'TypeScript', 'Tailwind CSS', 'JavaScript', 'Python']}
+                technologies={['React', 'TypeScript', 'Tailwind', 'JavaScript', 'Python']}
                 links={[
                   { label: 'yu-sync.com', url: 'https://yu-sync.com' }
                 ]}
@@ -310,32 +313,10 @@ const Index = () => {
                     <div className="w-3 h-3 bg-gradient-to-r from-ui-teal to-ui-blue rounded-full animate-pulse"></div>
                     <h4 className="text-lg font-semibold text-pearl">Languages</h4>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="bg-gradient-to-r from-ui-teal/20 to-ui-blue/10 p-4 rounded-xl border border-ui-teal/20">
-                      <div className="flex items-center gap-3 mb-2">
-                        <span className="text-2xl">🇹🇷</span>
-                        <div>
-                          <h5 className="font-semibold text-pearl">Turkish</h5>
-                          <span className="text-sm text-ui-teal">Native Speaker</span>
-                        </div>
-                      </div>
-                      <div className="w-full bg-slate/20 rounded-full h-2">
-                        <div className="bg-ui-teal h-2 rounded-full w-full"></div>
-                      </div>
-                    </div>
-                    
-                    <div className="bg-gradient-to-r from-ui-blue/20 to-ui-purple/10 p-4 rounded-xl border border-ui-blue/20">
-                      <div className="flex items-center gap-3 mb-2">
-                        <span className="text-2xl">🇺🇸</span>
-                        <div>
-                          <h5 className="font-semibold text-pearl">English</h5>
-                          <span className="text-sm text-ui-blue">B1+ Intermediate</span>
-                        </div>
-                      </div>
-                      <div className="w-full bg-slate/20 rounded-full h-2">
-                        <div className="bg-ui-blue h-2 rounded-full w-3/4"></div>
-                      </div>
-                    </div>
+                  <div className="flex flex-wrap gap-3 justify-center">
+                    {['Turkish (Native)', 'English (B1+)'].map((skill, index) => (
+                      <AnimatedSkillBadge key={skill} skill={skill} category="languages" delay={index * 100} />
+                    ))}
                   </div>
                 </div>
               </div>
