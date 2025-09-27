@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import techLogos from '../data/techLogos';
 
 interface AnimatedSkillBadgeProps {
   skill: string;
@@ -7,40 +8,60 @@ interface AnimatedSkillBadgeProps {
 }
 
 const categoryColors = {
-  frontend: 'from-ui-blue to-ui-teal',
-  backend: 'from-ui-purple to-ui-blue',
-  java: 'from-ui-teal to-ui-purple',
-  testing: 'from-ui-blue via-ui-purple to-ui-teal',
-  tools: 'from-ui-purple to-ui-teal',
-  languages: 'from-ui-teal to-ui-blue'
+  frontend: '--ui-blue',
+  backend: '--ui-purple',
+  java: '--ui-teal',
+  testing: '--ui-blue',
+  tools: '--ui-purple',
+  languages: '--ui-teal'
 };
 
 const AnimatedSkillBadge = ({ skill, category, delay = 0 }: AnimatedSkillBadgeProps) => {
   const [isHovered, setIsHovered] = useState(false);
-  
+  const accentHue = categoryColors[category];
+  const logo = techLogos[skill];
+
   return (
-    <span 
+    <span
       className={`
-        inline-flex items-center rounded-full px-3 py-1.5 text-xs font-medium
-        bg-gradient-to-r ${categoryColors[category]}
-        text-midnight
-        cursor-pointer
+        inline-flex items-center justify-center rounded-xl px-4 py-3
+        bg-white text-midnight border
+        cursor-pointer shadow-sm
         transition-all duration-300 ease-out
-        hover:scale-105 hover:shadow-lg
+        hover:scale-105
         animate-scale-in
         ${isHovered ? 'animate-glow-pulse' : ''}
         glow-on-hover
+        min-h-[3.5rem] min-w-[3.5rem]
+        relative overflow-hidden
       `}
-      style={{ 
+      style={{
         animationDelay: `${delay}ms`,
-        background: isHovered 
-          ? `linear-gradient(135deg, hsl(var(--${categoryColors[category].split(' ')[1]})), hsl(var(--${categoryColors[category].split(' ')[3]})))`
-          : undefined
+        borderColor: `hsl(var(${accentHue}) / ${isHovered ? '0.35' : '0.2'})`,
+        boxShadow: isHovered
+          ? `0 16px 32px hsl(var(${accentHue}) / 0.22)`
+          : `0 8px 20px hsl(var(${accentHue}) / 0.14)`
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {skill}
+      <span
+        className={`
+          flex h-12 w-12 items-center justify-center rounded-lg
+          text-midnight transition-all duration-300
+        `}
+      >
+        {logo ? (
+          <img
+            src={logo.src}
+            alt={logo.alt}
+            className="h-8 w-8 object-contain drop-shadow-sm"
+            loading="lazy"
+          />
+        ) : (
+          <span className="text-sm font-semibold text-midnight">{skill.charAt(0)}</span>
+        )}
+      </span>
     </span>
   );
 };
