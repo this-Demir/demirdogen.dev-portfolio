@@ -4,9 +4,28 @@ import ProjectCard from '../components/ProjectCard';
 import AnimatedSkillBadge from '../components/AnimatedSkillBadge';
 import VolunteerBadge from '../components/VolunteerBadge';
 import PersonalizedFooter from '../components/PersonalizedFooter';
-import { GraduationCap, Award, Target, Briefcase, Code2 } from 'lucide-react';
+import { GraduationCap, Award, Target, Briefcase, Code2, ChevronDown, ExternalLink } from 'lucide-react';
+import { useState } from 'react';
+
+import certSoftware from '../assets/certificates/01198133400321.png';
+import certAdvRobotics from '../assets/certificates/79043806143681.png';
+import certRoboticsCoding from '../assets/certificates/58744354428702.png';
+import certDesignManufacturing from '../assets/certificates/86104404021822.png';
+import certIot from '../assets/certificates/13456881419360.png';
+
+/* DENEYAP certificates (reverse-chronological) */
+const DENEYAP_CERTS = [
+  { title: 'Software Technologies',  date: 'Apr 2 – Jul 17, 2022', url: certSoftware },
+  { title: 'Advanced Robotics',      date: 'Jan 3 – Apr 10, 2022', url: certAdvRobotics },
+  { title: 'Electronics Programming & Internet of Things', date: 'Dec 18, 2021 – Mar 27, 2022', url: certIot},
+  { title: 'Robotics & Coding',      date: 'Sep 4 – Nov 28, 2021', url: certRoboticsCoding},
+  { title: 'Design & Manufacturing', date: 'May 1 – Jun 27, 2021', url: certDesignManufacturing },
+  
+];
 
 const Index = () => {
+  const [showDeneyapCerts, setShowDeneyapCerts] = useState(false);
+
   return (
     <Layout>
       {/* About Section */}
@@ -25,7 +44,7 @@ const Index = () => {
               href="https://www.yasar.edu.tr/"
               target="_blank"
               rel="noreferrer noopener"
-              aria-label="Yaşar University (opens in a new tab)"
+              aria-label="Yaşar University"
             >
               Bachelor's degree in Software Engineering at Yaşar University
             </a>
@@ -34,7 +53,7 @@ const Index = () => {
           <p className="leading-relaxed text-cool-gray">
             My technical expertise spans across front-end development with React, Vite, TypeScript, and Tailwind CSS, as well as back-end development using .NET 8, REST APIs, and SQL databases. I also have experience with Java ecosystem including JavaFX and Gradle, and comprehensive testing using Selenium WebDriver and JUnit 5.
           </p>
-          
+
           {/* Personal mission statement */}
           <div className="mt-8 p-6 bg-gradient-to-r from-deep-blue/50 to-ocean-blue/30 rounded-xl border border-steel-blue/30 animated-border">
             <div className="flex items-start gap-3">
@@ -100,7 +119,8 @@ const Index = () => {
                 description="A volunteer web app that applies backtracking algorithms to help students compose valid schedules with preference handling. Built with React, TypeScript, and Tailwind CSS for a clean, mobile-first UI with robust state management."
                 technologies={['React', 'TypeScript', 'Tailwind', 'JavaScript', 'Python']}
                 links={[
-                  { label: 'yu-sync.com', url: 'https://yu-sync.com' }
+                  { label: 'yu-sync.com', url: 'https://yu-sync.com'},
+                  {label: 'GitHub', url: 'https://github.com/this-Demir/ArtGallery_SwingUI', type: 'github'}
                 ]}
               />
             </li>
@@ -141,7 +161,7 @@ const Index = () => {
       {/* Education & Skills Section */}
       <section id="writing" className="mb-12 scroll-mt-8 md:mb-16 lg:mb-20 lg:scroll-mt-12">
         <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-midnight/80 px-6 py-4 backdrop-blur md:-mx-12 md:px-12 lg:-mx-24 lg:px-24 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:py-0 lg:opacity-0">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-cool-gray lg:sr-only">Education & Skills</h2>
+          <h2 className="text-sm font-bold uppercase tracking-widest text-cool-gray lg:sr-only">Education &amp; Skills</h2>
         </div>
         <div className="space-y-12 animate-fade-in-up" style={{ animationDelay: '600ms' }}>
           {/* Education */}
@@ -168,7 +188,8 @@ const Index = () => {
                   </h4>
                 </div>
               </div>
-              
+
+              {/* DENEYAP */}
               <div className="group relative grid pb-4 transition-all sm:grid-cols-8 sm:gap-8 hover:!opacity-100 group-hover/list:opacity-50 p-6 bg-gradient-to-r from-deep-blue/30 to-ocean-blue/20 rounded-xl border border-steel-blue/20 animated-border glow-on-hover">
                 <div className="mb-2 mt-1 text-sm font-semibold uppercase tracking-wide text-ui-purple sm:col-span-2">
                   2020 — 2023
@@ -176,20 +197,86 @@ const Index = () => {
                 <div className="sm:col-span-6">
                   <h4 className="font-medium leading-snug text-pearl text-lg">
                     <div>
-                      <span>
-                        Science & Innovation Program{' '}
-                        <span className="inline-block">
-                          — DENEYAP Technology Workshops
+                      <a
+                        className="relative inline-flex items-baseline font-medium leading-tight text-pearl hover:text-ui-blue focus-visible:text-ui-blue transition-colors duration-300"
+                        href="https://www.deneyap.org/en"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        aria-label="DENEYAP Technology Workshops (opens in a new tab, English)"
+                      >
+                        {/* purely decorative highlight; no pointer events */}
+                        <span className="absolute pointer-events-none -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+                        <span>
+                          Science &amp; Innovation Program of Turkey{' '}
+                          <span className="inline-block">
+                            — DENEYAP Technology Workshops
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              className="inline-block h-4 w-4 shrink-0 transition-transform hover:-translate-y-1 hover:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px"
+                              aria-hidden="true"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                          </span>
                         </span>
-                      </span>
+                      </a>
                     </div>
                   </h4>
+
                   <p className="text-sm text-cool-gray mt-2">
                     Advanced technology and innovation program focused on STEM education, programming, and project-based learning.
                   </p>
+
+                  {/* DENEYAP Certificates Toggle */}
+                  <button
+                    type="button"
+                    className="mt-3 relative z-10 inline-flex items-center gap-2 text-sm font-medium text-ui-blue hover:text-ui-purple focus-visible:text-ui-purple transition-colors"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setShowDeneyapCerts((prev) => !prev);
+                    }}
+                    aria-expanded={showDeneyapCerts}
+                    aria-controls="deneyap-certs"
+                  >
+                    Certificates
+                    <ChevronDown className={`h-4 w-4 transition-transform ${showDeneyapCerts ? 'rotate-180' : ''}`} />
+                  </button>
+
+                  <div
+                    id="deneyap-certs"
+                    className={`mt-3 relative z-20 rounded-lg border border-steel-blue/30 bg-midnight/40 p-4 text-sm text-cool-gray ${showDeneyapCerts ? 'block' : 'hidden'}`}
+                  >
+                    <ul className="space-y-2">
+                      {DENEYAP_CERTS.map((c) => (
+                        <li key={c.title}>
+                          <a
+                            href={c.url}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            onClick={(e) => e.stopPropagation()}
+                            className="group inline-flex items-center justify-between w-full rounded-md px-3 py-2 border border-steel-blue/30 hover:border-ui-blue/50 bg-midnight/40 hover:bg-midnight/60 transition-colors text-pearl pointer-events-auto"
+                            aria-label={`${c.title} certificate (${c.date}) — opens in a new tab`}
+                          >
+                            <span className="text-sm">
+                              <span className="font-medium">{c.title}</span>
+                              <span className="text-cool-gray"> — {c.date}</span>
+                            </span>
+                            <ExternalLink className="h-4 w-4 opacity-70 group-hover:opacity-100 transition-opacity" />
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
-              
+
+              {/* Yaşar University */}
               <div className="group relative grid pb-4 transition-all sm:grid-cols-8 sm:gap-8 hover:!opacity-100 group-hover/list:opacity-50 p-6 bg-gradient-to-r from-deep-blue/30 to-ocean-blue/20 rounded-xl border border-steel-blue/20 animated-border glow-on-hover">
                 <div className="mb-2 mt-1 text-sm font-semibold uppercase tracking-wide text-ui-blue sm:col-span-2">
                   2023 — Present
@@ -198,13 +285,14 @@ const Index = () => {
                   <h4 className="font-medium leading-snug text-pearl text-lg">
                     <div>
                       <a
-                        className="inline-flex items-baseline font-medium leading-tight text-pearl hover:text-ui-blue focus-visible:text-ui-blue group/link transition-colors duration-300"
+                        className="relative inline-flex items-baseline font-medium leading-tight text-pearl hover:text-ui-blue focus-visible:text-ui-blue transition-colors duration-300"
                         href="https://www.yasar.edu.tr/"
                         target="_blank"
                         rel="noreferrer noopener"
                         aria-label="Yaşar University (opens in a new tab)"
                       >
-                        <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+                        {/* make this highlight non-interactive */}
+                        <span className="absolute pointer-events-none -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
                         <span>
                           B.Sc. Software Engineering{' '}
                           <span className="inline-block">
@@ -213,7 +301,7 @@ const Index = () => {
                               xmlns="http://www.w3.org/2000/svg"
                               viewBox="0 0 20 20"
                               fill="currentColor"
-                              className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px"
+                              className="inline-block h-4 w-4 shrink-0 transition-transform hover:-translate-y-1 hover:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px"
                               aria-hidden="true"
                             >
                               <path
@@ -251,7 +339,7 @@ const Index = () => {
                   ))}
                 </div>
               </div>
-              
+
               {/* Backend Skills */}
               <div className="bg-gradient-to-br from-ui-purple/10 to-ui-purple/5 p-6 rounded-xl border border-ui-purple/20 hover:border-ui-purple/40 transition-all duration-300 glow-on-hover">
                 <div className="flex items-center gap-3 mb-6">
@@ -264,7 +352,7 @@ const Index = () => {
                   ))}
                 </div>
               </div>
-              
+
               {/* Java Skills */}
               <div className="bg-gradient-to-br from-ui-teal/10 to-ui-teal/5 p-6 rounded-xl border border-ui-teal/20 hover:border-ui-teal/40 transition-all duration-300 glow-on-hover">
                 <div className="flex items-center gap-3 mb-6">
@@ -277,12 +365,12 @@ const Index = () => {
                   ))}
                 </div>
               </div>
-              
+
               {/* Testing Skills */}
               <div className="bg-gradient-to-br from-ui-blue/10 to-ui-teal/5 p-6 rounded-xl border border-ui-blue/20 hover:border-ui-teal/40 transition-all duration-300 glow-on-hover">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-3 h-3 bg-gradient-to-r from-ui-blue to-ui-teal rounded-full animate-pulse"></div>
-                  <h4 className="text-lg font-semibold text-pearl">Testing & QA</h4>
+                  <h4 className="text-lg font-semibold text-pearl">Testing &amp; QA</h4>
                 </div>
                 <div className="flex flex-wrap gap-3">
                   {['Selenium WebDriver', 'JUnit 5', 'Black-box Testing'].map((skill, index) => (
@@ -290,13 +378,13 @@ const Index = () => {
                   ))}
                 </div>
               </div>
-              
+
               {/* Tools & Platforms */}
               <div className="lg:col-span-2">
                 <div className="bg-gradient-to-r from-ui-purple/10 via-ui-blue/10 to-ui-teal/10 p-6 rounded-xl border border-ui-purple/20 hover:border-ui-blue/40 transition-all duration-300 glow-on-hover">
                   <div className="flex items-center gap-3 mb-6">
                     <div className="w-3 h-3 bg-gradient-to-r from-ui-purple via-ui-blue to-ui-teal rounded-full animate-pulse"></div>
-                    <h4 className="text-lg font-semibold text-pearl">Tools & Platforms</h4>
+                    <h4 className="text-lg font-semibold text-pearl">Tools &amp; Platforms</h4>
                   </div>
                   <div className="flex flex-wrap gap-3 justify-center">
                     {['GitHub', 'Vercel', 'Iyzico'].map((skill, index) => (
@@ -305,7 +393,7 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-               
+
               {/* Languages */}
               <div className="lg:col-span-2">
                 <div className="p-6">
@@ -324,11 +412,12 @@ const Index = () => {
                       <div className="flex items-center justify-center gap-3 mb-2">
                         <span className="text-3xl">🇹🇷</span>
                       </div>
-                      <div><h5 className="font-semibold text-pearl text-lg">Turkish</h5>
+                      <div>
+                        <h5 className="font-semibold text-pearl text-lg">Turkish</h5>
                         <span className="text-sm text-ui-teal">Native</span>
                       </div>
                     </div>
-                    
+
                     <div className="text-center">
                       <div className="flex items-center justify-center gap-3 mb-2">
                         <span className="text-3xl">🇺🇸</span>
@@ -341,7 +430,7 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-              
+
               {/* Personal Interests */}
               <div className="lg:col-span-2">
                 <div className="p-6">
@@ -362,21 +451,21 @@ const Index = () => {
                         <span className="text-sm text-ui-purple">Turkey National Team</span>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-center gap-3">
                       <div>
                         <h5 className="font-semibold text-pearl">Gaming Enthusiast</h5>
                         <span className="text-sm text-ui-blue">Online Games</span>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-center gap-3">
                       <div>
                         <h5 className="font-semibold text-pearl">Travel Explorer</h5>
                         <span className="text-sm text-ui-teal">World Traveler</span>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-center gap-3">
                       <div>
                         <h5 className="font-semibold text-pearl">Tech Learning</h5>
@@ -386,6 +475,7 @@ const Index = () => {
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
          </div>
