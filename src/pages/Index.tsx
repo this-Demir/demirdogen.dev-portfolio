@@ -60,7 +60,7 @@ const Index = () => {
           <ol className="group/list space-y-8">
             <li>
               <ExperienceCard
-                period="2023 — Present"
+                period="2025 — Present"
                 title="Volunteer Developer & Project Lead"
                 company="YU-Sync"
                 companyUrl="https://yu-sync.com"
@@ -109,6 +109,9 @@ const Index = () => {
                 title="3D Ray-Tracer Simulation"
                 description="A Java-based ray tracer with a JavaFX UI for rendering previews and a small gallery of development steps. Includes a 'development journey' section documenting design choices and iterations."
                 technologies={['Java', 'JavaFX', 'Gradle']}
+                links={[
+                  { label: 'GitHub', url: 'https://github.com/this-Demir/ArtGallery_SwingUI', type: 'github' }
+                ]}
               />
             </li>
             <li>
@@ -116,13 +119,16 @@ const Index = () => {
                 title="Avo Breeze — E-commerce Demo"
                 description="A full-stack demo that showcases a production-style architecture with .NET 8 Web API, SQL database, JWT authentication, and Iyzico payment integration on the backend, paired with a React frontend using Bootstrap UI."
                 technologies={['.NET 8', 'React', 'SQL', 'Bootstrap', 'JWT', 'Iyzico']}
+                links={[
+                  { label: 'GitHub', url: 'https://github.com/this-Demir/ArtGallery_SwingUI', type: 'github' }
+                ]}
               />
             </li>
             <li>
               <ProjectCard
                 title="Art Gallery Swing UI"
                 description="A SQL-focused Java Swing application for artwork listing, bidding, rating, and sales. Most business logic implemented in the database layer with stored procedures, functions, views, and triggers."
-                technologies={['Java', 'MySQL', 'JDBC', 'Gradle']}
+                technologies={['Java', 'MySQL']}
                 links={[
                   { label: 'GitHub', url: 'https://github.com/this-Demir/ArtGallery_SwingUI', type: 'github' }
                 ]}
@@ -300,81 +306,88 @@ const Index = () => {
                 </div>
               </div>
                
-               {/* Languages */}
-               <div className="lg:col-span-2">
-                 <div className="p-6">
-                   <div className="flex items-center gap-3 mb-6">
-                     <div className="w-3 h-3 bg-gradient-to-r from-ui-teal to-ui-blue rounded-full animate-pulse"></div>
-                     <h4 className="text-lg font-semibold text-pearl">Languages</h4>
-                   </div>
-                   <div className="flex gap-12 justify-center">
-                     <div className="text-center">
-                       <div className="flex items-center justify-center gap-3 mb-2">
-                         <span className="text-lg text-ui-teal">🗣️</span>
-                       </div>
-                       <div>
-                         <h5 className="font-semibold text-pearl text-lg">Turkish</h5>
-                         <span className="text-sm text-ui-teal">Native</span>
-                       </div>
-                     </div>
-                     
-                     <div className="text-center">
-                       <div className="flex items-center justify-center gap-3 mb-2">
-                         <span className="text-lg text-ui-blue">💬</span>
-                       </div>
-                       <div>
-                         <h5 className="font-semibold text-pearl text-lg">English</h5>
-                         <span className="text-sm text-ui-blue">B1+</span>
-                       </div>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-               
-               {/* Personal Interests */}
-               <div className="lg:col-span-2">
-                 <div className="p-6">
-                   <div className="flex items-center gap-3 mb-6">
-                     <div className="w-3 h-3 bg-gradient-to-r from-ui-purple via-ui-blue to-ui-teal rounded-full animate-pulse"></div>
-                     <h4 className="text-lg font-semibold text-pearl">Personal Interests</h4>
-                   </div>
-                   <div className="grid grid-cols-2 gap-6">
-                     <div className="flex items-center gap-3">
-                       <span className="text-lg text-ui-purple">⚔️</span>
-                       <div>
-                         <h5 className="font-semibold text-pearl">Former National Fencer</h5>
-                         <span className="text-sm text-ui-purple">Turkey National Team</span>
-                       </div>
-                     </div>
-                     
-                     <div className="flex items-center gap-3">
-                       <span className="text-lg text-ui-blue">🎯</span>
-                       <div>
-                         <h5 className="font-semibold text-pearl">Gaming Enthusiast</h5>
-                         <span className="text-sm text-ui-blue">Online Games</span>
-                       </div>
-                     </div>
-                     
-                     <div className="flex items-center gap-3">
-                       <span className="text-lg text-ui-teal">🗺️</span>
-                       <div>
-                         <h5 className="font-semibold text-pearl">Travel Explorer</h5>
-                         <span className="text-sm text-ui-teal">World Traveler</span>
-                       </div>
-                     </div>
-                     
-                     <div className="flex items-center gap-3">
-                       <span className="text-lg text-ui-purple">⚡</span>
-                       <div>
-                         <h5 className="font-semibold text-pearl">Tech Learning</h5>
-                         <span className="text-sm text-ui-purple">New Technologies</span>
-                       </div>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-             </div>
-           </div>
+              {/* Languages */}
+              <div className="lg:col-span-2">
+                <div className="p-6">
+                  <div className="flex items-center gap-3 mb-6">
+                    <span
+                      className="text-xl mr-1 select-none filter grayscale opacity-90"
+                      aria-hidden="true"
+                      title="Languages"
+                    >
+                      🌐
+                    </span>
+                    <h4 className="text-lg font-semibold text-pearl">Languages</h4>
+                  </div>
+                  <div className="flex gap-12 justify-center">
+                    <div className="text-center">
+                      <div className="flex items-center justify-center gap-3 mb-2">
+                        <span className="text-3xl">🇹🇷</span>
+                      </div>
+                      <div><h5 className="font-semibold text-pearl text-lg">Turkish</h5>
+                        <span className="text-sm text-ui-teal">Native</span>
+                      </div>
+                    </div>
+                    
+                    <div className="text-center">
+                      <div className="flex items-center justify-center gap-3 mb-2">
+                        <span className="text-3xl">🇺🇸</span>
+                      </div>
+                      <div>
+                        <h5 className="font-semibold text-pearl text-lg">English</h5>
+                        <span className="text-sm text-ui-blue">B1+</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Personal Interests */}
+              <div className="lg:col-span-2">
+                <div className="p-6">
+                  <div className="flex items-center gap-3 mb-6">
+                    <span
+                      className="text-xl mr-1 select-none filter grayscale opacity-90"
+                      aria-hidden="true"
+                      title="Personal Interests"
+                    >
+                      ☆
+                    </span>
+                    <h4 className="text-lg font-semibold text-pearl">Personal Interests</h4>
+                  </div>
+                  <div className="grid grid-cols-2 gap-6">
+                    <div className="flex items-center gap-3">
+                      <div>
+                        <h5 className="font-semibold text-pearl">Former National Fencer</h5>
+                        <span className="text-sm text-ui-purple">Turkey National Team</span>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-3">
+                      <div>
+                        <h5 className="font-semibold text-pearl">Gaming Enthusiast</h5>
+                        <span className="text-sm text-ui-blue">Online Games</span>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-3">
+                      <div>
+                        <h5 className="font-semibold text-pearl">Travel Explorer</h5>
+                        <span className="text-sm text-ui-teal">World Traveler</span>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-3">
+                      <div>
+                        <h5 className="font-semibold text-pearl">Tech Learning</h5>
+                        <span className="text-sm text-ui-purple">New Technologies</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
          </div>
       </section>
 

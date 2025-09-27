@@ -35,15 +35,11 @@ const PersonalizedHeader = () => {
         <div className="flex flex-wrap gap-4 text-sm text-silver">
           <div className="flex items-center gap-2 group">
             <Globe className="h-4 w-4 text-accent group-hover:animate-bounce-subtle" />
-            <span>Türkiye → World</span>
+            <span>Türkiye - İzmir</span>
           </div>
           <div className="flex items-center gap-2 group">
             <Code2 className="h-4 w-4 text-primary group-hover:animate-bounce-subtle" />
             <span>React • .NET • Java</span>
-          </div>
-          <div className="flex items-center gap-2 group">
-            <img src={yuSyncLogo} alt="YU-Sync" className="h-4 w-4 opacity-75 group-hover:opacity-100 transition-opacity" />
-            <span>YU-Sync Creator</span>
           </div>
         </div>
       </div>

@@ -25,11 +25,16 @@ const ProjectCard = ({
   links = [],
   stats
 }: ProjectCardProps) => {
+  // Görsel var/yok durumuna göre içerik kolon genişliği ve order ayarı
+  const contentColClasses = image
+    ? 'sm:order-2 sm:col-span-6'
+    : 'sm:col-span-8';
+
   return (
     <SpotlightCard className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
       <div className="absolute -inset-x-1 -inset-y-1 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-1.5 lg:block lg:group-hover:bg-slate/[0.08] lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
       
-      <div className="z-10 sm:order-2 sm:col-span-6">
+      <div className={`z-10 ${contentColClasses}`}>
         <h3>
           <a
             className="inline-flex items-baseline font-medium leading-tight text-lightest-slate hover:text-green focus-visible:text-green group/link text-base"
@@ -45,17 +50,17 @@ const ProjectCard = ({
             </span>
           </a>
         </h3>
-        
+
         <div className="mt-2 text-sm leading-normal text-slate">
           {description}
         </div>
-        
+
         {stats && (
           <div className="mt-2 text-sm font-medium text-slate">
             {stats}
           </div>
         )}
-        
+
         {links.length > 0 && (
           <ul className="mt-2 flex flex-wrap" aria-label="Related links">
             {links.map((link, index) => (
@@ -78,7 +83,7 @@ const ProjectCard = ({
             ))}
           </ul>
         )}
-        
+
         {technologies.length > 0 && (
           <ul className="mt-2 flex flex-wrap gap-1.5" aria-label="Technologies used">
             {technologies.map((tech) => (
@@ -89,7 +94,7 @@ const ProjectCard = ({
           </ul>
         )}
       </div>
-      
+
       {image && (
         <img
           alt={imageAlt}
