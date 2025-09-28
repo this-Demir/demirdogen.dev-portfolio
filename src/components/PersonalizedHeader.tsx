@@ -1,8 +1,6 @@
-import { Code2, Coffee, Globe } from 'lucide-react';
-import yuSyncLogo from '../assets/yu-sync-logo.png';
+import { Code2, MapPin } from 'lucide-react';
 
 const PersonalizedHeader = () => {
-
   return (
     <div className="space-y-6">
       {/* Name with gradient effect */}
@@ -14,7 +12,7 @@ const PersonalizedHeader = () => {
             </span>
           </a>
         </h1>
-        
+
         {/* Static role */}
         <div className="mt-4">
           <h2 className="text-lg font-medium text-silver sm:text-xl lg:text-2xl">
@@ -30,11 +28,11 @@ const PersonalizedHeader = () => {
           <span className="text-ui-blue font-medium">meaningful projects</span> that make a{' '}
           <span className="text-ui-purple font-medium">positive impact</span> in people's lives.
         </p>
-        
+
         {/* Quick facts with icons */}
         <div className="flex flex-wrap gap-4 text-sm text-silver">
           <div className="flex items-center gap-2 group">
-            <Globe className="h-4 w-4 text-accent group-hover:animate-bounce-subtle" />
+            <MapPin className="h-4 w-4 text-ui-purple group-hover:animate-bounce-subtle" />
             <span>Türkiye - İzmir</span>
           </div>
           <div className="flex items-center gap-2 group">

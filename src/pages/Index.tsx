@@ -1,30 +1,106 @@
-import Layout from '../components/Layout';
-import ExperienceCard from '../components/ExperienceCard';
-import ProjectCard from '../components/ProjectCard';
-import AnimatedSkillBadge from '../components/AnimatedSkillBadge';
-import VolunteerBadge from '../components/VolunteerBadge';
-import PersonalizedFooter from '../components/PersonalizedFooter';
+import { useState, useMemo, useCallback, Suspense, lazy } from 'react';
 import { GraduationCap, Award, Target, Briefcase, Code2, ChevronDown, ExternalLink } from 'lucide-react';
-import { useState } from 'react';
 
+// LAZY COMPONENT IMPORTS 
+const ExperienceCard = lazy(() => import('../components/ExperienceCard'));
+const ProjectCard = lazy(() => import('../components/ProjectCard'));
+const VolunteerBadge = lazy(() => import('../components/VolunteerBadge'));
+const PersonalizedFooter = lazy(() => import('../components/PersonalizedFooter'));
+const SkillLogoGrid = lazy(() => import('../components/SkillLogoGrid'));
+const ExpandableDetails = lazy(() => import('@/components/ExpandableDetails'));
+
+import type { SkillLogoItem } from '../components/SkillLogoGrid';
+
+// Sertifikalar
 import certSoftware from '../assets/certificates/01198133400321.png';
 import certAdvRobotics from '../assets/certificates/79043806143681.png';
 import certRoboticsCoding from '../assets/certificates/58744354428702.png';
 import certDesignManufacturing from '../assets/certificates/86104404021822.png';
 import certIot from '../assets/certificates/13456881419360.png';
 
-/* DENEYAP certificates (reverse-chronological) */
+// Ray tracer görselleri
+import rayShot1 from '../assets/projects/raytracer/solarsystem.png';
+import rayShot2 from '../assets/projects/raytracer/rays-ui.png';
+import rayShot3 from '../assets/projects/raytracer/glass-metal.png';
+
+
+import Layout from '../components/Layout';
+
+/* DENEYAP certificates  */
 const DENEYAP_CERTS = [
   { title: 'Software Technologies',  date: 'Apr 2 – Jul 17, 2022', url: certSoftware },
   { title: 'Advanced Robotics',      date: 'Jan 3 – Apr 10, 2022', url: certAdvRobotics },
   { title: 'Electronics Programming & Internet of Things', date: 'Dec 18, 2021 – Mar 27, 2022', url: certIot},
   { title: 'Robotics & Coding',      date: 'Sep 4 – Nov 28, 2021', url: certRoboticsCoding},
   { title: 'Design & Manufacturing', date: 'May 1 – Jun 27, 2021', url: certDesignManufacturing },
-  
 ];
+
+/* ----------- LOGOS ----------- */
+const FRONTEND_LOGOS: SkillLogoItem[] = [
+  { name: 'React', query: ['react'], href: 'https://react.dev' },
+  { name: 'Vite', query: ['vite'], href: 'https://vitejs.dev' },
+  { name: 'TypeScript', query: ['typescript','ts'], href: 'https://www.typescriptlang.org/' },
+  { name: 'JavaScript', query: ['javascript','js'], href: 'https://developer.mozilla.org/docs/Web/JavaScript' },
+  { name: 'Tailwind CSS', query: ['tailwind','tailwindcss'], href: 'https://tailwindcss.com' },
+  { name: 'Bootstrap', query: ['bootstrap'], href: 'https://getbootstrap.com' },
+];
+
+const BACKEND_LOGOS: SkillLogoItem[] = [
+  { name: '.NET 8', query: ['dotnet','net','.net'], href: 'https://dotnet.microsoft.com/' },
+  { name: 'REST APIs', query: ['rest','openapi','swagger'], href: 'https://swagger.io/specification/' },
+  { name: 'MySQL', query: ['mysql'], href: 'https://www.mysql.com/' }, 
+  { name: 'C#', query: ['csharp','c#','c-sharp','cs'], href: 'https://learn.microsoft.com/dotnet/csharp/' },
+  { name: 'Python', query: ['python','py'], href: 'https://www.python.org/' },
+];
+
+const JAVA_LOGOS: SkillLogoItem[] = [
+  { name: 'Java', query: ['java'], href: 'https://www.java.com/' },
+  { name: 'JavaFX', query: ['javafx'] },
+  { name: 'Gradle', query: ['gradle'], href: 'https://gradle.org/' },
+];
+
+const TESTING_LOGOS: SkillLogoItem[] = [
+  { name: 'Selenium', query: ['selenium','webdriver'], href: 'https://www.selenium.dev/' },
+  { name: 'JUnit 5', query: ['junit5','junit'], href: 'https://junit.org/junit5/' },
+  { name: 'Postman', query: ['postman'], href: 'https://www.postman.com' },
+];
+
+const TOOLS_LOGOS: SkillLogoItem[] = [
+  { name: 'GitHub', query: ['github'], href: 'https://github.com' },
+  { name: 'Vercel', query: ['vercel'], href: 'https://vercel.com' },
+  { name: 'Iyzico', query: ['iyzico'], href: 'https://www.iyzico.com' },
+];
+
+const SkeletonLine = ({ w = 'w-32' }: { w?: string }) => (
+  <div className={`h-4 ${w} rounded bg-deep-blue/30 animate-pulse`} />
+);
+const CardSkeleton = () => (
+  <div className="rounded-xl border border-steel-blue/20 p-6 bg-midnight/40">
+    <div className="flex flex-col gap-3">
+      <SkeletonLine w="w-40" />
+      <SkeletonLine w="w-64" />
+      <SkeletonLine w="w-52" />
+    </div>
+  </div>
+);
 
 const Index = () => {
   const [showDeneyapCerts, setShowDeneyapCerts] = useState(false);
+
+  const navItems = useMemo(
+    () => ([
+      { id: 'about', label: 'About' },
+      { id: 'experience', label: 'Experience' },
+      { id: 'projects', label: 'Projects' },
+      { id: 'writing', label: 'Skills' },
+    ]),
+    []
+  );
+
+  const scrollToSection = useCallback((sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    element?.scrollIntoView({ behavior: 'smooth' });
+  }, []);
 
   return (
     <Layout>
@@ -75,31 +151,36 @@ const Index = () => {
           <Briefcase className="h-6 w-6 text-ui-blue" />
           <h2 className="text-xl font-semibold text-pearl">Experience</h2>
         </div>
-        <div className="animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-          <ol className="group/list space-y-8">
-            <li>
-              <ExperienceCard
-                period="2025 — Present"
-                title="Volunteer Developer & Project Lead"
-                company="YU-Sync"
-                companyUrl="https://yu-sync.com"
-                description={
-                  <div className="space-y-3">
-                    <p>Built a volunteer scheduling app to help Yaşar University students select courses more easily. Drove the project from concept to a working web app and coordinated contributions, with an emphasis on simple UX and robust logic for backtracking-based course planning.</p>
-                    <div className="flex flex-wrap gap-2 mt-3">
-                      <VolunteerBadge type="volunteer" />
-                      <VolunteerBadge type="users" delay={100} />
+
+        <Suspense fallback={<CardSkeleton />}>
+          <div className="animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+            <ol className="group/list space-y-8">
+              <li>
+                <ExperienceCard
+                  period="2025 — Present"
+                  title="Volunteer Developer & Project Lead"
+                  company="YU-Sync"
+                  companyUrl="https://yu-sync.com"
+                  description={
+                    <div className="space-y-3">
+                      <p>Built a volunteer scheduling app to help Yaşar University students select courses more easily. Drove the project from concept to a working web app and coordinated contributions, with an emphasis on simple UX and robust logic for backtracking-based course planning.</p>
+                      <div className="flex flex-wrap gap-2 mt-3">
+                        <Suspense fallback={<SkeletonLine w="w-20" />}>
+                          <VolunteerBadge type="volunteer" />
+                        </Suspense>
+                        <Suspense fallback={<SkeletonLine w="w-20" />}>
+                          <VolunteerBadge type="users" delay={100} />
+                        </Suspense>
+                      </div>
                     </div>
-                  </div>
-                }
-                technologies={['React', 'TypeScript', 'Tailwind', 'JavaScript', 'Python']}
-                links={[
-                  { label: 'yu-sync.com', url: 'https://yu-sync.com' }
-                ]}
-              />
-            </li>
-          </ol>
-        </div>
+                  }
+                  technologies={['React', 'TypeScript', 'Tailwind', 'JavaScript', 'Python']}
+                  links={[{ label: 'yu-sync.com', url: 'https://yu-sync.com' }]}
+                />
+              </li>
+            </ol>
+          </div>
+        </Suspense>
       </section>
 
       {/* Projects Section */}
@@ -111,51 +192,188 @@ const Index = () => {
           <Code2 className="h-6 w-6 text-ui-purple" />
           <h2 className="text-xl font-semibold text-pearl">Featured Projects</h2>
         </div>
-        <div className="animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-          <ul className="group/list space-y-8">
-            <li>
-              <ProjectCard
-                title="YU-Sync — Course Scheduling App"
-                description="A volunteer web app that applies backtracking algorithms to help students compose valid schedules with preference handling. Built with React, TypeScript, and Tailwind CSS for a clean, mobile-first UI with robust state management."
-                technologies={['React', 'TypeScript', 'Tailwind', 'JavaScript', 'Python']}
-                links={[
-                  { label: 'yu-sync.com', url: 'https://yu-sync.com'},
-                  {label: 'GitHub', url: 'https://github.com/this-Demir/ArtGallery_SwingUI', type: 'github'}
-                ]}
-              />
-            </li>
-            <li>
-              <ProjectCard
-                title="3D Ray-Tracer Simulation"
-                description="A Java-based ray tracer with a JavaFX UI for rendering previews and a small gallery of development steps. Includes a 'development journey' section documenting design choices and iterations."
-                technologies={['Java', 'JavaFX', 'Gradle']}
-                links={[
-                  { label: 'GitHub', url: 'https://github.com/this-Demir/ArtGallery_SwingUI', type: 'github' }
-                ]}
-              />
-            </li>
-            <li>
-              <ProjectCard
-                title="Avo Breeze — E-commerce Demo"
-                description="A full-stack demo that showcases a production-style architecture with .NET 8 Web API, SQL database, JWT authentication, and Iyzico payment integration on the backend, paired with a React frontend using Bootstrap UI."
-                technologies={['.NET 8', 'React', 'SQL', 'Bootstrap', 'JWT', 'Iyzico']}
-                links={[
-                  { label: 'GitHub', url: 'https://github.com/this-Demir/ArtGallery_SwingUI', type: 'github' }
-                ]}
-              />
-            </li>
-            <li>
-              <ProjectCard
-                title="Art Gallery Swing UI"
-                description="A SQL-focused Java Swing application for artwork listing, bidding, rating, and sales. Most business logic implemented in the database layer with stored procedures, functions, views, and triggers."
-                technologies={['Java', 'MySQL']}
-                links={[
-                  { label: 'GitHub', url: 'https://github.com/this-Demir/ArtGallery_SwingUI', type: 'github' }
-                ]}
-              />
-            </li>
-          </ul>
-        </div>
+
+        <Suspense fallback={<CardSkeleton />}>
+          <div className="animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+            <ul className="group/list space-y-8">
+              <li>
+                <ProjectCard
+                  title="YU-Sync — Smart Course Scheduler"
+                  description="A volunteer web app that helps Yaşar University students build conflict-free timetables with a clean, mobile-first UX. Uses a backtracking solver to generate valid schedules while honoring user preferences."
+                  technologies={['React', 'TypeScript', 'Tailwind', 'JavaScript', 'Python']}
+                  links={[{ label: 'yu-sync.com', url: 'https://yu-sync.com' }]}
+                  details={
+                    <Suspense fallback={<SkeletonLine w="w-24" />}>
+                      <ExpandableDetails label="Details" size="sm">
+                        <div className="space-y-3">
+                          <div className="rounded-lg border border-steel-blue/30 bg-midnight/40 p-3">
+                            <p className="text-sm text-cool-gray mb-2 font-medium">What it does</p>
+                            <ul className="list-disc pl-5 text-sm text-cool-gray space-y-1">
+                              <li>
+                                <strong>Helps Yaşar University students</strong> build conflict-free timetables using a
+                                backtracking search with lightweight heuristics and pruning.
+                              </li>
+                              <li><strong>One-tap selection</strong> flows for quick add/remove and “try another schedule”.</li>
+                              <li>Focused, <strong>mobile-first UI</strong> for fast, distraction-free course picking.</li>
+                            </ul>
+                          </div>
+
+                          <div className="rounded-lg border border-steel-blue/30 bg-midnight/40 p-3">
+                            <p className="text-sm text-cool-gray mb-2 font-medium">Usage & Reach (snapshot)</p>
+                            <ul className="list-disc pl-5 text-sm text-cool-gray space-y-1">
+                              <li><strong>~5–6K</strong> visitors • <strong>~10–12K</strong> page views (recent 2-week window)</li>
+                              <li>Primarily organic discovery via search.</li>
+                            </ul>
+                          </div>
+
+                          <div className="rounded-lg border border-steel-blue/30 bg-midnight/40 p-3">
+                            <p className="text-sm text-cool-gray mb-2 font-medium">Performance</p>
+                            <ul className="list-disc pl-5 text-sm text-cool-gray space-y-1">
+                              <li>Real Experience Score (Desktop): <strong>100/100</strong></li>
+                            </ul>
+                          </div>
+
+                          <p className="text-xs italic text-ui-purple/90">
+                            Built as a community project; no affiliation with Yaşar University. Hosting on Vercel. Numbers shown are indicative ranges; raw analytics are not exposed.
+                          </p>
+                        </div>
+                      </ExpandableDetails>
+                    </Suspense>
+                  }
+                />
+              </li>
+
+              <li>
+                <ProjectCard
+                  title="Java 3D Ray Tracing Simulation"
+                  description={
+                    <p>
+                      A physically-based <strong>path tracer</strong> written in Java with an
+                      interactive <strong>JavaFX</strong> UI. Supports diffuse/metal/glass (dielectric)
+                      and emissive materials, reflections/refractions, soft lighting and an exposure/
+                      brightness workflow. The outliner + material panel let you tweak objects live and
+                      visualize bounce rays while rendering.
+                    </p>
+                  }
+                  technologies={['Java 21', 'Gradle', 'JavaFX UI', 'Path Tracing', 'AABB']}
+                  links={[{ label: 'GitHub', url: 'https://github.com/this-Demir/ArtGallery_SwingUI', type: 'github' }]}
+                  details={
+                    <Suspense fallback={<SkeletonLine w="w-24" />}>
+                      <ExpandableDetails label="Details" size="sm">
+                        <div className="space-y-3" style={{ contentVisibility: 'auto' }}>
+                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <img
+                              src={rayShot1}
+                              alt="Solar system style scene"
+                              className="rounded-lg border border-slate/15"
+                              loading="lazy"
+                              decoding="async"
+                            />
+                            <img
+                              src={rayShot2}
+                              alt="Ray debug + UI panel"
+                              className="rounded-lg border border-slate/15"
+                              loading="lazy"
+                              decoding="async"
+                            />
+                            <img
+                              src={rayShot3}
+                              alt="Glass & metal materials"
+                              className="rounded-lg border border-slate/15"
+                              loading="lazy"
+                              decoding="async"
+                            />
+                          </div>
+
+                          <ul className="list-disc pl-5 text-sm">
+                            <li><strong>Renderer:</strong> Monte-Carlo path tracing with multiple bounces, tone mapping / exposure &amp; gamma correction.</li>
+                            <li><strong>Materials:</strong> Lambertian (diffuse), Metal, Dielectric (glass) and Emissive lights.</li>
+                            <li><strong>UI/Tools:</strong> Outliner (select objects), live <em>Transform</em> &amp; <em>Material</em> editing, add/remove spheres,
+                                “Show Rays” overlay, mouse-look camera, SPP/Exposure sliders.</li>
+                            <li><strong>Geometry:</strong> Spheres, XZ rectangles, disks; intersection bounds via <em>AABB</em>.</li>
+                          </ul>
+
+                          <p className="text-xs italic text-ui-purple/90">
+                            This simulation is <strong>CPU</strong> based.
+                          </p>
+                        </div>
+                      </ExpandableDetails>
+                    </Suspense>
+                  }
+                />
+              </li>
+
+              <li>
+                <ProjectCard
+                  title="Udemy Web Application Test Plan"
+                  description={
+                    <p>
+                      A black-box UI testing project for a learning website. Using
+                      <strong> Selenium WebDriver</strong> and <strong>JUnit 5</strong>, it automates user flows
+                      like search, category navigation, cart, checkout, and total calculations to verify
+                      the site behaves correctly—even with unexpected inputs.
+                    </p>
+                  }
+                  technologies={['Java', 'JUnit 5', 'Selenium WebDriver', 'ChromeDriver']}
+                  links={[{ label: 'GitHub', url: 'https://github.com/this-Demir/Se2226-Testing', type: 'github' }]}
+                  details={
+                    <Suspense fallback={<SkeletonLine w="w-24" />}>
+                      <ExpandableDetails label="Details" size="sm">
+                        <div className="rounded-lg border border-steel-blue/30 bg-midnight/40 p-3">
+                          <p className="text-sm text-cool-gray mb-2 font-medium">Test Bots</p>
+                          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-cool-gray">
+                            <li>• <strong>DiscUdemyTestBot</strong> — search, category navigation, title validation</li>
+                            <li>• <strong>UdemyTestBot</strong> — search testing (limited by Cloudflare bot protection)</li>
+                            <li>• <strong>SauceDemoTestBot</strong> — cart, checkout, totals/tax verification</li>
+                          </ul>
+                        </div>
+
+                        <p className="mt-3">
+                          <strong>14</strong> automated JUnit test classes. Techniques: Equivalence Partitioning,
+                          Boundary Value Analysis, Decision Tables, and Use-Case testing.
+                        </p>
+
+                        <ul className="list-disc pl-5">
+                          <li>Search: valid/invalid keywords, length limits, forbidden characters</li>
+                          <li>Categories: navigation across multiple category buttons</li>
+                          <li>Cart/Checkout: add/remove, login requirement, duplicates, boundary states</li>
+                          <li>Financials: total = subtotal + tax; mismatch and zero-tax scenarios</li>
+                        </ul>
+
+                        <p className="text-xs italic text-ui-blue/90 mt-2">
+                          Note: Due to bot protection on Udemy, search tests use DiscUdemy where possible.
+                          SauceDemo is used as a reliable e-commerce simulation.
+                        </p>
+
+                        <p className="text-xs italic text-ui-purple/90">
+                          This project is <strong>entirely for educational purposes</strong>.
+                        </p>
+                      </ExpandableDetails>
+                    </Suspense>
+                  }
+                />
+              </li>
+
+              <li>
+                <ProjectCard
+                  title="Avo Breeze — E-commerce Demo"
+                  description="A full-stack demo that showcases a production-style architecture with .NET 8 Web API, SQL database, JWT authentication, and Iyzico payment integration on the backend, paired with a React frontend using Bootstrap UI."
+                  technologies={['.NET 8', 'React', 'SQL', 'Bootstrap', 'JWT', 'Iyzico']}
+                  links={[{ label: 'GitHub', url: 'https://github.com/this-Demir/ArtGallery_SwingUI', type: 'github' }]}
+                />
+              </li>
+
+              <li>
+                <ProjectCard
+                  title="Art Gallery Swing UI"
+                  description="A SQL-focused Java Swing application for artwork listing, bidding, rating, and sales. Most business logic implemented in the database layer with stored procedures, functions, views, and triggers."
+                  technologies={['Java', 'MySQL']}
+                  links={[{ label: 'GitHub', url: 'https://github.com/this-Demir/ArtGallery_SwingUI', type: 'github' }]}
+                />
+              </li>
+            </ul>
+          </div>
+        </Suspense>
       </section>
 
       {/* Education & Skills Section */}
@@ -163,6 +381,7 @@ const Index = () => {
         <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-midnight/80 px-6 py-4 backdrop-blur md:-mx-12 md:px-12 lg:-mx-24 lg:px-24 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:py-0 lg:opacity-0">
           <h2 className="text-sm font-bold uppercase tracking-widest text-cool-gray lg:sr-only">Education &amp; Skills</h2>
         </div>
+
         <div className="space-y-12 animate-fade-in-up" style={{ animationDelay: '600ms' }}>
           {/* Education */}
           <div>
@@ -204,7 +423,6 @@ const Index = () => {
                         rel="noreferrer noopener"
                         aria-label="DENEYAP Technology Workshops (opens in a new tab, English)"
                       >
-                        {/* purely decorative highlight; no pointer events */}
                         <span className="absolute pointer-events-none -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
                         <span>
                           Science &amp; Innovation Program of Turkey{' '}
@@ -291,7 +509,6 @@ const Index = () => {
                         rel="noreferrer noopener"
                         aria-label="Yaşar University (opens in a new tab)"
                       >
-                        {/* make this highlight non-interactive */}
                         <span className="absolute pointer-events-none -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
                         <span>
                           B.Sc. Software Engineering{' '}
@@ -326,71 +543,62 @@ const Index = () => {
               <Award className="h-6 w-6 text-ui-purple" />
               <h3 className="text-xl font-semibold text-pearl">Technical Skills</h3>
             </div>
+
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* Frontend Skills */}
-              <div className="bg-gradient-to-br from-ui-blue/10 to-ui-blue/5 p-6 rounded-xl border border-ui-blue/20 hover:border-ui-blue/40 transition-all duration-300 glow-on-hover">
+              <div className="bg-gradient-to-br from-ui-blue/10 to-ui-blue/5 p-7 rounded-xl border border-ui-blue/20 hover:border-ui-blue/40 transition-all duration-300 glow-on-hover min-h-[260px]">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-3 h-3 bg-ui-blue rounded-full animate-pulse"></div>
                   <h4 className="text-lg font-semibold text-pearl">Front-end Development</h4>
                 </div>
-                <div className="grid grid-cols-2 gap-3">
-                  {['React', 'Vite', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Bootstrap'].map((skill, index) => (
-                    <AnimatedSkillBadge key={skill} skill={skill} category="frontend" delay={index * 100} />
-                  ))}
-                </div>
+                <Suspense fallback={<SkeletonLine w="w-28" />}>
+                  <SkillLogoGrid items={FRONTEND_LOGOS} perRow={3} size="lg" className="mx-auto" />
+                </Suspense>
               </div>
 
               {/* Backend Skills */}
-              <div className="bg-gradient-to-br from-ui-purple/10 to-ui-purple/5 p-6 rounded-xl border border-ui-purple/20 hover:border-ui-purple/40 transition-all duration-300 glow-on-hover">
+              <div className="bg-gradient-to-br from-ui-purple/10 to-ui-purple/5 p-7 rounded-xl border border-ui-purple/20 hover:border-ui-purple/40 transition-all duration-300 glow-on-hover min-h-[260px]">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-3 h-3 bg-ui-purple rounded-full animate-pulse"></div>
                   <h4 className="text-lg font-semibold text-pearl">Back-end Development</h4>
                 </div>
-                <div className="grid grid-cols-2 gap-3">
-                  {['.NET 8', 'REST APIs', 'SQL', 'MySQL', 'SQL Server', 'JWT', 'Python'].map((skill, index) => (
-                    <AnimatedSkillBadge key={skill} skill={skill} category="backend" delay={index * 100} />
-                  ))}
-                </div>
+                <Suspense fallback={<SkeletonLine w="w-28" />}>
+                  <SkillLogoGrid items={BACKEND_LOGOS} perRow={3} size="lg" className="mx-auto" />
+                </Suspense>
               </div>
 
               {/* Java Skills */}
-              <div className="bg-gradient-to-br from-ui-teal/10 to-ui-teal/5 p-6 rounded-xl border border-ui-teal/20 hover:border-ui-teal/40 transition-all duration-300 glow-on-hover">
+              <div className="bg-gradient-to-br from-ui-teal/10 to-ui-teal/5 p-7 rounded-xl border border-ui-teal/20 hover:border-ui-teal/40 transition-all duration-300 glow-on-hover min-h-[230px]">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-3 h-3 bg-ui-teal rounded-full animate-pulse"></div>
                   <h4 className="text-lg font-semibold text-pearl">Java Ecosystem</h4>
                 </div>
-                <div className="flex flex-wrap gap-3">
-                  {['Java', 'JavaFX', 'Gradle'].map((skill, index) => (
-                    <AnimatedSkillBadge key={skill} skill={skill} category="java" delay={index * 100} />
-                  ))}
-                </div>
+                <Suspense fallback={<SkeletonLine w="w-28" />}>
+                  <SkillLogoGrid items={JAVA_LOGOS} perRow={3} size="lg" className="mx-auto" />
+                </Suspense>
               </div>
 
               {/* Testing Skills */}
-              <div className="bg-gradient-to-br from-ui-blue/10 to-ui-teal/5 p-6 rounded-xl border border-ui-blue/20 hover:border-ui-teal/40 transition-all duration-300 glow-on-hover">
+              <div className="bg-gradient-to-br from-ui-blue/10 to-ui-teal/5 p-7 rounded-xl border border-ui-blue/20 hover:border-ui-teal/40 transition-all duration-300 glow-on-hover min-h-[230px]">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-3 h-3 bg-gradient-to-r from-ui-blue to-ui-teal rounded-full animate-pulse"></div>
                   <h4 className="text-lg font-semibold text-pearl">Testing &amp; QA</h4>
                 </div>
-                <div className="flex flex-wrap gap-3">
-                  {['Selenium WebDriver', 'JUnit 5', 'Black-box Testing'].map((skill, index) => (
-                    <AnimatedSkillBadge key={skill} skill={skill} category="testing" delay={index * 100} />
-                  ))}
-                </div>
+                <Suspense fallback={<SkeletonLine w="w-28" />}>
+                  <SkillLogoGrid items={TESTING_LOGOS} perRow={3} size="lg" className="mx-auto" />
+                </Suspense>
               </div>
 
               {/* Tools & Platforms */}
               <div className="lg:col-span-2">
-                <div className="bg-gradient-to-r from-ui-purple/10 via-ui-blue/10 to-ui-teal/10 p-6 rounded-xl border border-ui-purple/20 hover:border-ui-blue/40 transition-all duration-300 glow-on-hover">
+                <div className="bg-gradient-to-r from-ui-purple/10 via-ui-blue/10 to-ui-teal/10 p-7 rounded-xl border border-ui-purple/20 hover:border-ui-blue/40 transition-all duration-300 glow-on-hover min-h-[230px]">
                   <div className="flex items-center gap-3 mb-6">
                     <div className="w-3 h-3 bg-gradient-to-r from-ui-purple via-ui-blue to-ui-teal rounded-full animate-pulse"></div>
                     <h4 className="text-lg font-semibold text-pearl">Tools &amp; Platforms</h4>
                   </div>
-                  <div className="flex flex-wrap gap-3 justify-center">
-                    {['GitHub', 'Vercel', 'Iyzico'].map((skill, index) => (
-                      <AnimatedSkillBadge key={skill} skill={skill} category="tools" delay={index * 100} />
-                    ))}
-                  </div>
+                  <Suspense fallback={<SkeletonLine w="w-28" />}>
+                    <SkillLogoGrid items={TOOLS_LOGOS} perRow={3} size="lg" className="mx-auto" />
+                  </Suspense>
                 </div>
               </div>
 
@@ -398,13 +606,7 @@ const Index = () => {
               <div className="lg:col-span-2">
                 <div className="p-6">
                   <div className="flex items-center gap-3 mb-6">
-                    <span
-                      className="text-xl mr-1 select-none filter grayscale opacity-90"
-                      aria-hidden="true"
-                      title="Languages"
-                    >
-                      🌐
-                    </span>
+                    <span className="text-xl mr-1 select-none opacity-90" aria-hidden="true" title="Languages">🌐</span>
                     <h4 className="text-lg font-semibold text-pearl">Languages</h4>
                   </div>
                   <div className="flex gap-12 justify-center">
@@ -435,13 +637,7 @@ const Index = () => {
               <div className="lg:col-span-2">
                 <div className="p-6">
                   <div className="flex items-center gap-3 mb-6">
-                    <span
-                      className="text-xl mr-1 select-none filter grayscale opacity-90"
-                      aria-hidden="true"
-                      title="Personal Interests"
-                    >
-                      ☆
-                    </span>
+                    <span className="text-xl mr-1 select-none opacity-90" aria-hidden="true" title="Personal Interests">☆</span>
                     <h4 className="text-lg font-semibold text-pearl">Personal Interests</h4>
                   </div>
                   <div className="grid grid-cols-2 gap-6">
@@ -478,10 +674,12 @@ const Index = () => {
 
             </div>
           </div>
-         </div>
+        </div>
       </section>
 
-      <PersonalizedFooter />
+      <Suspense fallback={<div className="my-8"><SkeletonLine w="w-40" /></div>}>
+        <PersonalizedFooter />
+      </Suspense>
     </Layout>
   );
 };

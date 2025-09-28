@@ -13,7 +13,7 @@ const PersonalizedFooter = () => {
         
         {/* Copyright */}
         <p className="text-xs text-cool-gray">
-          © {new Date().getFullYear()} Demir Demirdöğen. All rights reserved.
+          © {new Date().getFullYear()} Demir Demirdöğen.
         </p>
         
         {/* Easter egg */}
