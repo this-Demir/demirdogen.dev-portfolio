@@ -59,14 +59,13 @@ const COL_MAP: Record<number, string> = {
 
 const SkillLogoGridBase: React.FC<SkillLogoGridProps> = ({
   items,
-  perRow = 3,              // ← her satırda en fazla 3
-  size = "lg",              // ← daha büyük ve ferah
+  perRow = 3, // her satırda en fazla 3
+  size = "lg", // daha büyük ve ferah
   maxVisible,
   className = "",
   showCaption = true,
 }) => {
-  const tileSize =
-    size === "sm" ? "size-12" : size === "md" ? "size-14" : "size-16"; // 48 / 56 / 64px
+  const tileSize = size === "sm" ? "size-12" : size === "md" ? "size-14" : "size-16"; // 48 / 56 / 64px
   const iconWH = size === "sm" ? 28 : size === "md" ? 32 : 36;
   const itemWidth = size === "lg" ? "w-[124px]" : size === "md" ? "w-[108px]" : "w-[96px]";
   const list = maxVisible ? items.slice(0, maxVisible) : items;
@@ -93,9 +92,9 @@ const SkillLogoGridBase: React.FC<SkillLogoGridProps> = ({
               title={it.name}
               className={`
                 group flex flex-col items-center ${itemWidth}
-                rounded-xl p-2.5
-                transition hover:bg-white/5
-                focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20
+                rounded-xl p-2.5 transition
+                hover:bg-black/5 dark:hover:bg-white/5
+                focus:outline-none focus-visible:ring-2 focus-visible:ring-ui-blue/30
               `}
             >
               <div className={`grid place-items-center ${tileSize}`}>
@@ -114,14 +113,26 @@ const SkillLogoGridBase: React.FC<SkillLogoGridProps> = ({
                 ) : (
                   <div
                     aria-hidden="true"
-                    className="grid place-items-center h-8 w-8 rounded-lg bg-white/10 text-white/80 text-sm font-semibold"
+                    className="
+                      grid place-items-center h-8 w-8 rounded-lg
+                      bg-muted text-muted-foreground
+                      dark:bg-white/10 dark:text-white/80
+                      text-sm font-semibold
+                    "
                   >
                     {it.name.slice(0, 1).toUpperCase()}
                   </div>
                 )}
               </div>
+
               {showCaption && (
-                <span className="mt-2 w-full truncate text-center text-[11px] text-slate-200">
+                <span
+                  className="
+                    mt-2 w-full truncate text-center text-[11px]
+                    text-muted-foreground
+                    transition-colors group-hover:text-foreground
+                  "
+                >
                   {it.name}
                 </span>
               )}
@@ -135,3 +146,4 @@ const SkillLogoGridBase: React.FC<SkillLogoGridProps> = ({
 
 const SkillLogoGrid = React.memo(SkillLogoGridBase);
 export default SkillLogoGrid;
+export type { SkillLogoGridProps };

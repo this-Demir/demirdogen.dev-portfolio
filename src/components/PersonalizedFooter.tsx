@@ -21,6 +21,10 @@ const PersonalizedFooter = () => {
           <p className="text-xs text-cool-gray font-mono">
             // TODO: Make the world a better place, one line of code at a time
           </p>
+          <p className="text-xs text-cool-gray">
+            Design inspired by <a href="https://brittanychiang.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-ui-blue">Brittany Chiang</a>. Not affiliated.
+          </p>
+
         </div>
       </div>
     </footer>

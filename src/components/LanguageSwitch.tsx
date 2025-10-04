@@ -1,3 +1,4 @@
+import { Globe } from 'lucide-react';
 import React from 'react';
 
 type Lang = 'en' | 'tr';
@@ -8,30 +9,34 @@ interface Props {
   className?: string;
 }
 
+/** Sosyal ikonlarla aynı vibe: tek ikon buton (Globe) — tıklayınca EN<->TR */
 const LanguageSwitch: React.FC<Props> = ({ value, onChange, className = '' }) => {
+  const next = value === 'en' ? 'tr' : 'en';
+  const label = value === 'en' ? 'Switch to Turkish' : 'Switch to English';
+
   return (
-    <div
-      className={`inline-flex items-center rounded-lg border border-steel-blue/40 bg-midnight/50 p-0.5 ${className}`}
-      role="group"
-      aria-label="Language switch"
+    <button
+      type="button"
+      onClick={() => onChange(next)}
+      aria-label={label}
+      aria-pressed={value === 'tr'}
+      className={`
+        group relative p-2 rounded-lg transition-all
+        text-ui-purple/70 hover:text-ui-purple
+        hover:bg-ui-purple/10 focus-visible:outline-none
+        focus-visible:ring-2 focus-visible:ring-ui-purple/40
+        ${className}
+      `}
     >
-      {(['en', 'tr'] as Lang[]).map((lang) => (
-        <button
-          key={lang}
-          type="button"
-          onClick={() => onChange(lang)}
-          data-active={value === lang}
-          className="
-            px-2.5 py-1 text-xs font-medium tracking-wide rounded-md transition-all
-            text-cool-gray hover:text-pearl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ui-blue/60
-            data-[active=true]:bg-deep-blue/40 data-[active=true]:text-pearl
-          "
-          aria-pressed={value === lang}
-        >
-          {lang.toUpperCase()}
-        </button>
-      ))}
-    </div>
+      <Globe className="h-6 w-6 group-hover:animate-bounce-subtle" aria-hidden="true" />
+      <span
+        className="absolute -bottom-8 left-1/2 -translate-x-1/2
+                   text-xs font-medium opacity-0 group-hover:opacity-100
+                   transition-opacity whitespace-nowrap"
+      >
+        {value.toUpperCase()}
+      </span>
+    </button>
   );
 };
 
