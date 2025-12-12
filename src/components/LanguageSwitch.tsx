@@ -1,4 +1,4 @@
-import { Globe } from 'lucide-react';
+import { Languages } from 'lucide-react';
 import React from 'react';
 
 type Lang = 'en' | 'tr';
@@ -9,7 +9,6 @@ interface Props {
   className?: string;
 }
 
-/** Sosyal ikonlarla aynı vibe: tek ikon buton (Globe) — tıklayınca EN<->TR */
 const LanguageSwitch: React.FC<Props> = ({ value, onChange, className = '' }) => {
   const next = value === 'en' ? 'tr' : 'en';
   const label = value === 'en' ? 'Switch to Turkish' : 'Switch to English';
@@ -28,7 +27,7 @@ const LanguageSwitch: React.FC<Props> = ({ value, onChange, className = '' }) =>
         ${className}
       `}
     >
-      <Globe className="h-6 w-6 group-hover:animate-bounce-subtle" aria-hidden="true" />
+      <Languages className="h-6 w-6 group-hover:animate-bounce-subtle" aria-hidden="true" />
       <span
         className="absolute -bottom-8 left-1/2 -translate-x-1/2
                    text-xs font-medium opacity-0 group-hover:opacity-100

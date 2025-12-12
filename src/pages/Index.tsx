@@ -9,6 +9,7 @@ import {
   type ReactNode,
 } from 'react';
 import { GraduationCap, Award, Target, Briefcase, Code2, ChevronDown, ExternalLink, Cpu, Globe, Wrench } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 // --- LOGO IMPORTS (Dosya İsimlerine Tam Uyumlu) ---
 import JavaLogo from '../assets/tech-logos/Java.svg';
@@ -275,6 +276,7 @@ const DeneyapCertList = lazy(async () => {
 const Index = () => {
   // Deneyap sertifikalarını açıp kapatan state
   const [showDeneyapCerts, setShowDeneyapCerts] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <Suspense fallback={<div className="min-h-screen bg-background text-foreground font-sans relative overflow-x-clip"></div>}>
@@ -282,30 +284,21 @@ const Index = () => {
         {/* About Section */}
         <section id="about" className="mb-12 scroll-mt-8 md:mb-16 lg:mb-20 lg:scroll-mt-12">
           <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-midnight/80 px-6 py-4 backdrop-blur md:-mx-12 md:px-12 lg:-mx-24 lg:px-24 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:py-0 lg:opacity-0">
-            <h2 className="text-sm font-bold uppercase tracking-widest text-cool-gray lg:sr-only">About</h2>
+            <h2 className="text-sm font-bold uppercase tracking-widest text-cool-gray lg:sr-only">{t.nav.about}</h2>
           </div>
           <div className="space-y-6 animate-fade-in-up">
             <p className="text-lg leading-relaxed text-silver">
-              I'm a Software Engineering student who enjoys turning ideas into useful, well-crafted products. I focus on clear problem framing, thoughtful UI/UX, and reliable engineering—from front-end work in React/TypeScript to back-end APIs with .NET and SQL.
+              {t.about.p1}
             </p>
             <p className="leading-relaxed text-cool-gray">
-              I value teamwork, clarity, and incremental improvement, and I'm motivated by building things that genuinely help people. Currently pursuing my{' '}
-              <a
-                className="font-medium text-ui-blue hover:text-ui-purple focus-visible:text-ui-purple transition-colors duration-300 glow-on-hover px-1 py-0.5 rounded"
-                href="https://www.yasar.edu.tr/"
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label="Yaşar University"
-              >
-                Bachelor's degree in Software Engineering at Yaşar University
-              </a>.
+              {t.about.p2}
             </p>
             {/* Personal mission statement */}
             <div className="mt-8 p-6 bg-gradient-to-r from-deep-blue/50 to-ocean-blue/30 rounded-xl border border-steel-blue/30 animated-border">
               <div className="flex items-start gap-3">
                 <Target className="h-5 w-5 text-ui-blue mt-1 flex-shrink-0" />
                 <p className="text-silver font-medium">
-                  Try my best to improve myself
+                  {t.about.mission}
                 </p>
               </div>
             </div>
@@ -315,11 +308,11 @@ const Index = () => {
         {/* Experience Section */}
         <section id="experience" className="mb-12 scroll-mt-8 md:mb-16 lg:mb-20 lg:scroll-mt-12">
           <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-midnight/80 px-6 py-4 backdrop-blur md:-mx-12 md:px-12 lg:-mx-24 lg:px-24 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:py-0 lg:opacity-0">
-            <h2 className="text-sm font-bold uppercase tracking-widest text-cool-gray lg:sr-only">Experience</h2>
+            <h2 className="text-sm font-bold uppercase tracking-widest text-cool-gray lg:sr-only">{t.nav.experience}</h2>
           </div>
           <div className="flex items-center gap-3 mb-8">
             <Briefcase className="h-6 w-6 text-ui-blue" />
-            <h2 className="text-xl font-semibold text-pearl">Experience</h2>
+            <h2 className="text-xl font-semibold text-pearl">{t.experience.title}</h2>
           </div>
 
           <Suspense fallback={<CardSkeleton />}>
@@ -327,13 +320,13 @@ const Index = () => {
               <ol className="group/list space-y-8">
                 <li>
                   <ExperienceCard
-                    period="2025 — Present"
-                    title="Volunteer Developer & Project Lead"
-                    company="YU-Sync"
+                    period={t.experience.yusync.period}
+                    title={t.experience.yusync.title}
+                    company={t.experience.yusync.company}
                     companyUrl="https://yu-sync.com"
                     description={
                       <div className="space-y-3">
-                        <p>Built a volunteer scheduling app to help Yaşar University students select courses more easily. Drove the project from concept to a working web app.</p>
+                        <p>{t.experience.yusync.desc}</p>
                         <div className="flex flex-wrap gap-2 mt-3">
                           <Suspense fallback={<SkeletonLine w="w-20" />}>
                             <VolunteerBadge type="volunteer" />
@@ -356,11 +349,11 @@ const Index = () => {
         {/* Projects Section */}
         <section id="projects" className="mb-12 scroll-mt-8 md:mb-16 lg:mb-20 lg:scroll-mt-12">
           <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-midnight/80 px-6 py-4 backdrop-blur md:-mx-12 md:px-12 lg:-mx-24 lg:px-24 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:py-0 lg:opacity-0">
-            <h2 className="text-sm font-bold uppercase tracking-widest text-cool-gray lg:sr-only">Projects</h2>
+            <h2 className="text-sm font-bold uppercase tracking-widest text-cool-gray lg:sr-only">{t.nav.projects}</h2>
           </div>
           <div className="flex items-center gap-3 mb-8">
             <Code2 className="h-6 w-6 text-ui-purple" />
-            <h2 className="text-xl font-semibold text-pearl">Featured Projects</h2>
+            <h2 className="text-xl font-semibold text-pearl">{t.projects.title}</h2>
           </div>
 
           <Suspense fallback={<CardSkeleton />}>
@@ -369,18 +362,13 @@ const Index = () => {
                 {/* --- NEW VULKAN PROJECT --- */}
                 <li>
                   <ProjectCard
-                    title="Vulkan BVH Ray Tracer"
-                    description={
-                      <p>
-                        A high-performance, <strong>real-time ray tracing engine</strong> engineered from the ground up with <strong>Java</strong> and <strong>Vulkan</strong> (LWJGL). 
-                        It moves beyond static images, offering a <strong>live viewer</strong> where you can import <strong>custom .obj models</strong>, manipulate scene geometry, and observe physically-based light interactions (reflections, soft shadows) at <strong>60+ FPS</strong>.
-                      </p>
-                    }
+                    title={t.projects.vulkan.title}
+                    description={<p>{t.projects.vulkan.desc}</p>}
                     technologies={['Java 21', 'Vulkan', 'LWJGL', 'GLSL Compute', 'Multithreading']}
                     links={[{ label: 'GitHub', url: 'https://github.com/this-Demir/Vulkan-BVH-RayTracer', type: 'github' }]}
                     details={
                       <Suspense fallback={<SkeletonLine w="w-24" />}>
-                        <ExpandableDetails label="Technical Deep Dive" size="sm">
+                        <ExpandableDetails label={t.projects.vulkan.detailLabel} size="sm">
                            <div className="space-y-4 min-w-0 break-words hyphens-auto" style={{ contentVisibility: 'auto' }}>
                             <InViewOnce
                               placeholder={<div className="h-40 rounded-lg bg-deep-blue/20 animate-pulse" />}
@@ -391,24 +379,24 @@ const Index = () => {
                             </InViewOnce>
 
                             <div className="space-y-3">
-                                <h4 className="text-sm font-semibold text-pearl">Key Engineering Features:</h4>
+                                <h4 className="text-sm font-semibold text-pearl">{t.projects.vulkan.featuresTitle}</h4>
                                 <ul className="list-disc pl-5 text-sm text-silver/90 text-balance space-y-2">
                                   <li>
-                                    <strong>Dynamic OBJ Loader & Scene Graph:</strong> Seamlessly parses external 3D models and integrates them into the scene. You can add objects, move them, and see how they interact with light in real-time.
+                                    <strong>Dynamic OBJ Loader & Scene Graph:</strong> {t.projects.vulkan.f1}
                                   </li>
                                   <li>
-                                    <strong>O(log n) GPU Acceleration:</strong> Utilizes a Bounding Volume Hierarchy (BVH) built on the CPU and flattened for the GPU. This allows rendering complex scenes (49,000+ triangles) with massive performance gains over the CPU version.
+                                    <strong>O(log n) GPU Acceleration:</strong> {t.projects.vulkan.f2}
                                   </li>
                                   <li>
-                                    <strong>Triple-Thread Architecture:</strong> I designed a custom architecture decoupling the <em>UI (Swing)</em>, <em>Render Engine (VRT)</em>, and <em>Scene Builder (SRT)</em> threads. This ensures the UI remains buttery smooth even when the heavy BVH reconstruction is happening in the background.
+                                    <strong>Triple-Thread Architecture:</strong> {t.projects.vulkan.f3}
                                   </li>
                                   <li>
-                                    <strong>Interactive Experience:</strong> Features a fully dynamic camera (WASD) and live material editing. It's not just a renderer; it's a tool.
+                                    <strong>Interactive Experience:</strong> {t.projects.vulkan.f4}
                                   </li>
                                 </ul>
                             </div>
                             <p className="text-xs italic text-ui-purple/90 border-t border-white/10 pt-2 mt-2">
-                              "This project represents the evolution from understanding the math (CPU version) to mastering the hardware (Vulkan version)."
+                              {t.projects.vulkan.quote}
                             </p>
                           </div>
                         </ExpandableDetails>
@@ -419,50 +407,43 @@ const Index = () => {
 
                 <li>
                   <ProjectCard
-                    title="YU-Sync — Smart Course Scheduler"
-                    description="A volunteer web app that helps Yaşar University students build conflict-free timetables with a clean, mobile-first UX. Uses a backtracking solver to generate valid schedules while honoring user preferences."
+                    title={t.projects.yusync.title}
+                    description={t.projects.yusync.desc}
                     technologies={['React', 'TypeScript', 'Tailwind', 'JavaScript', 'Python']}
                     links={[{ label: 'yu-sync.com', url: 'https://yu-sync.com' }]}
                     details={
                       <Suspense fallback={<SkeletonLine w="w-24" />}>
-                        <ExpandableDetails label="Details" size="sm">
+                        <ExpandableDetails label={t.projects.yusync.detailLabel} size="sm">
                           <div className="space-y-3">
                             <div className="rounded-lg border border-steel-blue/30 bg-midnight/40 p-3">
-                              <p className="text-sm text-cool-gray mb-2 font-medium">What it does</p>
+                              <p className="text-sm text-cool-gray mb-2 font-medium">{t.projects.yusync.whatTitle}</p>
                               <ul className="list-disc pl-5 text-sm text-cool-gray space-y-1">
                                 <li>
-                                  <strong>Helps Yaşar University students</strong> build conflict-free timetables using a backtracking search with lightweight heuristics and pruning.
-                                </li>
-                                <li>
-                                  <strong>One-tap selection</strong> flows for quick add/remove and “try another schedule”.
-                                </li>
-                                <li>
-                                  Focused, <strong>mobile-first UI</strong> for fast, distraction-free course picking.
+                                  {t.projects.yusync.whatDesc}
                                 </li>
                               </ul>
                             </div>
 
                             <div className="rounded-lg border border-steel-blue/30 bg-midnight/40 p-3">
-                              <p className="text-sm text-cool-gray mb-2 font-medium">Usage & Reach (snapshot)</p>
+                              <p className="text-sm text-cool-gray mb-2 font-medium">{t.projects.yusync.statsTitle}</p>
                               <ul className="list-disc pl-5 text-sm text-cool-gray space-y-1">
                                 <li>
-                                  <strong>~5–6K</strong> visitors • <strong>~10–12K</strong> page views (recent 2-week window)
+                                  {t.projects.yusync.statsDesc}
                                 </li>
-                                <li>Primarily organic discovery via search.</li>
                               </ul>
                             </div>
 
                             <div className="rounded-lg border border-steel-blue/30 bg-midnight/40 p-3">
-                              <p className="text-sm text-cool-gray mb-2 font-medium">Performance</p>
+                              <p className="text-sm text-cool-gray mb-2 font-medium">{t.projects.yusync.perfTitle}</p>
                               <ul className="list-disc pl-5 text-sm text-cool-gray space-y-1">
                                 <li>
-                                  Real Experience Score (Desktop): <strong>100/100</strong>
+                                  {t.projects.yusync.perfDesc}
                                 </li>
                               </ul>
                             </div>
 
                             <p className="text-xs italic text-ui-purple/90">
-                              Built as a community project; no affiliation with Yaşar University. Hosting on Vercel. Numbers shown are indicative ranges; raw analytics are not exposed.
+                              {t.projects.yusync.note}
                             </p>
                           </div>
                         </ExpandableDetails>
@@ -474,17 +455,13 @@ const Index = () => {
                 {/* --- OLD RAY TRACER (UPDATED) --- */}
                 <li>
                   <ProjectCard
-                    title="Legacy CPU Ray Tracer"
-                    description={
-                      <p>
-                        The <strong>predecessor</strong> to the Vulkan engine. A physically-based path tracer written in Java with a <strong>JavaFX</strong> UI. While it runs entirely on the CPU, it served as the prototyping ground for the material system, lighting logic, and scene architecture now implemented in the GPU version.
-                      </p>
-                    }
+                    title={t.projects.legacyRay.title}
+                    description={<p>{t.projects.legacyRay.desc}</p>}
                     technologies={['Java', 'JavaFX', 'CPU Rendering', 'Path Tracing']}
                     links={[{ label: 'GitHub', url: 'https://github.com/this-Demir/ArtGallery_SwingUI', type: 'github' }]}
                     details={
                       <Suspense fallback={<SkeletonLine w="w-24" />}>
-                        <ExpandableDetails label="Legacy Details" size="sm">
+                        <ExpandableDetails label={t.projects.legacyRay.detailLabel} size="sm">
                           <div className="space-y-3 min-w-0 break-words hyphens-auto" style={{ contentVisibility: 'auto' }}>
                             <InViewOnce
                               placeholder={<div className="h-28 rounded-lg bg-deep-blue/20 animate-pulse" />}
@@ -496,15 +473,12 @@ const Index = () => {
 
                             <ul className="list-disc pl-5 text-sm text-silver/90 text-balance">
                               <li>
-                                <strong>Core Logic:</strong> Implements Monte-Carlo path tracing, dielectric (glass) materials, and soft lighting on the CPU.
+                                <strong>{t.projects.legacyRay.coreLogic}</strong>
                               </li>
                               <li>
-                                <strong>Interactive UI:</strong> Features an outliner for object selection and property editing, though rendering is slower compared to the Vulkan implementation.
+                                <strong>{t.projects.legacyRay.uiLogic}</strong>
                               </li>
                             </ul>
-                            <p className="text-xs italic text-cool-gray/70">
-                                This project laid the mathematical foundation for the Vulkan engine but is limited by CPU single-thread performance.
-                            </p>
                           </div>
                         </ExpandableDetails>
                       </Suspense>
@@ -514,21 +488,16 @@ const Index = () => {
 
                 <li>
                   <ProjectCard
-                    title="Udemy Web Application Test Plan"
-                    description={
-                      <p>
-                        A black-box UI testing project for a learning website. Using <strong> Selenium WebDriver</strong> and <strong>JUnit 5</strong>, it automates user flows like search, category navigation, cart, checkout, and total calculations to verify the site behaves correctly—even with unexpected inputs.
-                      </p>
-                    }
+                    title={t.projects.udemy.title}
+                    description={<p>{t.projects.udemy.desc}</p>}
                     technologies={['Java', 'JUnit 5', 'Selenium WebDriver', 'ChromeDriver']}
                     links={[{ label: 'GitHub', url: 'https://github.com/this-Demir/Se2226-Testing', type: 'github' }]}
                     details={
                       <Suspense fallback={<SkeletonLine w="w-24" />}>
                         <ExpandableDetails label="Details" size="sm">
                           <p className="mt-3">
-                            <strong>14</strong> automated JUnit test classes. Techniques: Equivalence Partitioning, Boundary Value Analysis, Decision Tables, and Use-Case testing.
+                            {t.projects.udemy.detailText}
                           </p>
-                          <p className="text-xs italic text-ui-purple/90">This project is <strong>entirely for educational purposes</strong>.</p>
                         </ExpandableDetails>
                       </Suspense>
                     }
@@ -537,8 +506,8 @@ const Index = () => {
 
                 <li>
                   <ProjectCard
-                    title="Avo Breeze — E-commerce Demo"
-                    description="A full-stack demo that showcases a production-style architecture with .NET 8 Web API, SQL database, JWT authentication, and Iyzico payment integration on the backend, paired with a React frontend using Bootstrap UI."
+                    title={t.projects.avo.title}
+                    description={t.projects.avo.desc}
                     technologies={['.NET 8', 'React', 'SQL', 'Bootstrap', 'JWT', 'Iyzico']}
                     links={[{ label: 'GitHub', url: 'https://github.com/this-Demir/ArtGallery_SwingUI', type: 'github' }]}
                   />
@@ -546,8 +515,8 @@ const Index = () => {
 
                 <li>
                   <ProjectCard
-                    title="Art Gallery Swing UI"
-                    description="A SQL-focused Java Swing application for artwork listing, bidding, rating, and sales. Most business logic implemented in the database layer with stored procedures, functions, views, and triggers."
+                    title={t.projects.artGallery.title}
+                    description={t.projects.artGallery.desc}
                     technologies={['Java', 'MySQL']}
                     links={[{ label: 'GitHub', url: 'https://github.com/this-Demir/ArtGallery_SwingUI', type: 'github' }]}
                   />
@@ -560,7 +529,7 @@ const Index = () => {
         {/* Education & Skills Section */}
         <section id="writing" className="mb-12 scroll-mt-8 md:mb-16 lg:mb-20 lg:scroll-mt-12">
           <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-midnight/80 px-6 py-4 backdrop-blur md:-mx-12 md:px-12 lg:-mx-24 lg:px-24 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:py-0 lg:opacity-0">
-            <h2 className="text-sm font-bold uppercase tracking-widest text-cool-gray lg:sr-only">Education &amp; Skills</h2>
+            <h2 className="text-sm font-bold uppercase tracking-widest text-cool-gray lg:sr-only">{t.education.title} &amp; {t.skills.title}</h2>
           </div>
 
           <div className="space-y-12 animate-fade-in-up" style={{ animationDelay: '600ms' }}>
@@ -569,7 +538,7 @@ const Index = () => {
             <div>
               <div className="flex items-center gap-3 mb-8">
                 <GraduationCap className="h-6 w-6 text-ui-blue" />
-                <h3 className="text-xl font-semibold text-pearl">Education</h3>
+                <h3 className="text-xl font-semibold text-pearl">{t.education.title}</h3>
               </div>
 
               {/* Education Map Container */}
@@ -582,7 +551,7 @@ const Index = () => {
                    
                    <div className="group relative grid pb-4 transition-all sm:grid-cols-8 sm:gap-8 hover:!opacity-100 group-hover/list:opacity-50 p-6 bg-gradient-to-r from-deep-blue/30 to-ocean-blue/20 rounded-xl border border-steel-blue/20 animated-border glow-on-hover">
                     <div className="mb-2 mt-1 text-sm font-semibold uppercase tracking-wide text-ui-blue sm:col-span-2">
-                      2023 — Present
+                      {t.education.yasar.date}
                     </div>
                     <div className="sm:col-span-6">
                       <h4 className="font-medium leading-snug text-pearl text-lg">
@@ -596,7 +565,7 @@ const Index = () => {
                           >
                             <span className="absolute pointer-events-none -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block" />
                             <span>
-                              B.Sc. Software Engineering <span className="inline-block">— Yaşar University
+                              {t.education.yasar.degree} <span className="inline-block">— {t.education.yasar.school}
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="inline-block h-4 w-4 shrink-0 transition-transform hover:-translate-y-1 hover:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true">
                                   <path fillRule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clipRule="evenodd" />
                                 </svg>
@@ -606,9 +575,9 @@ const Index = () => {
                         </div>
                       </h4>
                       <div className="mt-2 flex flex-col sm:flex-row sm:items-center gap-2 text-sm text-cool-gray">
-                          <span>3rd Year Student</span>
+                          <span>{t.education.yasar.year}</span>
                           <span className="hidden sm:inline text-ui-blue/50">•</span>
-                          <span>GPA: <span className="text-ui-teal font-medium">3.18</span></span>
+                          <span>{t.education.yasar.gpa}: <span className="text-ui-teal font-medium">3.18</span></span>
                       </div>
                     </div>
                   </div>
@@ -620,7 +589,7 @@ const Index = () => {
                    <div className="absolute -left-[31px] top-1 h-4 w-4 rounded-full border-2 border-ui-purple bg-midnight shadow-[0_0_12px_rgba(168,85,247,0.4)] transition-all duration-300" />
                    
                    <div className="group relative grid pb-4 transition-all sm:grid-cols-8 sm:gap-8 hover:!opacity-100 group-hover/list:opacity-50 p-6 bg-gradient-to-r from-deep-blue/30 to-ocean-blue/20 rounded-xl border border-steel-blue/20 animated-border glow-on-hover">
-                    <div className="mb-2 mt-1 text-sm font-semibold uppercase tracking-wide text-ui-purple sm:col-span-2">2020 — 2023</div>
+                    <div className="mb-2 mt-1 text-sm font-semibold uppercase tracking-wide text-ui-purple sm:col-span-2">{t.education.deneyap.date}</div>
                     <div className="sm:col-span-6">
                       <h4 className="font-medium leading-snug text-pearl text-lg">
                         <div>
@@ -633,9 +602,9 @@ const Index = () => {
                           >
                             <span className="absolute pointer-events-none -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block" />
                             <span>
-                              Science &amp; Innovation Program of Turkey{' '}
+                              {t.education.deneyap.title} {' '}
                               <span className="inline-block">
-                                — DENEYAP Technology Workshops
+                                — {t.education.deneyap.org}
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="inline-block h-4 w-4 shrink-0 transition-transform hover:-translate-y-1 hover:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px" aria-hidden="true">
                                   <path fillRule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clipRule="evenodd" />
                                 </svg>
@@ -646,7 +615,7 @@ const Index = () => {
                       </h4>
 
                       <p className="text-sm text-cool-gray mt-2">
-                        Advanced technology and innovation program focused on STEM education, programming, and project-based learning.
+                        {t.education.deneyap.desc}
                       </p>
 
                       {/* DENEYAP Certificates Toggle */}
@@ -660,7 +629,7 @@ const Index = () => {
                         aria-expanded={showDeneyapCerts}
                         aria-controls="deneyap-certs"
                       >
-                        Certificates
+                        {t.education.deneyap.certButton}
                         <ChevronDown className={`h-4 w-4 transition-transform ${showDeneyapCerts ? 'rotate-180' : ''}`} />
                       </button>
 
@@ -686,13 +655,13 @@ const Index = () => {
 
                    <div className="group relative grid pb-4 transition-all sm:grid-cols-8 sm:gap-8 hover:!opacity-100 group-hover/list:opacity-50 p-6 bg-gradient-to-r from-deep-blue/30 to-ocean-blue/20 rounded-xl border border-steel-blue/20 animated-border glow-on-hover">
                     <div className="mb-2 mt-1 text-sm font-semibold uppercase tracking-wide text-ui-teal sm:col-span-2">
-                      2019 — 2023
+                      {t.education.highschool.date}
                     </div>
                     <div className="sm:col-span-6">
                       <h4 className="font-medium leading-snug text-pearl text-lg">
                         <div>
                           <span>
-                            Science High School <span className="inline-block">— Doğa Koleji Fen Lisesi</span>
+                            {t.education.highschool.title} <span className="inline-block">— {t.education.highschool.school}</span>
                           </span>
                         </div>
                       </h4>
@@ -707,14 +676,14 @@ const Index = () => {
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <Cpu className="h-6 w-6 text-ui-blue" />
-                <h3 className="text-xl font-semibold text-pearl">Technical Expertise</h3>
+                <h3 className="text-xl font-semibold text-pearl">{t.skills.title}</h3>
               </div>
 
               {/* 1. Core Specialization (NO FILTER) */}
               <div className="mb-10">
                 <div className="flex items-center gap-4 mb-6">
                    <div className="h-px flex-1 bg-gradient-to-r from-ui-blue/50 to-transparent"></div>
-                   <span className="text-sm font-semibold text-ui-blue tracking-widest uppercase">Core Specialization</span>
+                   <span className="text-sm font-semibold text-ui-blue tracking-widest uppercase">{t.skills.core}</span>
                    <div className="h-px flex-1 bg-gradient-to-l from-ui-blue/50 to-transparent"></div>
                 </div>
                 
@@ -739,7 +708,7 @@ const Index = () => {
               <div>
                 <div className="flex items-center gap-4 mb-4">
                    <div className="h-px flex-1 bg-white/10"></div>
-                      <span className="text-xs font-medium text-cool-gray uppercase tracking-widest">Technologies Used in Projects</span>
+                      <span className="text-xs font-medium text-cool-gray uppercase tracking-widest">{t.skills.tools}</span>
                    <div className="h-px flex-1 bg-white/10"></div>
                 </div>
                 
@@ -755,13 +724,13 @@ const Index = () => {
             <div className="pt-8 border-t border-white/5">
                 <div className="flex items-center gap-3 mb-6">
                   <span className="text-xl opacity-80">✨</span>
-                  <h4 className="text-lg font-semibold text-pearl">Personal Interests</h4>
+                  <h4 className="text-lg font-semibold text-pearl">{t.skills.interestsTitle}</h4>
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-cool-gray">
-                  <div className="flex items-center gap-2"><span className="text-ui-purple">•</span> Former National Fencer</div>
-                  <div className="flex items-center gap-2"><span className="text-ui-blue">•</span> Gaming Enthusiast</div>
-                  <div className="flex items-center gap-2"><span className="text-ui-teal">•</span> World Traveler</div>
-                  <div className="flex items-center gap-2"><span className="text-ui-purple">•</span> Tech Explorer</div>
+                  <div className="flex items-center gap-2"><span className="text-ui-purple">•</span> {t.skills.i1}</div>
+                  <div className="flex items-center gap-2"><span className="text-ui-blue">•</span> {t.skills.i2}</div>
+                  <div className="flex items-center gap-2"><span className="text-ui-teal">•</span> {t.skills.i3}</div>
+                  <div className="flex items-center gap-2"><span className="text-ui-purple">•</span> {t.skills.i4}</div>
                 </div>
             </div>
 

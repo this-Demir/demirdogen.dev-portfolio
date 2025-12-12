@@ -4,6 +4,7 @@ import MouseFlashlight from './MouseFlashlight';
 import PersonalizedHeader from './PersonalizedHeader';
 import LanguageSwitch from './LanguageSwitch';
 import ThemeSwitch from './ThemeSwitch';
+import { useLanguage } from '../context/LanguageContext';
 
 // PDF asset
 import cvPdf from '../assets/cv/Demir-Demirdogen-CV.pdf';
@@ -14,30 +15,12 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   const [activeSection, setActiveSection] = useState('about');
-  const [lang, setLang] = useState<'en' | 'tr'>('en');
+  
+  // Context hook kullanımı
+  const { lang, setLang, t } = useLanguage();
+
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
   const userThemeChosenRef = useRef(false); // kullanıcı manuel tema seçti mi?
-
-  // Dil: storage yoksa system locale'den
-  useEffect(() => {
-    const saved = localStorage.getItem('lang');
-    let initial: 'en' | 'tr';
-    if (saved === 'en' || saved === 'tr') {
-      initial = saved;
-    } else {
-      const nav = (navigator.language || 'en').toLowerCase();
-      initial = nav.startsWith('tr') ? 'tr' : 'en';
-    }
-    setLang(initial);
-    document.documentElement.lang = initial;
-    document.documentElement.setAttribute('data-lang', initial);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('lang', lang);
-    document.documentElement.lang = lang;
-    document.documentElement.setAttribute('data-lang', lang);
-  }, [lang]);
 
   // Tema: storage yoksa system theme'den; kullanıcı seçene kadar system değişimine senkron
   useEffect(() => {
@@ -133,10 +116,10 @@ const Layout = ({ children }: LayoutProps) => {
               <nav className="nav hidden lg:block" aria-label="In-page jump links">
                 <ul className="mt-12 w-max">
                   {[
-                    { id: 'about', label: 'About' },
-                    { id: 'experience', label: 'Experience' },
-                    { id: 'projects', label: 'Projects' },
-                    { id: 'writing', label: 'Skills' },
+                    { id: 'about', label: t.nav.about },
+                    { id: 'experience', label: t.nav.experience },
+                    { id: 'projects', label: t.nav.projects },
+                    { id: 'writing', label: t.nav.skills },
                   ].map(({ id, label }) => (
                     <li key={id}>
                       <button
@@ -212,7 +195,6 @@ const Layout = ({ children }: LayoutProps) => {
                     Download CV
                   </span>
                 </a>
-
 
                 {/* Dil & Tema — aynı satır, çok hafif mor vurgu */}
                 <LanguageSwitch value={lang} onChange={setLang} />

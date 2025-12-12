@@ -1,6 +1,9 @@
 import { Code2, MapPin } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext'; // Hook eklendi
 
 const PersonalizedHeader = () => {
+  const { t } = useLanguage(); // Dil desteği çağrıldı
+
   return (
     <div className="space-y-6">
       {/* Name with gradient effect */}
@@ -13,10 +16,10 @@ const PersonalizedHeader = () => {
           </a>
         </h1>
 
-        {/* Static role */}
+        {/* Dynamic role */}
         <div className="mt-4">
           <h2 className="text-lg font-medium text-silver sm:text-xl lg:text-2xl">
-            Software Engineering Student
+            {t.hero.role}
           </h2>
         </div>
       </div>
@@ -24,20 +27,18 @@ const PersonalizedHeader = () => {
       {/* Personal tagline with icons */}
       <div className="space-y-4">
         <p className="max-w-sm leading-relaxed text-cool-gray text-base lg:text-lg">
-          Constantly learning and growing while building{' '}
-          <span className="text-ui-blue font-medium">meaningful projects</span> that make a{' '}
-          <span className="text-ui-purple font-medium">positive impact</span> in people's lives.
+          {t.hero.tagline}
         </p>
 
         {/* Quick facts with icons */}
         <div className="flex flex-wrap gap-4 text-sm text-silver">
           <div className="flex items-center gap-2 group">
             <MapPin className="h-4 w-4 text-ui-purple group-hover:animate-bounce-subtle" />
-            <span>Türkiye - İzmir</span>
+            <span>{t.hero.location}</span>
           </div>
           <div className="flex items-center gap-2 group">
             <Code2 className="h-4 w-4 text-primary group-hover:animate-bounce-subtle" />
-            <span>React • .NET • Java</span>
+            <span>{t.hero.techStack}</span>
           </div>
         </div>
       </div>
