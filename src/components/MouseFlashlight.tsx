@@ -18,9 +18,7 @@ const MouseFlashlight = () => {
   return (
     <div
       className="pointer-events-none fixed inset-0 z-30 transition duration-300"
-      style={{
-        background: `radial-gradient(37.5rem circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(29, 78, 216, 0.15), transparent 50%)`,
-      }}
+
     />
   );
 };

@@ -20,7 +20,6 @@ export default {
     },
     extend: {
       colors: {
-        // shadcn-style tokens (now alpha-capable)
         border: "hsl(var(--border) / <alpha-value>)",
         input: "hsl(var(--input) / <alpha-value>)",
         ring: "hsl(var(--ring) / <alpha-value>)",
@@ -95,7 +94,6 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        // Demir's custom animations
         "fade-in-up": {
           "0%": { opacity: "0", transform: "translateY(2rem)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
@@ -121,6 +119,10 @@ export default {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-0.25rem)" },
         },
+        // YENİ EKLENEN KAYMA EFEKTİ
+        scroll: {
+          to: { transform: "translate(calc(-50% - 0.5rem))" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -131,6 +133,8 @@ export default {
         "glow-pulse": "glow-pulse 2s ease-in-out infinite",
         "gradient-shift": "gradient-shift 3s ease-in-out infinite",
         "bounce-subtle": "bounce-subtle 2s ease-in-out infinite",
+        // YENİ EKLENEN ANİMASYON
+        scroll: "scroll 40s linear infinite",
       },
     },
   },
