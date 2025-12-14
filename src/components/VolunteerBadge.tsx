@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Heart, Users } from 'lucide-react';
+import { Heart, Users, Activity } from 'lucide-react'; // Activity ikonunu ekledik
 
 interface VolunteerBadgeProps {
-  type: 'volunteer' | 'users';
+  type: 'volunteer' | 'users' | 'live';
   delay?: number;
 }
 
@@ -19,6 +19,13 @@ const VolunteerBadge = ({ type, delay = 0 }: VolunteerBadgeProps) => {
       icon: <Users className="h-4 w-4" />,
       tooltip: '6000 students and 14000 page views during enrollment time',
       gradient: 'from-ui-purple to-ui-teal'
+    },
+    live: {
+      // Activity ikonu: Sistemin aktif/canlı olduğunu gösterir ama hareket etmez
+      icon: <Activity className="h-4 w-4" />, 
+      tooltip: 'Currently Live & Active Integration',
+      // Bir önceki badge teal ile bittiği için, bu teal ile başlayıp yeşile döner
+      gradient: 'from-ui-teal to-emerald-500' 
     }
   };
 
@@ -49,8 +56,8 @@ const VolunteerBadge = ({ type, delay = 0 }: VolunteerBadgeProps) => {
       
       {/* Tooltip */}
       {isHovered && (
-        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 z-20 animate-fade-in">
-          <div className="bg-deep-blue/95 text-silver text-xs rounded-lg px-3 py-2 max-w-xs text-center border border-ui-blue/30 backdrop-blur-sm shadow-xl">
+        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 z-20 animate-fade-in w-max">
+          <div className="bg-deep-blue/95 text-silver text-xs rounded-lg px-3 py-2 max-w-[200px] text-center border border-ui-blue/30 backdrop-blur-sm shadow-xl">
             {badge.tooltip}
             <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-deep-blue/95"></div>
           </div>

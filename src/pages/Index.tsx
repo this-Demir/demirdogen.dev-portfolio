@@ -11,7 +11,7 @@ import {
 import { GraduationCap, Award, Target, Briefcase, Code2, ChevronDown, ExternalLink, Cpu, Globe, Wrench } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
-// --- LOGO IMPORTS (Dosya İsimlerine Tam Uyumlu) ---
+// --- LOGO IMPORTS  ---
 import JavaLogo from '../assets/tech-logos/Java.svg';
 import DotNetLogo from '../assets/tech-logos/dotnet.svg';
 import SupabaseLogo from '../assets/tech-logos/supabase-logo-icon.svg'; 
@@ -236,6 +236,8 @@ const DeneyapCertList = lazy(async () => {
     { title: 'Design & Manufacturing', date: 'May 1 – Jun 27, 2021', url: design.default },
   ];
 
+
+
   const Comp = () => (
     <div className="relative pl-2 pt-1 pb-1">
       {/* Timeline Vertical Line for Certs */}
@@ -294,14 +296,7 @@ const Index = () => {
               {t.about.p2}
             </p>
             {/* Personal mission statement */}
-            <div className="mt-8 p-6 bg-gradient-to-r from-deep-blue/50 to-ocean-blue/30 rounded-xl border border-steel-blue/30 animated-border">
-              <div className="flex items-start gap-3">
-                <Target className="h-5 w-5 text-ui-blue mt-1 flex-shrink-0" />
-                <p className="text-silver font-medium">
-                  {t.about.mission}
-                </p>
-              </div>
-            </div>
+          
           </div>
         </section>
 
@@ -334,6 +329,9 @@ const Index = () => {
                           <Suspense fallback={<SkeletonLine w="w-20" />}>
                             <VolunteerBadge type="users" delay={100} />
                           </Suspense>
+                          <Suspense fallback={<SkeletonLine w="w-20" />}>
+                              <VolunteerBadge type="live" delay={200} />
+                            </Suspense>
                         </div>
                       </div>
                     }
@@ -405,12 +403,13 @@ const Index = () => {
                   />
                 </li>
 
+                {/*---- YU-SYNC --- */ }
                 <li>
                   <ProjectCard
                     title={t.projects.yusync.title}
                     description={t.projects.yusync.desc}
                     technologies={['React', 'TypeScript', 'Tailwind', 'JavaScript', 'Python']}
-                    links={[{ label: 'yu-sync.com', url: 'https://yu-sync.com' }]}
+                    links={[{ label: 'yu-sync.com', url: 'https://yu-sync.com' , type : 'external' }]}
                     details={
                       <Suspense fallback={<SkeletonLine w="w-24" />}>
                         <ExpandableDetails label={t.projects.yusync.detailLabel} size="sm">
@@ -456,29 +455,44 @@ const Index = () => {
                 <li>
                   <ProjectCard
                     title={t.projects.legacyRay.title}
-                    description={<p>{t.projects.legacyRay.desc}</p>}
-                    technologies={['Java', 'JavaFX', 'CPU Rendering', 'Path Tracing']}
+                    description={t.projects.legacyRay.desc}
+                    technologies={['Java', 'JavaFX', 'Multi-Threading', 'CPU Rendering']}
                     links={[{ label: 'GitHub', url: 'https://github.com/this-Demir/ArtGallery_SwingUI', type: 'github' }]}
                     details={
                       <Suspense fallback={<SkeletonLine w="w-24" />}>
                         <ExpandableDetails label={t.projects.legacyRay.detailLabel} size="sm">
-                          <div className="space-y-3 min-w-0 break-words hyphens-auto" style={{ contentVisibility: 'auto' }}>
-                            <InViewOnce
-                              placeholder={<div className="h-28 rounded-lg bg-deep-blue/20 animate-pulse" />}
-                            >
-                              <Suspense fallback={<div className="h-28 rounded-lg bg-deep-blue/20 animate-pulse" />}>
+                          <div className="space-y-5 text-left">
+                            
+                            <InViewOnce placeholder={<div className="h-28 rounded-lg bg-gray-200 dark:bg-slate-800 animate-pulse" />}>
+                              <Suspense fallback={<div className="h-28 rounded-lg bg-gray-200 dark:bg-slate-800 animate-pulse" />}>
                                 <RayImageGrid />
                               </Suspense>
                             </InViewOnce>
 
-                            <ul className="list-disc pl-5 text-sm text-silver/90 text-balance">
-                              <li>
-                                <strong>{t.projects.legacyRay.coreLogic}</strong>
-                              </li>
-                              <li>
-                                <strong>{t.projects.legacyRay.uiLogic}</strong>
-                              </li>
-                            </ul>
+                            <div className="pl-3 border-l-2 border-indigo-400/50 dark:border-indigo-400/30">
+                              <h4 className="text-sm font-semibold text-gray-800 dark:text-indigo-100 mb-1">
+                                {t.projects.legacyRay.archTitle}
+                              </h4>
+                              <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                                {t.projects.legacyRay.archDesc}
+                              </p>
+                            </div>
+                            <div className="pl-3 border-l-2 border-amber-500/60 dark:border-amber-500/40">
+                              <div className="flex items-center gap-2 mb-1">
+                                <h4 className="text-sm font-semibold text-gray-800 dark:text-amber-50">
+                                  {t.projects.legacyRay.limitsTitle}
+                                </h4>
+                              </div>
+                              <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                                {t.projects.legacyRay.limitsDesc}
+                              </p>
+                            </div>
+
+
+                            <p className="text-xs italic text-ui-purple/90">
+                              {t.projects.legacyRay.takeaway}
+                            </p>
+
                           </div>
                         </ExpandableDetails>
                       </Suspense>
@@ -486,18 +500,82 @@ const Index = () => {
                   />
                 </li>
 
+                  { /* --- UDEMY TEST AUTOMATION PROJECT --- */ }
                 <li>
                   <ProjectCard
                     title={t.projects.udemy.title}
-                    description={<p>{t.projects.udemy.desc}</p>}
-                    technologies={['Java', 'JUnit 5', 'Selenium WebDriver', 'ChromeDriver']}
+                    description={t.projects.udemy.desc}
+                    // 'IEEE 829' ve 'Black-Box Testing' ekledik
+                    technologies={['Java', 'Selenium', 'JUnit 5', 'IEEE 829', 'Black-Box Testing']}
                     links={[{ label: 'GitHub', url: 'https://github.com/this-Demir/Se2226-Testing', type: 'github' }]}
                     details={
                       <Suspense fallback={<SkeletonLine w="w-24" />}>
-                        <ExpandableDetails label="Details" size="sm">
-                          <p className="mt-3">
-                            {t.projects.udemy.detailText}
-                          </p>
+                        <ExpandableDetails label={t.projects.udemy.detailLabel} size="sm">
+                          <div className="space-y-6 text-left">
+
+                            <div className="pl-3 border-l-2 border-rose-500/50 dark:border-rose-400/30">
+                              <div className="flex items-center gap-2 mb-2">
+                                <h4 className="text-sm font-bold text-gray-800 dark:text-rose-100">
+                                  {(t.projects.udemy as any).storyTitle}
+                                </h4>
+                              </div>
+                              <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed text-justify">
+                                {(t.projects.udemy as any).storyDesc}
+                              </p>
+                              
+                              <div className="flex flex-wrap gap-2 mt-3">
+                                <span className="text-[10px] px-2 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 font-mono border border-gray-200 dark:border-gray-700">
+                                  TC_BVA (Boundary)
+                                </span>
+                                <span className="text-[10px] px-2 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 font-mono border border-gray-200 dark:border-gray-700">
+                                  TC_EP (Equivalence)
+                                </span>
+                                <span className="text-[10px] px-2 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 font-mono border border-gray-200 dark:border-gray-700">
+                                  Decision Tables
+                                </span>
+                              </div>
+                            </div>
+
+                            <div className="pl-3 border-l-2 border-blue-400/50 dark:border-blue-400/30">
+                              <div className="flex items-center gap-2 mb-2">
+                                <h4 className="text-sm font-bold text-gray-800 dark:text-blue-100">
+                                  {t.projects.udemy.techTitle}
+                                </h4>
+                              </div>
+                              <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed text-justify">
+                                {t.projects.udemy.techDesc}
+                              </p>
+                            </div>
+
+                            <div className="mt-4 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 p-3">
+                              <div className="flex items-center gap-2 mb-3">
+                                <span className="text-xs">👥</span>
+                                  <h5 className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
+                                      {(t.projects.udemy as any).teamTitle}
+                                  </h5>
+                              </div>
+                              
+                              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                {[
+                                  "Demir Demirdöğen",
+                                  "Yağmur Pazı",
+                                  "Batuhan Salcan",
+                                  "Egemen Üner",
+                                  "Efe Bırık"
+                                ].map((member) => (
+                                  <li key={member} className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-teal-400/60"></span>
+                                    {member}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+
+                            <p className="text-xs italic text-ui-purple/90">
+                              {t.projects.udemy.note}
+                            </p>
+
+                          </div>
                         </ExpandableDetails>
                       </Suspense>
                     }
@@ -534,20 +612,17 @@ const Index = () => {
 
           <div className="space-y-12 animate-fade-in-up" style={{ animationDelay: '600ms' }}>
             
-            {/* Education (Timeline Map Style - Reverse Chronological) */}
             <div>
               <div className="flex items-center gap-3 mb-8">
                 <GraduationCap className="h-6 w-6 text-ui-blue" />
                 <h3 className="text-xl font-semibold text-pearl">{t.education.title}</h3>
               </div>
 
-              {/* Education Map Container */}
               <div className="relative pl-6 space-y-12 border-l border-ui-blue/20 ml-2">
                 
-                {/* 1. YAŞAR UNIVERSITY (Top - Current) */}
+                {/* 1. YAŞAR UNIVERSITY  */}
                 <div className="relative">
-                   {/* Dot */}
-                   <div className="absolute -left-[31px] top-1 h-4 w-4 rounded-full border-2 border-ui-blue bg-midnight shadow-[0_0_12px_rgba(56,189,248,0.4)] transition-all duration-300 group-hover:scale-110" />
+                   
                    
                    <div className="group relative grid pb-4 transition-all sm:grid-cols-8 sm:gap-8 hover:!opacity-100 group-hover/list:opacity-50 p-6 bg-gradient-to-r from-deep-blue/30 to-ocean-blue/20 rounded-xl border border-steel-blue/20 animated-border glow-on-hover">
                     <div className="mb-2 mt-1 text-sm font-semibold uppercase tracking-wide text-ui-blue sm:col-span-2">
@@ -585,8 +660,7 @@ const Index = () => {
 
                 {/* 2. DENEYAP (Middle) */}
                 <div className="relative">
-                   {/* Dot */}
-                   <div className="absolute -left-[31px] top-1 h-4 w-4 rounded-full border-2 border-ui-purple bg-midnight shadow-[0_0_12px_rgba(168,85,247,0.4)] transition-all duration-300" />
+                
                    
                    <div className="group relative grid pb-4 transition-all sm:grid-cols-8 sm:gap-8 hover:!opacity-100 group-hover/list:opacity-50 p-6 bg-gradient-to-r from-deep-blue/30 to-ocean-blue/20 rounded-xl border border-steel-blue/20 animated-border glow-on-hover">
                     <div className="mb-2 mt-1 text-sm font-semibold uppercase tracking-wide text-ui-purple sm:col-span-2">{t.education.deneyap.date}</div>
@@ -650,9 +724,7 @@ const Index = () => {
 
                 {/* 3. HIGH SCHOOL (Bottom - Oldest) */}
                 <div className="relative">
-                   {/* Dot */}
-                   <div className="absolute -left-[31px] top-1 h-4 w-4 rounded-full border-2 border-ui-teal bg-midnight shadow-[0_0_12px_rgba(45,212,191,0.4)] transition-all duration-300" />
-
+                  
                    <div className="group relative grid pb-4 transition-all sm:grid-cols-8 sm:gap-8 hover:!opacity-100 group-hover/list:opacity-50 p-6 bg-gradient-to-r from-deep-blue/30 to-ocean-blue/20 rounded-xl border border-steel-blue/20 animated-border glow-on-hover">
                     <div className="mb-2 mt-1 text-sm font-semibold uppercase tracking-wide text-ui-teal sm:col-span-2">
                       {t.education.highschool.date}

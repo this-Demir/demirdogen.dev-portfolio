@@ -64,28 +64,48 @@ export const content = {
         quote: "\"This project represents the evolution from understanding the math (CPU version) to mastering the hardware (Vulkan version).\""
       },
       yusync: {
-        title: "YU-Sync — Smart Course Scheduler",
-        desc: "A volunteer web app helping students build conflict-free timetables. Uses a backtracking algorithm with heuristics to generate valid schedules while honoring user preferences.",
-        detailLabel: "Details",
-        whatTitle: "What it does",
-        whatDesc: "Automated schedule generation with conflict detection and mobile-first UI.",
-        statsTitle: "Usage Snapshot",
-        statsDesc: "~5–6K visitors during enrollment period.",
-        perfTitle: "Performance",
-        perfDesc: "100/100 Desktop Experience Score.",
-        note: "Community project, hosted on Vercel."
-      },
+        title: "YU-Sync — Intelligent Academic Scheduler",
+        desc: "A high-performance algorithmic solution solving the 'course scheduling' chaos. It helped ~6,000 students generate conflict-free timetables during the enrollment period using a custom constraint solver.",
+        detailLabel: "Technical & Impact Report",
+        
+        whatTitle: "The Problem & Solution",
+        whatDesc: "Course selection is a stressful, time-critical process. YU-Sync transforms this manual burden into an automated experience. It parses university data to visualize 1000+ sections, offering features like custom filters, time-blocks, and instant conflict detection.",
+        
+        statsTitle: "Impact at Scale",
+        statsDesc: "Achieved viral adoption with ~6,000 unique visitors and ~14,000 page views in a single week. Became the de-facto tool for the university community, handling high-traffic spikes seamlessly on Vercel.",
+        
+        perfTitle: "Engineering: Backtracking & Bitmasking",
+        perfDesc: "The core is a Constraint Satisfaction solver using Backtracking. By implementing Bitwise Operations (Bitmasking) for time-slot collision detection, the algorithm achieves near O(log n) real-time performance, generating valid schedules from millions of permutations in milliseconds.",
+        
+        note: "Volunteer student project. Not affiliated with Yaşar University."
+    },
       legacyRay: {
-        title: "Legacy CPU Ray Tracer",
-        desc: "The predecessor to the Vulkan engine. A physically-based path tracer written in Java/JavaFX. Served as the prototyping ground for the material system and lighting logic.",
-        detailLabel: "Legacy Details",
-        coreLogic: "Core Logic: Monte-Carlo path tracing, dielectric materials, and soft lighting on CPU.",
-        uiLogic: "Interactive UI: Outliner for object selection and property editing."
-      },
-      udemy: {
-        title: "Web Application Test Plan",
-        desc: "Black-box UI testing project for a learning platform using Selenium WebDriver and JUnit 5. Automates critical user flows like search, cart management, and checkout.",
-        detailText: "14 automated JUnit test classes using Equivalence Partitioning and Boundary Value Analysis."
+      title: "Legacy Ray Tracer — Java/CPU Engine",
+      desc: "A raw implementation of ray tracing physics built from scratch in Java. It successfully simulates light transport (reflections, shadows) but served as a critical lesson in the limitations of CPU-based rendering.",
+      detailLabel: "Post-Mortem & Analysis",
+      
+      archTitle: "Core Architecture",
+      archDesc: "I built a 3D engine from scratch without using any graphics libraries. It simulates how light behaves in the real world—bouncing off mirrors and creating shadows—to generate realistic images.",
+
+      limitsTitle: "Why I moved to GPU ?",
+      limitsDesc:"The CPU struggled to handle millions of math operations simultaneously. This heavy load overwhelmed the system, causing the interface to freeze and the screen to black out during rendering.",
+      
+      takeaway: "This performance wall was the catalyst for learning Vulkan and GPU Compute shaders."
+    },
+     udemy: {
+        title: "QA Automation & Test Architecture",
+
+        desc: "A comprehensive QA automation suite engineered by a 5-person team to validate critical e-learning platform functionalities. Delivers black-box test coverage using IEEE-compliant methodologies.",
+        detailLabel: "Project Scope & Team",
+
+        storyTitle: "Scope & Methodology",
+        storyDesc: "Executed a rigorous Black-box testing strategy targeting system fragility. We utilized Boundary Value Analysis (BVA) and Equivalence Partitioning (EP) to define test cases, all formally documented under IEEE 829 standards. The project deploys autonomous agents (DiscUdemy & SauceDemo Bots) to replace manual validation with precise, automated execution.",
+        
+        techTitle: "Technical Architecture",
+        techDesc: "Built on a Java/Selenium/JUnit 5 stack, the architecture is designed for resilience against dynamic DOM elements and anti-bot measures. It simulates end-to-end user journeys—from search queries to checkout logic—ensuring data integrity and functional reliability without requiring backend access.",
+        
+        teamTitle: "Engineering Team ",
+        note: "Developed for academic purposes only."
       },
       avo: {
         title: "Avo Breeze — E-commerce Demo",
@@ -197,28 +217,49 @@ export const content = {
         quote: "\"Bu proje, işin matematiğini anlamaktan (CPU versiyonu) donanıma hükmetmeye (Vulkan versiyonu) geçişi temsil ediyor.\""
       },
       yusync: {
-        title: "YU-Sync — Akıllı Ders Programlayıcı",
-        desc: "Öğrencilerin çakışmasız programlar oluşturmasına yardımcı olan gönüllü web uygulaması. Kullanıcı tercihlerini gözeterek geçerli programlar oluşturmak için sezgisel yöntemlerle desteklenen bir geri izleme (backtracking) algoritması kullanır.",
-        detailLabel: "Detaylar",
-        whatTitle: "Ne yapar?",
-        whatDesc: "Çakışma tespiti ve mobil öncelikli arayüz ile otomatik program oluşturma.",
-        statsTitle: "Kullanım Özeti",
-        statsDesc: "Ders seçim döneminde ~5–6K ziyaretçi.",
-        perfTitle: "Performans",
-        perfDesc: "100/100 Masaüstü Deneyim Puanı.",
-        note: "Topluluk projesidir, Vercel üzerinde barındırılmaktadır."
-      },
+      title: "YU-Sync — Akıllı Akademik Planlayıcı",
+      desc: "Ders seçim kaosunu çözen yüksek performanslı bir mühendislik çözümü. Gelişmiş bir kısıt çözücü (constraint solver) kullanarak, kayıt döneminde ~6.000 öğrencinin çakışmasız ders programları oluşturmasını sağladı.",
+      detailLabel: "Teknik Detaylar ve Etki",
+      
+      whatTitle: "Problem ve Çözüm",
+      whatDesc: "Ders seçimi, öğrenciler için stresli ve hataya açık bir süreçtir. YU-Sync, bu süreci tamamen otomatikleştirir. Üniversite verilerini işleyerek binlerce şube (section) kombinasyonunu analiz eder; özel filtreler ve zaman kısıtlamaları ile öğrencilere en uygun programı saniyeler içinde sunar.",
+      
+      statsTitle: "Ölçeklenebilirlik ve Etki",
+      statsDesc: "Sadece bir haftada ~6.000 tekil ziyaretçi ve ~14.000 sayfa görüntülenmesi ile viral bir etki yarattı. Kayıt döneminin fiili standart aracı haline gelerek yüksek trafik anlarında bile kesintisiz hizmet verdi.",
+
+      perfTitle: "Mühendislik: Backtracking & Bitmasking",
+      perfDesc: "Projenin kalbinde Backtracking tabanlı bir algoritma yatar. Zaman çakışmalarını tespit etmek için Bitwise Operasyonlar (Bitmasking) kullanılarak algoritma optimize edilmiştir. Bu sayede milyonlarca permütasyon arasından O(log n)'e yaklaşan bir hızla, milisaniyeler içinde geçerli programlar üretilir.",
+    
+      note: "Gönüllü öğrenci projesidir. Yaşar Üniversitesi ile resmi bir bağlantısı yoktur."
+    },
       legacyRay: {
-        title: "Legacy CPU Ray Tracer",
-        desc: "Vulkan motorunun öncüsü. Java ve JavaFX ile yazılmış fiziksel tabanlı bir yol izleyici (path tracer). Materyal sistemi ve ışıklandırma mantığı için prototip oluşturma alanı olarak kullanıldı.",
-        detailLabel: "Eski Sürüm Detayları",
-        coreLogic: "Çekirdek Mantık: CPU üzerinde Monte-Carlo yol izleme, dielektrik materyaller ve yumuşak ışıklandırma.",
-        uiLogic: "İnteraktif Arayüz: Nesne seçimi ve özellik düzenleme için taslak görünümü."
-      },
-      udemy: {
-        title: "Web Uygulaması Test Planı",
-        desc: "Selenium WebDriver ve JUnit 5 kullanılarak bir öğrenme platformu için geliştirilen kara kutu (black-box) UI test projesi. Arama, sepet yönetimi ve ödeme gibi kritik kullanıcı akışlarını otomatikleştirir.",
-        detailText: "Eşdeğerlik Bölümlemesi ve Sınır Değer Analizi kullanan 14 otomatik JUnit test sınıfı."
+      title: "Legacy Ray Tracer — Java/CPU Motoru",
+      desc: "Java ile sıfırdan yazılmış saf bir ışın izleme (ray tracing) motoru. Işık fiziğini (yansıma, gölge) başarıyla simüle etse de, CPU tabanlı render işlemlerinin sınırlarını öğreten kritik bir proje oldu.",
+      detailLabel: "Analiz ve Limitler",
+      
+      archTitle: "Çekirdek Mimari",
+      archDesc: "Hazır grafik kütüphaneleri kullanmadan, sıfırdan bir 3D motoru geliştirdim. Işığın gerçek dünyadaki hareketini (aynalardan yansımasını ve gölge oluşturmasını) taklit ederek gerçekçi görüntüler oluşturuyor.",
+
+      limitsTitle: "Neden GPU'ya Geçtim?",
+      limitsDesc: "İşlemci (CPU), milyonlarca ışık hesaplamasını aynı anda yapmaya çalışırken yetersiz kaldı. Bu aşırı işlem yükü, arayüzün donmasına ve ekranın kararmasına sebep oldu.",
+      
+
+      takeaway: "Bu performans duvarı, Vulkan ve GPU Compute Shader öğrenmem için itici güç oldu."
+    },
+    udemy: {
+        title: "QA Otomasyon ve Test Mimarisi",
+        desc: "5 kişilik mühendislik ekibi tarafından geliştirilen, e-öğrenme platformlarının kritik fonksiyonlarını doğrulayan kapsamlı QA otomasyon paketi. IEEE uyumlu metodolojilerle  test kapsamı sağlar.",
+        detailLabel: "Proje Kapsamı ve Ekip",
+        
+        storyTitle: "Kapsam ve Metodoloji",
+        storyDesc: "Sistemin en kırılgan noktalarını hedefleyen, Sınır Değer Analizi (BVA) ve Eşdeğerlik Bölümleme (EP) tekniklerine dayalı titiz bir Kara Kutu test stratejisi uygulandı. Tüm süreç IEEE 829 standartlarına göre belgelendirilmiş olup; manuel doğrulama yükünü ortadan kaldıran ve uç durumları (edge cases) yakalayan otonom botlar devreye alındı.",
+        
+        techTitle: "Teknik Mimari",
+        techDesc: "Java, Selenium WebDriver ve JUnit 5 mimarisi üzerine inşa edilmiştir. Sistem, dinamik DOM yapılarını ve anti-bot önlemlerini yöneterek; arama, sepet ve ödeme gibi uçtan uca (E2E) kullanıcı senaryolarını veritabanı erişimi olmadan (backend-less) doğrular ve raporlar.",
+        
+        teamTitle: "Mühendislik Ekibi ",
+
+        note: "Bu proje sadece akademik amaçlar için yapılmıştır."
       },
       avo: {
         title: "Avo Breeze — E-Ticaret Demosu",

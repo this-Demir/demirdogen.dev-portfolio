@@ -48,10 +48,7 @@ const SkillMarquee = ({ items, direction = 'left', speed = 'normal' }: SkillMarq
                />
             </div>
             
-            {/* Teknoloji İsmi */}
-            <span className="text-sm font-medium hidden md:block whitespace-nowrap text-cool-gray group-hover/item:text-pearl transition-colors">
-              {item.name}
-            </span>
+            
           </a>
         ))}
       </div>
