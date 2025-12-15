@@ -363,7 +363,7 @@ const Index = () => {
                     title={t.projects.vulkan.title}
                     description={<p>{t.projects.vulkan.desc}</p>}
                     technologies={['Java 21', 'Vulkan', 'LWJGL', 'GLSL Compute', 'Multithreading']}
-                    links={[{ label: 'GitHub', url: 'https://github.com/this-Demir/Vulkan-BVH-RayTracer', type: 'github' }]}
+                    links={[{ label: 'GitHub', url: 'https://github.com/this-Demir/3D-Ray-Tracer-Vulkan', type: 'github' }]}
                     details={
                       <Suspense fallback={<SkeletonLine w="w-24" />}>
                         <ExpandableDetails label={t.projects.vulkan.detailLabel} size="sm">

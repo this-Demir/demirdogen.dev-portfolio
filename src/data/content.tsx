@@ -152,6 +152,12 @@ export const content = {
       built: "Built with React, TypeScript & Tailwind CSS",
       design: "Design inspired by",
       rights: "Demir Demirdöğen."
+    },
+    notFound: {
+      title: "Oops! Lost in space.",
+      description: "The page you are looking for might have been removed or is temporarily unavailable.",
+      goHome: "Return to Home",
+      goBack: "Go Back"
     }
   },
   tr: {
@@ -306,6 +312,12 @@ export const content = {
       built: "React, TypeScript & Tailwind CSS ile geliştirildi",
       design: "Tasarım ilhamı:",
       rights: "Demir Demirdöğen."
-    }
+    },
+    notFound: {
+      title: "Oops! Uzay boşluğunda kaybolmuş gibisin.",
+      description: "Aradığınız sayfa mevcut değil veya taşınmış olabilir. Koordinatlarınızı kontrol edin.",
+      goHome: "Ana Sayfaya Dön",
+      goBack: "Bir Önceki Sayfa"
+    },
   }
 };
