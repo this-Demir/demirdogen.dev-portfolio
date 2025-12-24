@@ -104,10 +104,15 @@ To run this project locally for development or testing purposes, follow these st
     npm run build
     ```
 
-## Credits
- **Layout & Scaffolding:** The initial layout and UI scaffolding for this project were generated using **Loveable AI**. 
- 
- **Development & Architecture:** All subsequent commits, including core logic implementation, dynamic features, custom hook development, and architectural refinements, were authored by **Demir Demirdöğen**.
+##  Credits & Acknowledgments
+
+* **Layout & Scaffolding:** The initial layout and UI scaffolding for this project were generated using **Loveable AI**.
+* **Development & Architecture:** All subsequent commits, including core logic implementation, dynamic features, custom hook development, and architectural refinements, were authored by **Demir Demirdöğen**.
+
+## Special Thanks
+* **Design Inspiration:** The visual design of this site was inspired by [Brittany Chiang](https://brittanychiang.com).
+    * *Disclaimer: This project is not affiliated with Brittany Chiang.*
+
 
 ## License
 
