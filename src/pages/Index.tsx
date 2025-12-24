@@ -182,9 +182,9 @@ const VulkanImageGrid = lazy(async () => {
     import('../assets/projects/raytracer/vulkan-render-3.webp'),
   ]).catch(() => {
      return Promise.all([
-        import('../assets/projects/raytracer/glass-metal.png'),
-        import('../assets/projects/raytracer/solarsystem.png'),
-        import('../assets/projects/raytracer/rays-ui.png'),
+        import('../assets/projects/raytracer/glass-metal.webp'),
+        import('../assets/projects/raytracer/solarsystem.webp'),
+        import('../assets/projects/raytracer/rays-ui.webp'),
       ]);
   });
 
