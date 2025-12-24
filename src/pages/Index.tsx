@@ -132,9 +132,9 @@ function InViewOnce({
 --------------------------------- */
 const RayImageGrid = lazy(async () => {
   const [shot1, shot2, shot3] = await Promise.all([
-    import('../assets/projects/raytracer/solarsystem.png'),
-    import('../assets/projects/raytracer/rays-ui.png'),
-    import('../assets/projects/raytracer/glass-metal.png'),
+    import('../assets/projects/raytracer/solarsystem.webp'),
+    import('../assets/projects/raytracer/rays-ui.webp'),
+    import('../assets/projects/raytracer/glass-metal.webp'),
   ]);
 
   const Comp = () => (
@@ -177,9 +177,9 @@ const RayImageGrid = lazy(async () => {
 const VulkanImageGrid = lazy(async () => {
   // Resimler yoksa fallback olarak eskileri kullanır, varsa yenileri yükler
   const [shot1, shot2, shot3] = await Promise.all([
-    import('../assets/projects/raytracer/vulkan-render-1.png'), 
-    import('../assets/projects/raytracer/vulkan-render-2.png'),
-    import('../assets/projects/raytracer/vulkan-render-3.png'),
+    import('../assets/projects/raytracer/vulkan-render-1.webp'), 
+    import('../assets/projects/raytracer/vulkan-render-2.webp'),
+    import('../assets/projects/raytracer/vulkan-render-3.webp'),
   ]).catch(() => {
      return Promise.all([
         import('../assets/projects/raytracer/glass-metal.png'),
@@ -652,7 +652,7 @@ const Index = () => {
                       <div className="mt-2 flex flex-col sm:flex-row sm:items-center gap-2 text-sm text-cool-gray">
                           <span>{t.education.yasar.year}</span>
                           <span className="hidden sm:inline text-ui-blue/50">•</span>
-                          <span>{t.education.yasar.gpa}: <span className="text-ui-teal font-medium">3.18</span></span>
+                          <span>{t.education.yasar.gpa}: <span className="text-ui-teal font-medium">2.99</span></span>
                       </div>
                     </div>
                   </div>

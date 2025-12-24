@@ -104,6 +104,11 @@ To run this project locally for development or testing purposes, follow these st
     npm run build
     ```
 
+## Credits
+ **Layout & Scaffolding:** The initial layout and UI scaffolding for this project were generated using **Loveable AI**. 
+ 
+ **Development & Architecture:** All subsequent commits, including core logic implementation, dynamic features, custom hook development, and architectural refinements, were authored by **Demir Demirdöğen**.
+
 ## License
 
 This project is open source and available under the MIT License.
