@@ -652,7 +652,7 @@ const Index = () => {
                       <div className="mt-2 flex flex-col sm:flex-row sm:items-center gap-2 text-sm text-cool-gray">
                           <span>{t.education.yasar.year}</span>
                           <span className="hidden sm:inline text-ui-blue/50">•</span>
-                          <span>{t.education.yasar.gpa}: <span className="text-ui-teal font-medium">2.99</span></span>
+                          <span>{t.education.yasar.gpa}: <span className="text-ui-teal font-medium">3.23</span></span>
                       </div>
                     </div>
                   </div>
