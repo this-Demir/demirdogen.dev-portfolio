@@ -49,16 +49,12 @@ export interface SkillLogoItem {
 }
 
 
-// 1. CORE SPECIALIZATION 
-const CORE_LOGOS: SkillLogoItem[] = [
+// 2. THE TOOLBELT (Kayan şeritte dönecek araçlar)
+const TOOLBELT_LOGOS: SkillLogoItem[] = [
   { name: 'Java', href: 'https://www.java.com/', icon: JavaLogo },          
   { name: '.NET 8', href: 'https://dotnet.microsoft.com/', icon: DotNetLogo },
   { name: 'C++', href: 'https://isocpp.org/', icon: cppLogo },             
-  { name: 'MySQL', href: 'https://www.mysql.com/', icon: MySQLLogo },        
-];
-
-// 2. THE TOOLBELT (Kayan şeritte dönecek araçlar)
-const TOOLBELT_LOGOS: SkillLogoItem[] = [
+  { name: 'MySQL', href: 'https://www.mysql.com/', icon: MySQLLogo },      
   { name: 'Vulkan', href: 'https://www.vulkan.org/', icon: vulkanLogo },      
   { name: 'React', href: 'https://react.dev', icon: ReactLogo },            
   { name: 'TypeScript', href: 'https://www.typescriptlang.org/', icon: TSLogo }, 
@@ -746,35 +742,6 @@ const Index = () => {
 
             {/* Skills (NEW T-SHAPED LAYOUT) */}
             <div>
-              <div className="flex items-center gap-3 mb-6">
-                <Cpu className="h-6 w-6 text-ui-blue" />
-                <h3 className="text-xl font-semibold text-pearl">{t.skills.title}</h3>
-              </div>
-
-              {/* 1. Core Specialization (NO FILTER) */}
-              <div className="mb-10">
-                <div className="flex items-center gap-4 mb-6">
-                   <div className="h-px flex-1 bg-gradient-to-r from-ui-blue/50 to-transparent"></div>
-                   <span className="text-sm font-semibold text-ui-blue tracking-widest uppercase">{t.skills.core}</span>
-                   <div className="h-px flex-1 bg-gradient-to-l from-ui-blue/50 to-transparent"></div>
-                </div>
-                
-                <div className="flex flex-wrap justify-center gap-8 md:gap-12">
-                  {CORE_LOGOS.map((item) => (
-                    <a key={item.name} href={item.href} target="_blank" rel="noreferrer" className="flex flex-col items-center gap-3 group">
-                      <div className="h-16 w-16 p-3 bg-midnight rounded-2xl border border-ui-blue/20 shadow-lg shadow-ui-blue/5 group-hover:border-ui-blue/50 group-hover:shadow-ui-blue/20 transition-all duration-300 transform group-hover:-translate-y-1">
-                         <img 
-                           src={item.icon} 
-                           alt={item.name} 
-                           className="w-full h-full object-contain transition-all duration-300"
-                           onError={(e) => { e.currentTarget.style.display = 'none'; }} 
-                         />
-                      </div>
-                      <span className="text-sm text-pearl font-medium group-hover:text-ui-blue transition-colors">{item.name}</span>
-                    </a>
-                  ))}
-                </div>
-              </div>
 
               {/* 2. The Toolbelt (Infinite Marquee) */}
               <div>
@@ -791,21 +758,6 @@ const Index = () => {
                 </div>
               </div>
             </div>
-
-            {/* Personal Interests */}
-            <div className="pt-8 border-t border-white/5">
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="text-xl opacity-80">✨</span>
-                  <h4 className="text-lg font-semibold text-pearl">{t.skills.interestsTitle}</h4>
-                </div>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-cool-gray">
-                  <div className="flex items-center gap-2"><span className="text-ui-purple">•</span> {t.skills.i1}</div>
-                  <div className="flex items-center gap-2"><span className="text-ui-blue">•</span> {t.skills.i2}</div>
-                  <div className="flex items-center gap-2"><span className="text-ui-teal">•</span> {t.skills.i3}</div>
-                  <div className="flex items-center gap-2"><span className="text-ui-purple">•</span> {t.skills.i4}</div>
-                </div>
-            </div>
-
           </div>
         </section>
 

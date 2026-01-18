@@ -13,9 +13,6 @@ export const content = {
       role: "Software Engineering Student",
       tagline: (
         <>
-          Constantly learning and growing while building{' '}
-          <span className="text-ui-blue font-medium">meaningful projects</span> that make a{' '}
-          <span className="text-ui-purple font-medium">positive impact</span> in people's lives.
         </>
       ),
       location: "Türkiye - İzmir",
@@ -23,10 +20,9 @@ export const content = {
     },
     about: {
       title: "About",
-      p1: "I'm a Software Engineering student who enjoys turning ideas into useful, well-crafted products. I focus on clear problem framing, thoughtful UI/UX, and reliable engineering—from front-end work in React/TypeScript to back-end APIs with .NET and SQL.",
-      p2: (
+p1: "I'm a Software Engineering student who enjoys turning ideas into functional, well-designed products. I strive to develop myself by focusing on clear problem definition, user experience, and reliable engineering.",      p2: (
         <>
-          I value teamwork, clarity, and incremental improvement. Currently pursuing my{' '}
+          Currently pursuing my{' '}
           <a
             className="font-medium text-ui-blue hover:text-ui-purple focus-visible:text-ui-purple transition-colors duration-300 glow-on-hover px-1 py-0.5 rounded"
             href="https://www.yasar.edu.tr/"
@@ -172,9 +168,6 @@ export const content = {
       role: "Yazılım Mühendisliği Öğrencisi",
       tagline: (
         <>
-          Sürekli öğrenerek ve gelişerek, insanların hayatında{' '}
-          <span className="text-ui-purple font-medium">pozitif etki</span> bırakan{' '}
-          <span className="text-ui-blue font-medium">anlamlı projeler</span> geliştiriyorum.
         </>
       ),
       location: "Türkiye - İzmir",
@@ -182,10 +175,10 @@ export const content = {
     },
     about: {
       title: "Hakkımda",
-      p1: "Fikirleri işlevsel ve iyi tasarlanmış ürünlere dönüştürmekten keyif alan bir Yazılım Mühendisliği öğrencisiyim. Problemleri net bir şekilde tanımlamaya, kullanıcı deneyimine (UI/UX) ve güvenilir mühendisliğe odaklanıyorum. React/TypeScript ile frontend geliştirmeden, .NET ve SQL ile backend mimarilerine kadar geniş bir yelpazede çalışıyorum.",
+      p1: "Fikirleri işlevsel ve iyi tasarlanmış ürünlere dönüştürmekten keyif alan bir Yazılım Mühendisliği öğrencisiyim. Problemleri net bir şekilde tanımlamaya, kullanıcı deneyimine ve güvenilir mühendisliğe odaklanarak kendimi geliştirmeye çalışıyorum.",
       p2: (
         <>
-          Takım çalışmasına, net iletişime ve adım adım gelişime değer veriyorum. Şu anda{' '}
+          Şu anda{' '}
           <a
             className="font-medium text-ui-blue hover:text-ui-purple focus-visible:text-ui-purple transition-colors duration-300 glow-on-hover px-1 py-0.5 rounded"
             href="https://www.yasar.edu.tr/"
