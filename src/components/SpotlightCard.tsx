@@ -11,8 +11,10 @@ const SpotlightCard = ({ children, className = '' }: SpotlightCardProps) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [opacity, setOpacity] = useState(0);
 
+  const isDesktop = typeof window !== 'undefined' && window.innerWidth >= 1024;
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!divRef.current || isFocused) return;
+    if (!isDesktop || !divRef.current || isFocused) return;
 
     const div = divRef.current;
     const rect = div.getBoundingClientRect();
@@ -21,20 +23,24 @@ const SpotlightCard = ({ children, className = '' }: SpotlightCardProps) => {
   };
 
   const handleFocus = () => {
+    if (!isDesktop) return;
     setIsFocused(true);
     setOpacity(1);
   };
 
   const handleBlur = () => {
+    if (!isDesktop) return;
     setIsFocused(false);
     setOpacity(0);
   };
 
   const handleMouseEnter = () => {
+    if (!isDesktop) return;
     setOpacity(1);
   };
 
   const handleMouseLeave = () => {
+    if (!isDesktop) return;
     setOpacity(0);
   };
 
@@ -51,8 +57,8 @@ const SpotlightCard = ({ children, className = '' }: SpotlightCardProps) => {
       <div
         className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300"
         style={{
-          opacity,
-          background: `radial-gradient(37.5rem circle at ${position.x}px ${position.y}px, rgba(100, 255, 218, 0.1), transparent 40%)`,
+          opacity: isDesktop ? opacity : 0,
+          background: isDesktop ? `radial-gradient(37.5rem circle at ${position.x}px ${position.y}px, rgba(100, 255, 218, 0.1), transparent 40%)` : 'none',
         }}
       />
       {children}
