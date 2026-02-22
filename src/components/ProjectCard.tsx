@@ -41,7 +41,7 @@ const ProjectCard = ({
         <h3>
           {githubLink ? (
             <a
-              className="relative inline-flex items-baseline font-medium leading-tight text-lightest-slate hover:text-green focus-visible:text-green group/link text-base"
+              className="relative inline-flex items-baseline font-medium leading-tight text-lightest-slate hover:text-green focus-visible:text-green group/link text-base break-words whitespace-normal"
               href={githubLink.url}
               target="_blank"
               rel="noreferrer noopener"

@@ -17,8 +17,13 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     if (saved === 'en' || saved === 'tr') {
       setLang(saved);
     } else {
-      const nav = (navigator.language || 'en').toLowerCase();
-      setLang(nav.startsWith('tr') ? 'tr' : 'en');
+      // Auto-detect from browser, default to 'en' if not Turkish or undefined
+      try {
+        const navLang = navigator.language || navigator.languages?.[0] || '';
+        setLang(navLang.toLowerCase().startsWith('tr') ? 'tr' : 'en');
+      } catch (error) {
+        setLang('en'); // Strict fallback
+      }
     }
   }, []);
 
