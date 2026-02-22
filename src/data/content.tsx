@@ -16,11 +16,11 @@ export const content = {
         </>
       ),
       location: "Türkiye - İzmir",
-      techStack: "React • .NET • Java"
+      techStack: "Java • .NET • React"
     },
     about: {
       title: "About",
-p1: "I'm a Software Engineering student who enjoys turning ideas into functional, well-designed products. I strive to develop myself by focusing on clear problem definition, user experience, and reliable engineering.",      p2: (
+      p1: "I'm a Software Engineering student who enjoys turning ideas into functional, well-designed products. I strive to develop myself by focusing on clear problem definition, user experience, and reliable engineering.", p2: (
         <>
           Currently pursuing my{' '}
           <a
@@ -43,7 +43,7 @@ p1: "I'm a Software Engineering student who enjoys turning ideas into functional
         company: "YU-Sync",
         desc: "Architected and developed a volunteer scheduling application to assist Yaşar University students in generating conflict-free course timetables. Led the project from initial concept to a fully functional web application.",
         badge_volunteer: "Volunteer project for students",
-        badge_users: "6k+ Users & 14k+ Views"
+        badge_users: "7k+ Unique Visitors"
       }
     },
     projects: {
@@ -61,34 +61,45 @@ p1: "I'm a Software Engineering student who enjoys turning ideas into functional
       },
       yusync: {
         title: "YU-Sync — Intelligent Academic Scheduler",
-        desc: "A high-performance algorithmic solution solving the 'course scheduling' chaos. It helped ~6,000 students generate conflict-free timetables during the enrollment period using a custom constraint solver.",
+        desc: "A high-performance algorithmic solution solving the 'course scheduling' chaos. It helped 7,000+ unique visitors generate conflict-free timetables during the enrollment period using an automated Python data pipeline and a custom constraint solver.",
         detailLabel: "Technical & Impact Report",
-        
+
         whatTitle: "The Problem & Solution",
-        whatDesc: "Course selection is a stressful, time-critical process. YU-Sync transforms this manual burden into an automated experience. It parses university data to visualize 1000+ sections, offering features like custom filters, time-blocks, and instant conflict detection.",
-        
+        whatDesc: "Course selection is a stressful, time-critical process. YU-Sync transforms this manual burden into an automated experience. It parses university data via a Python data pipeline to visualize 1000+ sections, offering features like custom filters, time-blocks, and instant conflict detection.",
+
         statsTitle: "Impact at Scale",
-        statsDesc: "Achieved viral adoption with ~6,000 unique visitors and ~14,000 page views in a single week. Became the de-facto tool for the university community, handling high-traffic spikes seamlessly on Vercel.",
-        
+        statsDesc: "Achieved viral adoption with 7,000+ unique visitors in a single week. Became the de-facto tool for the university community, handling high-traffic spikes seamlessly on Vercel.",
+
         perfTitle: "Engineering: Backtracking & Bitmasking",
         perfDesc: "The core is a Constraint Satisfaction solver using Backtracking. By implementing Bitwise Operations (Bitmasking) for time-slot collision detection, the algorithm achieves near O(log n) real-time performance, generating valid schedules from millions of permutations in milliseconds.",
-        
-        note: "Volunteer student project. Not affiliated with Yaşar University."
-    },
-      legacyRay: {
-      title: "Legacy Ray Tracer — Java/CPU Engine",
-      desc: "A raw implementation of ray tracing physics built from scratch in Java. It successfully simulates light transport (reflections, shadows) but served as a critical lesson in the limitations of CPU-based rendering.",
-      detailLabel: "Post-Mortem & Analysis",
-      
-      archTitle: "Core Architecture",
-      archDesc: "I built a 3D engine from scratch without using any graphics libraries. It simulates how light behaves in the real world—bouncing off mirrors and creating shadows—to generate realistic images.",
 
-      limitsTitle: "Why I moved to GPU ?",
-      limitsDesc:"The CPU struggled to handle millions of math operations simultaneously. This heavy load overwhelmed the system, causing the interface to freeze and the screen to black out during rendering.",
-      
-      takeaway: "This performance wall was the catalyst for learning Vulkan and GPU Compute shaders."
-    },
-     udemy: {
+        note: "Volunteer student project. Not affiliated with Yaşar University."
+      },
+      aerolink: {
+        title: "AERO-LINK — UAV Simulation & GCS",
+        desc: "A high-fidelity Client-Server simulation environment where a virtual UAV acts as a server processing commands. Built with Java and Vulkan API, it features real-time telemetry tracking and end-to-end simulation of physical interactions between the Ground Control Station and the aircraft.",
+        detailLabel: "System Architecture & Engineering",
+        arch1Title: "Distributed System Architecture:",
+        arch1Desc: "The UAV operates as a server handling commands, with flight modes managed dynamically using the State Design Pattern.",
+        arch2Title: "Real-Time Telemetry:",
+        arch2Desc: "Implements the Observer Pattern for zero-latency processing of aircraft telemetry data at the control station.",
+        arch3Title: "Vulkan Integration:",
+        arch3Desc: "Physical interactions in the simulation are rendered live and visualized via the Vulkan API."
+      },
+      legacyRay: {
+        title: "Legacy Ray Tracer — Java/CPU Engine",
+        desc: "A raw implementation of ray tracing physics built from scratch in Java. It successfully simulates light transport (reflections, shadows) but served as a critical lesson in the limitations of CPU-based rendering.",
+        detailLabel: "Post-Mortem & Analysis",
+
+        archTitle: "Core Architecture",
+        archDesc: "I built a 3D engine from scratch without using any graphics libraries. It simulates how light behaves in the real world—bouncing off mirrors and creating shadows—to generate realistic images.",
+
+        limitsTitle: "Why I moved to GPU ?",
+        limitsDesc: "The CPU struggled to handle millions of math operations simultaneously. This heavy load overwhelmed the system, causing the interface to freeze and the screen to black out during rendering.",
+
+        takeaway: "This performance wall was the catalyst for learning Vulkan and GPU Compute shaders."
+      },
+      udemy: {
         title: "QA Automation & Test Architecture",
 
         desc: "A comprehensive QA automation suite engineered by a 5-person team to validate critical e-learning platform functionalities. Delivers black-box test coverage using IEEE-compliant methodologies.",
@@ -96,10 +107,10 @@ p1: "I'm a Software Engineering student who enjoys turning ideas into functional
 
         storyTitle: "Scope & Methodology",
         storyDesc: "Executed a rigorous Black-box testing strategy targeting system fragility. We utilized Boundary Value Analysis (BVA) and Equivalence Partitioning (EP) to define test cases, all formally documented under IEEE 829 standards. The project deploys autonomous agents (DiscUdemy & SauceDemo Bots) to replace manual validation with precise, automated execution.",
-        
+
         techTitle: "Technical Architecture",
         techDesc: "Built on a Java/Selenium/JUnit 5 stack, the architecture is designed for resilience against dynamic DOM elements and anti-bot measures. It simulates end-to-end user journeys—from search queries to checkout logic—ensuring data integrity and functional reliability without requiring backend access.",
-        
+
         teamTitle: "Engineering Team ",
         note: "Developed for academic purposes only."
       },
@@ -119,7 +130,9 @@ p1: "I'm a Software Engineering student who enjoys turning ideas into functional
         degree: "B.Sc. Software Engineering",
         school: "Yaşar University",
         year: "3rd Year Student",
-        gpa: "GPA"
+        gpa: "GPA",
+        coursesLabel: "Relevant Courses:",
+        courses: "Data Structures, Algorithms, OOP, Design Patterns, Automata Theory"
       },
       deneyap: {
         date: "2020 — 2023",
@@ -171,7 +184,7 @@ p1: "I'm a Software Engineering student who enjoys turning ideas into functional
         </>
       ),
       location: "Türkiye - İzmir",
-      techStack: "React • .NET • Java"
+      techStack: "Java • .NET • React "
     },
     about: {
       title: "Hakkımda",
@@ -199,7 +212,7 @@ p1: "I'm a Software Engineering student who enjoys turning ideas into functional
         company: "YU-Sync",
         desc: "Yaşar Üniversitesi öğrencilerinin çakışmasız ders programları oluşturmasına yardımcı olmak için gönüllü bir uygulama tasarladım ve geliştirdim. Projeyi fikir aşamasından çalışan bir web uygulamasına dönüştürdüm.",
         badge_volunteer: "Öğrenciler için gönüllü proje",
-        badge_users: "6k+ Kullanıcı & 14k+ Görüntülenme"
+        badge_users: "7k+ Tekil Ziyaretçi"
       }
     },
     projects: {
@@ -216,46 +229,57 @@ p1: "I'm a Software Engineering student who enjoys turning ideas into functional
         quote: "\"Bu proje, işin matematiğini anlamaktan (CPU versiyonu) donanıma hükmetmeye (Vulkan versiyonu) geçişi temsil ediyor.\""
       },
       yusync: {
-      title: "YU-Sync — Akıllı Akademik Planlayıcı",
-      desc: "Ders seçim kaosunu çözen yüksek performanslı bir mühendislik çözümü. Gelişmiş bir kısıt çözücü (constraint solver) kullanarak, kayıt döneminde ~6.000 öğrencinin çakışmasız ders programları oluşturmasını sağladı.",
-      detailLabel: "Teknik Detaylar ve Etki",
-      
-      whatTitle: "Problem ve Çözüm",
-      whatDesc: "Ders seçimi, öğrenciler için stresli ve hataya açık bir süreçtir. YU-Sync, bu süreci tamamen otomatikleştirir. Üniversite verilerini işleyerek binlerce şube (section) kombinasyonunu analiz eder; özel filtreler ve zaman kısıtlamaları ile öğrencilere en uygun programı saniyeler içinde sunar.",
-      
-      statsTitle: "Ölçeklenebilirlik ve Etki",
-      statsDesc: "Sadece bir haftada ~6.000 tekil ziyaretçi ve ~14.000 sayfa görüntülenmesi ile viral bir etki yarattı. Kayıt döneminin fiili standart aracı haline gelerek yüksek trafik anlarında bile kesintisiz hizmet verdi.",
+        title: "YU-Sync — Akıllı Akademik Planlayıcı",
+        desc: "Ders seçim kaosunu çözen yüksek performanslı bir mühendislik çözümü. Çakışmaları önleyen özel bir algoritma ve otomatik bir Python veri hattı  kullanarak, kayıt döneminde 7.000+ tekil ziyaretçinin sorunsuz ders programları oluşturmasını sağladı.",
+        detailLabel: "Teknik Detaylar ve Etki",
 
-      perfTitle: "Mühendislik: Backtracking & Bitmasking",
-      perfDesc: "Projenin kalbinde Backtracking tabanlı bir algoritma yatar. Zaman çakışmalarını tespit etmek için Bitwise Operasyonlar (Bitmasking) kullanılarak algoritma optimize edilmiştir. Bu sayede milyonlarca permütasyon arasından O(log n)'e yaklaşan bir hızla, milisaniyeler içinde geçerli programlar üretilir.",
-    
-      note: "Gönüllü öğrenci projesidir. Yaşar Üniversitesi ile resmi bir bağlantısı yoktur."
-    },
+        whatTitle: "Problem ve Çözüm",
+        whatDesc: "Ders seçimi, öğrenciler için stresli ve hataya açık bir süreçtir. YU-Sync, bu süreci tamamen otomatikleştirir. Üniversite verilerini otonom bir Python data pipeline ile işleyerek binlerce şube (section) kombinasyonunu analiz eder; özel filtreler ve zaman kısıtlamaları ile öğrencilere en uygun programı saniyeler içinde sunar.",
+
+        statsTitle: "Ölçeklenebilirlik ve Etki",
+        statsDesc: "Sadece bir haftada 7.000+ tekil ziyaretçi ile viral bir etki yarattı. Kayıt döneminin fiili standart aracı haline gelerek yüksek trafik anlarında bile kesintisiz hizmet verdi.",
+
+        perfTitle: "Mühendislik: Backtracking & Bitmasking",
+        perfDesc: "Projenin kalbinde Backtracking tabanlı bir algoritma yatar. Zaman çakışmalarını tespit etmek için Bitwise Operasyonlar (Bitmasking) kullanılarak algoritma optimize edilmiştir. Bu sayede milyonlarca permütasyon arasından O(log n)'e yaklaşan bir hızla, milisaniyeler içinde geçerli programlar üretilir.",
+
+        note: "Gönüllü öğrenci projesidir. Yaşar Üniversitesi ile resmi bir bağlantısı yoktur."
+      },
+      aerolink: {
+        title: "AERO-LINK — İHA Simülasyon Sistemi ve GCS",
+        desc: "Client-Server mimarisinde; sanal İHA'nın bir sunucu gibi komutları işlediği ve uçuş modlarının State deseniyle yönetildiği yüksek sadakatli simülasyon ortamı. Vulkan API ile canlı render edilen sistem, kontrol istasyonu ve hava aracı arasındaki etkileşimi uçtan uca simüle eder.",
+        detailLabel: "Sistem Mimarisi ve Mühendislik",
+        arch1Title: "Dağıtık Sistem Mimarisi:",
+        arch1Desc: "İHA'nın bir sunucu (server) gibi komutları işlediği ve uçuş modlarının State Pattern ile yönetildiği altyapı.",
+        arch2Title: "Gerçek Zamanlı Telemetri:",
+        arch2Desc: "Observer Pattern kullanılarak hava aracından gelen telemetri verilerinin kontrol istasyonunda gecikmesiz işlenmesi.",
+        arch3Title: "Vulkan Entegrasyonu:",
+        arch3Desc: "Simülasyondaki fiziksel etkileşimlerin Vulkan API üzerinden canlı olarak render edilip görselleştirilmesi."
+      },
       legacyRay: {
-      title: "Legacy Ray Tracer — Java/CPU Motoru",
-      desc: "Java ile sıfırdan yazılmış saf bir ışın izleme (ray tracing) motoru. Işık fiziğini (yansıma, gölge) başarıyla simüle etse de, CPU tabanlı render işlemlerinin sınırlarını öğreten kritik bir proje oldu.",
-      detailLabel: "Analiz ve Limitler",
-      
-      archTitle: "Çekirdek Mimari",
-      archDesc: "Hazır grafik kütüphaneleri kullanmadan, sıfırdan bir 3D motoru geliştirdim. Işığın gerçek dünyadaki hareketini (aynalardan yansımasını ve gölge oluşturmasını) taklit ederek gerçekçi görüntüler oluşturuyor.",
+        title: "Legacy Ray Tracer — Java/CPU Motoru",
+        desc: "Java ile sıfırdan yazılmış saf bir ışın izleme (ray tracing) motoru. Işık fiziğini (yansıma, gölge) başarıyla simüle etse de, CPU tabanlı render işlemlerinin sınırlarını öğreten kritik bir proje oldu.",
+        detailLabel: "Analiz ve Limitler",
 
-      limitsTitle: "Neden GPU'ya Geçtim?",
-      limitsDesc: "İşlemci (CPU), milyonlarca ışık hesaplamasını aynı anda yapmaya çalışırken yetersiz kaldı. Bu aşırı işlem yükü, arayüzün donmasına ve ekranın kararmasına sebep oldu.",
-      
+        archTitle: "Çekirdek Mimari",
+        archDesc: "Hazır grafik kütüphaneleri kullanmadan, sıfırdan bir 3D motoru geliştirdim. Işığın gerçek dünyadaki hareketini (aynalardan yansımasını ve gölge oluşturmasını) taklit ederek gerçekçi görüntüler oluşturuyor.",
 
-      takeaway: "Bu performans duvarı, Vulkan ve GPU Compute Shader öğrenmem için itici güç oldu."
-    },
-    udemy: {
+        limitsTitle: "Neden GPU'ya Geçtim?",
+        limitsDesc: "İşlemci (CPU), milyonlarca ışık hesaplamasını aynı anda yapmaya çalışırken yetersiz kaldı. Bu aşırı işlem yükü, arayüzün donmasına ve ekranın kararmasına sebep oldu.",
+
+
+        takeaway: "Bu performans duvarı, Vulkan ve GPU Compute Shader öğrenmem için itici güç oldu."
+      },
+      udemy: {
         title: "QA Otomasyon ve Test Mimarisi",
         desc: "5 kişilik mühendislik ekibi tarafından geliştirilen, e-öğrenme platformlarının kritik fonksiyonlarını doğrulayan kapsamlı QA otomasyon paketi. IEEE uyumlu metodolojilerle  test kapsamı sağlar.",
         detailLabel: "Proje Kapsamı ve Ekip",
-        
+
         storyTitle: "Kapsam ve Metodoloji",
         storyDesc: "Sistemin en kırılgan noktalarını hedefleyen, Sınır Değer Analizi (BVA) ve Eşdeğerlik Bölümleme (EP) tekniklerine dayalı titiz bir Kara Kutu test stratejisi uygulandı. Tüm süreç IEEE 829 standartlarına göre belgelendirilmiş olup; manuel doğrulama yükünü ortadan kaldıran ve uç durumları (edge cases) yakalayan otonom botlar devreye alındı.",
-        
+
         techTitle: "Teknik Mimari",
         techDesc: "Java, Selenium WebDriver ve JUnit 5 mimarisi üzerine inşa edilmiştir. Sistem, dinamik DOM yapılarını ve anti-bot önlemlerini yöneterek; arama, sepet ve ödeme gibi uçtan uca (E2E) kullanıcı senaryolarını veritabanı erişimi olmadan (backend-less) doğrular ve raporlar.",
-        
+
         teamTitle: "Mühendislik Ekibi ",
 
         note: "Bu proje sadece akademik amaçlar için yapılmıştır."
@@ -276,7 +300,9 @@ p1: "I'm a Software Engineering student who enjoys turning ideas into functional
         degree: "Lisans, Yazılım Mühendisliği",
         school: "Yaşar Üniversitesi",
         year: "3. Sınıf Öğrencisi",
-        gpa: "Ortalama"
+        gpa: "Ortalama",
+        coursesLabel: "İlgili Dersler:",
+        courses: "Veri Yapıları, Algoritmalar, OOP, Tasarım Desenleri, Otomata Teorisi"
       },
       deneyap: {
         date: "2020 — 2023",

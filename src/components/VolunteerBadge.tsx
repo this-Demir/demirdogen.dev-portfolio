@@ -8,7 +8,7 @@ interface VolunteerBadgeProps {
 
 const VolunteerBadge = ({ type, delay = 0 }: VolunteerBadgeProps) => {
   const [isHovered, setIsHovered] = useState(false);
-  
+
   const badges = {
     volunteer: {
       icon: <Heart className="h-4 w-4" />,
@@ -17,23 +17,23 @@ const VolunteerBadge = ({ type, delay = 0 }: VolunteerBadgeProps) => {
     },
     users: {
       icon: <Users className="h-4 w-4" />,
-      tooltip: '6000 students and 14000 page views during enrollment time',
+      tooltip: '7000+ unique visitors during enrollment time',
       gradient: 'from-ui-purple to-ui-teal'
     },
     live: {
       // Activity ikonu: Sistemin aktif/canlı olduğunu gösterir ama hareket etmez
-      icon: <Activity className="h-4 w-4" />, 
+      icon: <Activity className="h-4 w-4" />,
       tooltip: 'Currently Live & Active Integration',
       // Bir önceki badge teal ile bittiği için, bu teal ile başlayıp yeşile döner
-      gradient: 'from-ui-teal to-emerald-500' 
+      gradient: 'from-ui-teal to-emerald-500'
     }
   };
 
   const badge = badges[type];
-  
+
   return (
     <div className="relative">
-      <span 
+      <span
         className={`
           inline-flex items-center justify-center rounded-full w-8 h-8
           bg-gradient-to-r ${badge.gradient}
@@ -45,7 +45,7 @@ const VolunteerBadge = ({ type, delay = 0 }: VolunteerBadgeProps) => {
           ${isHovered ? 'shadow-lg ring-2 ring-ui-blue/20' : ''}
           glow-on-hover
         `}
-        style={{ 
+        style={{
           animationDelay: `${delay}ms`,
         }}
         onMouseEnter={() => setIsHovered(true)}
@@ -53,7 +53,7 @@ const VolunteerBadge = ({ type, delay = 0 }: VolunteerBadgeProps) => {
       >
         {badge.icon}
       </span>
-      
+
       {/* Tooltip */}
       {isHovered && (
         <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 z-20 animate-fade-in w-max">
