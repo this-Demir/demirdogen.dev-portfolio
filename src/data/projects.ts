@@ -33,8 +33,8 @@ export const PROJECTS: ProjectMeta[] = [
     links: [
       { label: 'yu-sync.com', url: 'https://yu-sync.com', type: 'external' },
       {
-        label: 'GitHub',
-        url: 'https://github.com/this-Demir/Yu-Sync-App',
+        label: 'Algorithm write-up',
+        url: 'https://github.com/this-Demir/yu-sync-info',
         type: 'github',
       },
     ],
@@ -128,12 +128,6 @@ export const PROJECTS: ProjectMeta[] = [
     id: 'legacyRay',
     tier: 'curiosity',
     technologies: ['Java', 'JavaFX', 'Multithreading', 'CPU rendering'],
-    links: [
-      {
-        label: 'GitHub',
-        url: 'https://github.com/this-Demir/3D-ray-tracer',
-        type: 'github',
-      },
-    ],
+    links: [],
   },
 ];
