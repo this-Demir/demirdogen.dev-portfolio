@@ -1,48 +1,30 @@
-import { Code2, MapPin } from 'lucide-react';
-import { useLanguage } from '../context/LanguageContext'; // Hook eklendi
+import { MapPin, Code2 } from 'lucide-react';
+import { useLanguage } from '../context/language';
 
 const PersonalizedHeader = () => {
-  const { t } = useLanguage(); // Dil desteği çağrıldı
+  const { t } = useLanguage();
 
   return (
-    <div className="space-y-6">
-      {/* Name with gradient effect */}
-      <div>
-        <h1 className="text-4xl font-bold sm:text-5xl lg:text-6xl">
-          <a href="/" className="group relative">
-            <span className="text-gradient bg-gradient-to-r from-ui-blue via-ui-purple to-ui-teal bg-300% animate-gradient-shift">
-              Demir Demirdöğen
-            </span>
-          </a>
-        </h1>
+    <header>
+      <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+        <a href="/" className="transition-colors hover:text-accent">
+          Demir Demirdöğen
+        </a>
+      </h1>
 
-        {/* Dynamic role */}
-        <div className="mt-4">
-          <h2 className="text-lg font-medium text-silver sm:text-xl lg:text-2xl">
-            {t.hero.role}
-          </h2>
-        </div>
-      </div>
+      <p className="mt-3 text-lg font-medium text-muted">{t.hero.role}</p>
 
-      {/* Personal tagline with icons */}
-      <div className="space-y-4">
-        <p className="max-w-sm leading-relaxed text-cool-gray text-base lg:text-lg">
-          {t.hero.tagline}
-        </p>
-
-        {/* Quick facts with icons */}
-        <div className="flex flex-wrap gap-4 text-sm text-silver">
-          <div className="flex items-center gap-2 group">
-            <MapPin className="h-4 w-4 text-ui-purple group-hover:animate-bounce-subtle" />
-            <span>{t.hero.location}</span>
-          </div>
-          <div className="flex items-center gap-2 group">
-            <Code2 className="h-4 w-4 text-primary group-hover:animate-bounce-subtle" />
-            <span>{t.hero.techStack}</span>
-          </div>
-        </div>
-      </div>
-    </div>
+      <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm text-subtle">
+        <li className="flex items-center gap-2">
+          <MapPin className="h-4 w-4 shrink-0" aria-hidden="true" />
+          {t.hero.location}
+        </li>
+        <li className="flex items-center gap-2">
+          <Code2 className="h-4 w-4 shrink-0" aria-hidden="true" />
+          {t.hero.techStack}
+        </li>
+      </ul>
+    </header>
   );
 };
 

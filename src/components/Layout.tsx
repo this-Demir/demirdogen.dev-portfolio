@@ -1,288 +1,230 @@
-import { useEffect, useRef, useState } from 'react';
-import { Github, FileDown, User, Briefcase, Code2, Wrench, Menu, X, Linkedin } from 'lucide-react';
-import MouseFlashlight from './MouseFlashlight';
+import { useEffect, useState } from 'react';
+import {
+  Github,
+  Linkedin,
+  User,
+  Briefcase,
+  Code2,
+  GraduationCap,
+  Menu,
+  X,
+} from 'lucide-react';
 import PersonalizedHeader from './PersonalizedHeader';
 import LanguageSwitch from './LanguageSwitch';
 import ThemeSwitch from './ThemeSwitch';
-import { useLanguage } from '../context/LanguageContext';
+import { useLanguage } from '../context/language';
 
-// PDF asset
-import cvPdf from '../assets/cv/Demir-Demirdogen-CV.pdf';
+const GITHUB_URL = 'https://github.com/this-Demir';
+const LINKEDIN_URL = 'https://www.linkedin.com/in/demir-demirdöğen-46604a1a0/';
+
+/** Section ids in document order, paired with their mobile-nav icon. */
+const SECTIONS = [
+  { id: 'about', icon: User },
+  { id: 'experience', icon: Briefcase },
+  { id: 'projects', icon: Code2 },
+  { id: 'education', icon: GraduationCap },
+] as const;
+
+type SectionId = (typeof SECTIONS)[number]['id'];
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  const [activeSection, setActiveSection] = useState('about');
+  const [activeSection, setActiveSection] = useState<SectionId>('about');
   const [isActionMenuOpen, setIsActionMenuOpen] = useState(false);
-
-  // Context hook kullanımı
   const { lang, setLang, t } = useLanguage();
 
-  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
-  const userThemeChosenRef = useRef(false); // kullanıcı manuel tema seçti mi?
-
-  // Theme initialization: Strictly default to 'dark'
-  useEffect(() => {
+  // Dark is the default; an explicit choice is remembered across visits.
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    if (typeof localStorage === 'undefined') return 'dark';
     const saved = localStorage.getItem('theme');
-    if (saved === 'light' || saved === 'dark') {
-      setTheme(saved);
-      userThemeChosenRef.current = true;
-    } else {
-      setTheme('dark'); // Force dark mode as default
-    }
-  }, []);
+    return saved === 'light' || saved === 'dark' ? saved : 'dark';
+  });
 
-  // Sync theme with DOM and localStorage
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     document.documentElement.classList.toggle('dark', theme === 'dark');
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-  const handleThemeChange = (v: 'light' | 'dark') => {
-    userThemeChosenRef.current = true;
-    setTheme(v);
-  };
-
-  const scrollToSection = (sectionId: string) => {
-    setActiveSection(sectionId);
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  // active section
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => entries.forEach((e) => e.isIntersecting && setActiveSection(e.target.id)),
+      (entries) =>
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id as SectionId);
+        }),
       { threshold: 0.3 }
     );
-    ['about', 'experience', 'projects', 'writing'].forEach((id) => {
+    SECTIONS.forEach(({ id }) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
     return () => observer.disconnect();
   }, []);
 
-  // Mouse ışığını ismin üstüne taşı
-  useEffect(() => {
-    const t = setTimeout(() => {
-      const anchor = document.getElementById('hero-name-anchor');
-      if (!anchor) return;
-      const r = anchor.getBoundingClientRect();
-      const ev = new MouseEvent('mousemove', {
-        clientX: r.left + r.width / 2,
-        clientY: r.top + r.height / 2,
-        bubbles: true,
-      });
-      window.dispatchEvent(ev);
-      document.dispatchEvent(ev);
-    }, 60);
-    return () => clearTimeout(t);
-  }, []);
+  const navLabels: Record<SectionId, string> = {
+    about: t.nav.about,
+    experience: t.nav.experience,
+    projects: t.nav.projects,
+    education: t.nav.education,
+  };
+
+  const scrollToSection = (id: SectionId) => {
+    setActiveSection(id);
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans relative">
-      <MouseFlashlight />
-
-
-
-      {/* Skip to content */}
+    <div className="min-h-screen bg-background font-sans text-foreground">
       <a
         href="#content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-ui-blue text-midnight px-4 py-2 rounded-lg z-50 font-medium animate-scale-in"
+        className="sr-only rounded bg-accent px-4 py-2 font-medium text-[hsl(var(--accent-foreground))] focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50"
       >
-        Skip to Content
+        Skip to content
       </a>
 
-      {/* Main */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24">
-        <div className="lg:flex lg:gap-8">
-          {/* Left Sidebar */}
-          <div className="lg:sticky lg:top-0 lg:w-1/2 lg:h-screen lg:flex lg:flex-col lg:justify-between py-6 md:py-12 lg:py-24">
-            <div className="space-y-6">
-              <div className="animate-fade-in-up" id="hero-name-anchor">
-                <PersonalizedHeader />
-              </div>
+      <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-12">
+        <div className="lg:flex lg:gap-16">
+          {/* Sidebar: sticky on desktop, static header on mobile */}
+          <div className="py-10 lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-[45%] lg:flex-col lg:justify-between lg:py-20">
+            <div>
+              <PersonalizedHeader />
 
-              {/* Navigation */}
-              <nav className="nav hidden lg:block" aria-label="In-page jump links">
-                <ul className="mt-12 w-max">
-                  {[
-                    { id: 'about', label: t.nav.about },
-                    { id: 'experience', label: t.nav.experience },
-                    { id: 'projects', label: t.nav.projects },
-                    { id: 'writing', label: t.nav.skills },
-                  ].map(({ id, label }) => (
-                    <li key={id}>
-                      <button
-                        onClick={() => scrollToSection(id)}
-                        className={`group flex items-center py-3 px-4 rounded-lg transition-all duration-300 hover:bg-deep-blue/50 ${activeSection === id ? 'active bg-deep-blue/30' : ''
-                          }`}
-                      >
-                        <span
-                          className={`nav-indicator mr-4 h-px bg-cool-gray transition-all duration-300 group-hover:w-16 group-hover:bg-ui-blue ${activeSection === id
-                            ? 'w-16 bg-ui-blue'
-                            : 'w-8 group-focus-visible:w-16 group-focus-visible:bg-ui-blue'
-                            }`}
-                        />
-                        <span
-                          className={`nav-text text-sm font-semibold uppercase tracking-wider transition-all duration-300 ${activeSection === id
-                            ? 'text-ui-blue'
-                            : 'text-cool-gray group-hover:text-ui-blue group-focus-visible:text-ui-blue'
-                            }`}
+              <nav className="mt-16 hidden lg:block" aria-label="Section navigation">
+                <ul className="space-y-1">
+                  {SECTIONS.map(({ id }) => {
+                    const isActive = activeSection === id;
+                    return (
+                      <li key={id}>
+                        <button
+                          type="button"
+                          onClick={() => scrollToSection(id)}
+                          aria-current={isActive ? 'true' : undefined}
+                          className="group flex items-center gap-4 py-2"
                         >
-                          {label}
-                        </span>
-                      </button>
-                    </li>
-                  ))}
+                          <span
+                            className={`h-px transition-all duration-200 ${
+                              isActive
+                                ? 'w-12 bg-accent'
+                                : 'w-6 bg-subtle group-hover:w-12 group-hover:bg-foreground'
+                            }`}
+                          />
+                          <span
+                            className={`text-xs font-semibold uppercase tracking-widest transition-colors duration-200 ${
+                              isActive
+                                ? 'text-accent'
+                                : 'text-subtle group-hover:text-foreground'
+                            }`}
+                          >
+                            {navLabels[id]}
+                          </span>
+                        </button>
+                      </li>
+                    );
+                  })}
                 </ul>
               </nav>
             </div>
 
-            {/* Bottom: Sosyal + (Dil/Tema) yan yana, sağa yaslanmadan */}
-            <div className="mt-auto animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-              <div className="hidden lg:flex items-center gap-6 flex-wrap">
-                {/* GitHub */}
-                <a
-                  href="https://github.com/this-Demir"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative text-cool-gray hover:text-ui-blue transition-all duration-300 glow-on-hover p-2 rounded-lg hover:bg-deep-blue/30"
-                  aria-label="GitHub Profile"
-                >
-                  <Github className="h-6 w-6 lg:h-7 lg:w-7 group-hover:animate-bounce-subtle" />
-                  <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                    View Projects
-                  </span>
-                </a>
-
-                {/* LinkedIn */}
-                <a
-                  href="https://www.linkedin.com/in/demir-demirdöğen-46604a1a0/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative text-cool-gray hover:text-ui-blue transition-all duration-300 glow-on-hover p-2 rounded-lg hover:bg-deep-blue/30"
-                  aria-label="LinkedIn Profile"
-                >
-                  <Linkedin className="h-6 w-6 lg:h-7 lg:w-7 group-hover:animate-bounce-subtle" />
-                  <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                    LinkedIn
-                  </span>
-                </a>
-
-                {/* CV */}
-                <a
-                  href={cvPdf}
-                  download="Demir-Demirdogen-CV.pdf"
-                  className="group relative text-cool-gray hover:text-ui-blue transition-all duration-300 glow-on-hover p-2 rounded-lg hover:bg-deep-blue/30"
-                  aria-label="Download CV (PDF)"
-                >
-                  <FileDown className="h-6 w-6 lg:h-7 lg:w-7 group-hover:animate-bounce-subtle" />
-                  <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                    Download CV
-                  </span>
-                </a>
-
-                {/* Dil & Tema — aynı satır, çok hafif mor vurgu */}
-                <div className="hidden lg:flex items-center gap-3">
-                  <LanguageSwitch value={lang} onChange={setLang} />
-                  <ThemeSwitch value={theme} onChange={handleThemeChange} />
-                </div>
-              </div>
-
-              {/* Availability + Email */}
-
+            <div className="mt-10 hidden items-center gap-1 lg:flex">
+              <a
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="rounded p-2 text-subtle transition-colors hover:text-foreground"
+                aria-label="GitHub profile"
+              >
+                <Github className="h-5 w-5" aria-hidden="true" />
+              </a>
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="rounded p-2 text-subtle transition-colors hover:text-foreground"
+                aria-label="LinkedIn profile"
+              >
+                <Linkedin className="h-5 w-5" aria-hidden="true" />
+              </a>
+              <LanguageSwitch value={lang} onChange={setLang} />
+              <ThemeSwitch value={theme} onChange={setTheme} />
             </div>
           </div>
 
-          {/* Right Content */}
-          <div className="lg:w-1/2 pt-6 pb-28 md:pt-12 md:pb-28 lg:py-24">
+          <div className="pb-28 lg:w-[55%] lg:py-20 lg:pb-20">
             <main id="content">{children}</main>
           </div>
         </div>
       </div>
 
-      <nav className="fixed bottom-4 left-4 right-4 z-50 lg:hidden bg-midnight/80 backdrop-blur-lg border border-steel-blue/30 rounded-full px-6 py-3 shadow-lg flex items-center justify-between">
-        <button
-          onClick={() => scrollToSection('about')}
-          className={`p-2 transition-colors ${activeSection === 'about' ? 'text-ui-blue' : 'text-cool-gray'}`}
-          aria-label={t.nav.about}
-        >
-          <User className="h-6 w-6" />
-        </button>
-        <button
-          onClick={() => scrollToSection('experience')}
-          className={`p-2 transition-colors ${activeSection === 'experience' ? 'text-ui-blue' : 'text-cool-gray'}`}
-          aria-label={t.nav.experience}
-        >
-          <Briefcase className="h-6 w-6" />
-        </button>
-        <button
-          onClick={() => scrollToSection('projects')}
-          className={`p-2 transition-colors ${activeSection === 'projects' ? 'text-ui-blue' : 'text-cool-gray'}`}
-          aria-label={t.nav.projects}
-        >
-          <Code2 className="h-6 w-6" />
-        </button>
-        <button
-          onClick={() => scrollToSection('writing')}
-          className={`p-2 transition-colors ${activeSection === 'writing' ? 'text-ui-blue' : 'text-cool-gray'}`}
-          aria-label={t.nav.skills}
-        >
-          <Wrench className="h-6 w-6" />
-        </button>
+      {/* Mobile section nav */}
+      <nav
+        className="fixed inset-x-4 bottom-4 z-40 flex items-center justify-around rounded-full border border-border bg-surface/90 px-2 py-2 backdrop-blur lg:hidden"
+        aria-label="Section navigation"
+      >
+        {SECTIONS.map(({ id, icon: Icon }) => (
+          <button
+            key={id}
+            type="button"
+            onClick={() => scrollToSection(id)}
+            aria-label={navLabels[id]}
+            aria-current={activeSection === id ? 'true' : undefined}
+            className={`rounded-full p-2.5 transition-colors ${
+              activeSection === id ? 'text-accent' : 'text-subtle'
+            }`}
+          >
+            <Icon className="h-5 w-5" aria-hidden="true" />
+          </button>
+        ))}
       </nav>
 
-      {/* Mobile Expandable Action Menu */}
-      <div className="fixed bottom-24 right-4 z-50 flex flex-col-reverse items-end gap-3 lg:hidden">
-        {/* Toggle Button */}
+      {/* Mobile utility menu */}
+      <div className="fixed bottom-24 right-4 z-40 flex flex-col-reverse items-center gap-2 lg:hidden">
         <button
-          onClick={() => setIsActionMenuOpen(!isActionMenuOpen)}
-          className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-ui-blue to-ui-purple text-white shadow-lg shadow-ui-blue/20 transition-transform active:scale-95 border border-white/20"
-          aria-label="Toggle Menu"
+          type="button"
+          onClick={() => setIsActionMenuOpen((open) => !open)}
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-surface text-foreground transition-transform active:scale-95"
+          aria-label={isActionMenuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isActionMenuOpen}
         >
-          {isActionMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {isActionMenuOpen ? (
+            <X className="h-5 w-5" aria-hidden="true" />
+          ) : (
+            <Menu className="h-5 w-5" aria-hidden="true" />
+          )}
         </button>
 
-        {/* Action Items (Expanded) */}
         <div
-          className={`flex flex-col items-center gap-3 transition-all duration-300 origin-bottom ${isActionMenuOpen
-            ? 'scale-100 opacity-100 translate-y-0'
-            : 'scale-75 opacity-0 translate-y-8 pointer-events-none'
-            }`}
+          className={`flex flex-col items-center gap-2 transition-all duration-200 ${
+            isActionMenuOpen
+              ? 'visible translate-y-0 opacity-100'
+              : 'invisible translate-y-2 opacity-0'
+          }`}
         >
-          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-midnight/80 backdrop-blur-lg border border-steel-blue/40 shadow-xl">
-            <ThemeSwitch value={theme} onChange={handleThemeChange} className="!p-1.5" />
+          <div className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-surface">
+            <ThemeSwitch value={theme} onChange={setTheme} />
           </div>
-          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-midnight/80 backdrop-blur-lg border border-steel-blue/40 shadow-xl">
-            <LanguageSwitch value={lang} onChange={setLang} className="!p-1.5" />
+          <div className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-surface">
+            <LanguageSwitch value={lang} onChange={setLang} />
           </div>
           <a
-            href={cvPdf}
-            download="Demir-Demirdogen-CV.pdf"
-            className="flex h-11 w-11 items-center justify-center rounded-full bg-midnight/80 backdrop-blur-lg border border-steel-blue/40 text-cool-gray hover:text-ui-blue shadow-xl transition-colors"
+            href={LINKEDIN_URL}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-surface text-subtle transition-colors hover:text-foreground"
+            aria-label="LinkedIn profile"
           >
-            <FileDown className="h-5 w-5" />
+            <Linkedin className="h-5 w-5" aria-hidden="true" />
           </a>
           <a
-            href="https://www.linkedin.com/in/demir-demirdöğen-46604a1a0/"
+            href={GITHUB_URL}
             target="_blank"
-            rel="noopener noreferrer"
-            className="flex h-11 w-11 items-center justify-center rounded-full bg-midnight/80 backdrop-blur-lg border border-steel-blue/40 text-cool-gray hover:text-ui-blue shadow-xl transition-colors"
-            aria-label="LinkedIn Profile"
+            rel="noreferrer noopener"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-surface text-subtle transition-colors hover:text-foreground"
+            aria-label="GitHub profile"
           >
-            <Linkedin className="h-5 w-5" />
-          </a>
-          <a
-            href="https://github.com/this-Demir"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex h-11 w-11 items-center justify-center rounded-full bg-midnight/80 backdrop-blur-lg border border-steel-blue/40 text-cool-gray hover:text-ui-purple shadow-xl transition-colors"
-          >
-            <Github className="h-5 w-5" />
+            <Github className="h-5 w-5" aria-hidden="true" />
           </a>
         </div>
       </div>

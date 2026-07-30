@@ -1,20 +1,20 @@
-// src/components/ExpandableDetails.tsx
-import { useEffect, useId, useRef, useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { useEffect, useId, useRef, useState } from 'react';
+import { ChevronDown } from 'lucide-react';
 
 interface ExpandableDetailsProps {
   label?: string;
   defaultOpen?: boolean;
-  className?: string;
-  size?: "sm" | "md";
   children: React.ReactNode;
 }
 
+/**
+ * A disclosure that animates its own height. It measures the panel with a
+ * ResizeObserver so nested lazy content (images, code blocks) that arrives
+ * after mount still expands to the right size.
+ */
 export default function ExpandableDetails({
-  label = "Details",
+  label = 'Details',
   defaultOpen = false,
-  className = "",
-  size = "sm", 
   children,
 }: ExpandableDetailsProps) {
   const [open, setOpen] = useState(defaultOpen);
@@ -23,57 +23,56 @@ export default function ExpandableDetails({
   const id = useId();
 
   useEffect(() => {
-    if (!panelRef.current) return;
     const el = panelRef.current;
-    const update = () => setHeight(el.scrollHeight);
+    if (!el) return;
+    // getBoundingClientRect keeps sub-pixel precision; scrollHeight rounds down
+    // and can shave a hairline off the panel's bottom border.
+    const update = () => setHeight(el.getBoundingClientRect().height);
     update();
-    const ro = new ResizeObserver(update);
-    ro.observe(el);
-    return () => ro.disconnect();
+    const observer = new ResizeObserver(update);
+    observer.observe(el);
+    return () => observer.disconnect();
   }, [children]);
 
-  const sizeClasses =
-    size === "sm" ? "px-3 py-1.5 text-xs" : "px-3.5 py-2 text-sm";
-
   return (
-    <div className={`mt-3 ${className}`}>
+    <div className="mt-4">
       <button
         type="button"
-        onClick={(e) => { e.stopPropagation(); setOpen(v => !v); }} // ← güvenli
+        onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-controls={`details-panel-${id}`}
-        className={`
-          inline-flex items-center gap-2 rounded-lg border
-          ${sizeClasses}
-          border-steel-blue/40 bg-midnight/50 hover:bg-midnight/70
-          text-pearl transition-all duration-300
-          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ui-blue/60
-        `}
+        className="inline-flex items-center gap-1.5 rounded border border-border px-2.5 py-1 text-xs font-medium text-muted transition-colors hover:border-subtle hover:text-foreground"
       >
         {label}
         <ChevronDown
-          className={`h-4 w-4 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+          className={`h-3.5 w-3.5 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
           aria-hidden="true"
         />
       </button>
 
+      {/*
+        `visibility: hidden` while collapsed keeps the panel out of the tab
+        order and the accessibility tree, which `height: 0` alone does not do.
+        It is listed in the transition so it only flips back to hidden once the
+        collapse animation has finished.
+      */}
       <div
         id={`details-panel-${id}`}
         style={{ height: open ? height : 0 }}
-        className="overflow-hidden transition-[height] duration-400 ease-out
-                   rounded-lg border border-steel-blue/30 bg-midnight/40 mt-2"
-        aria-hidden={!open}
+        className={`overflow-hidden transition-[height,visibility] duration-300 ease-out ${
+          open ? 'visible' : 'invisible'
+        }`}
       >
-        <div
-          ref={panelRef}
-          className="p-4 sm:p-5 text-sm text-cool-gray"
-          style={{
-            opacity: open ? 1 : 0,
-            transform: open ? "translateY(0)" : "translateY(-4px)",
-            transition: "opacity 300ms, transform 300ms",
-          }}
-        >
-          {children}
+        {/*
+          The gap above the panel is padding on the measured element, not a
+          margin on the panel itself. Margins are excluded from the measured
+          height, which pushed the panel down and let `overflow-hidden` clip
+          its rounded bottom corners.
+        */}
+        <div ref={panelRef} className="pt-3">
+          <div className="rounded-xl border border-border bg-surface p-5 text-sm leading-relaxed text-muted">
+            {children}
+          </div>
         </div>
       </div>
     </div>

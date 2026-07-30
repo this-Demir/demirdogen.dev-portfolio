@@ -1,34 +1,33 @@
-import { Zap } from 'lucide-react';
-import { useLanguage } from '../context/LanguageContext'; // Hook eklendi
+import { useLanguage } from '../context/language';
+
+const REPO_URL = 'https://github.com/this-Demir/demirdogen.dev-portfolio';
+
+const linkClass = 'underline underline-offset-4 transition-colors hover:text-accent';
 
 const PersonalizedFooter = () => {
-  const { t } = useLanguage(); // Dil desteği çağrıldı
+  const { t } = useLanguage();
 
   return (
-    <footer className="mt-16 py-8 border-t border-ocean-blue/30">
-      <div className="text-center space-y-4">
-        
-        {/* Tech stack */}
-        <div className="flex items-center justify-center gap-2 text-sm text-silver">
-          <Zap className="h-3 w-3 text-copper" />
-          <span>{t.footer.built}</span>
-        </div>
-        
-        {/* Copyright */}
-        <p className="text-xs text-cool-gray">
-          © {new Date().getFullYear()} {t.footer.rights}
-        </p>
-        
-        {/* Easter egg & Design Credit */}
-        <div className="mt-6 opacity-50 hover:opacity-100 transition-opacity duration-300">
-          <p className="text-xs text-cool-gray font-mono">
-            // TODO: Make the world a better place, one line of code at a time
-          </p>
-          <p className="text-xs text-cool-gray">
-            {t.footer.design} <a href="https://brittanychiang.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-ui-blue">Brittany Chiang</a>. Not affiliated.
-          </p>
-        </div>
-      </div>
+    <footer className="mt-20 border-t border-border pt-8 text-center text-xs leading-relaxed text-subtle">
+      <p>{t.footer.built}</p>
+      <p className="mt-1">
+        {t.footer.design}{' '}
+        <a
+          href="https://brittanychiang.com"
+          target="_blank"
+          rel="noreferrer noopener"
+          className={linkClass}
+        >
+          Brittany Chiang
+        </a>
+        .
+      </p>
+      <p className="mt-4">
+        © {new Date().getFullYear()} {t.footer.rights} ·{' '}
+        <a href={REPO_URL} target="_blank" rel="noreferrer noopener" className={linkClass}>
+          {t.footer.source}
+        </a>
+      </p>
     </footer>
   );
 };

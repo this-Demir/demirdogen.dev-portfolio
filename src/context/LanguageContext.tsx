@@ -1,54 +1,28 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import { content, LangType } from '../data/content';
+import { useEffect, useMemo, useState } from 'react';
+import { content, type LangType } from '../data/content';
+import { LanguageContext } from './language';
 
-interface LanguageContextType {
-  lang: LangType;
-  setLang: (lang: LangType) => void;
-  t: typeof content['en'];
-}
+const STORAGE_KEY = 'lang';
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+/** A stored choice wins; otherwise Turkish browsers get Turkish and everyone else English. */
+const resolveInitialLang = (): LangType => {
+  if (typeof window === 'undefined') return 'en';
 
-export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [lang, setLang] = useState<LangType>('en');
+  const saved = window.localStorage.getItem(STORAGE_KEY);
+  if (saved === 'en' || saved === 'tr') return saved;
 
-  useEffect(() => {
-    const saved = localStorage.getItem('lang');
-    if (saved === 'en' || saved === 'tr') {
-      setLang(saved);
-    } else {
-      // Auto-detect from browser, default to 'en' if not Turkish or undefined
-      try {
-        const navLang = navigator.language || navigator.languages?.[0] || '';
-        setLang(navLang.toLowerCase().startsWith('tr') ? 'tr' : 'en');
-      } catch (error) {
-        setLang('en'); // Strict fallback
-      }
-    }
-  }, []);
+  return navigator.language?.toLowerCase().startsWith('tr') ? 'tr' : 'en';
+};
+
+export const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
+  const [lang, setLang] = useState<LangType>(resolveInitialLang);
 
   useEffect(() => {
-    localStorage.setItem('lang', lang);
+    localStorage.setItem(STORAGE_KEY, lang);
     document.documentElement.lang = lang;
   }, [lang]);
 
-  const value = {
-    lang,
-    setLang,
-    t: content[lang]
-  };
+  const value = useMemo(() => ({ lang, setLang, t: content[lang] }), [lang]);
 
-  return (
-    <LanguageContext.Provider value={value}>
-      {children}
-    </LanguageContext.Provider>
-  );
-};
-
-export const useLanguage = () => {
-  const context = useContext(LanguageContext);
-  if (!context) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
-  }
-  return context;
+  return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
 };
