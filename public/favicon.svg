@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="DD">
+  <rect width="64" height="64" rx="12" fill="#14181f" />
+  <text
+    x="32"
+    y="33"
+    fill="#f2f4f7"
+    font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+    font-size="30"
+    font-weight="700"
+    letter-spacing="-1.5"
+    text-anchor="middle"
+    dominant-baseline="central"
+  >DD</text>
+</svg>
