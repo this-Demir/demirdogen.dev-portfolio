@@ -2,209 +2,119 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Demir Demirdöğen Unique Design System */
+/**
+ * Design system.
+ *
+ * One neutral ramp plus a single blue accent. The accent is reserved for
+ * interactive text and the active-section marker; nothing decorative uses it.
+ * Both themes are defined here and nowhere else.
+ */
 
 @layer base {
-  :root {
-    /* Demir's Custom Color Palette - Modern UI/UX focused */
-    --midnight: 216 28% 7%;
-    --deep-blue: 217 32% 12%; 
-    --ocean-blue: 218 24% 18%;
-    --steel-blue: 219 16% 24%;
-    --slate-blue: 220 12% 32%;
-    --cool-gray: 221 8% 48%;
-    --silver: 222 6% 68%;
-    --pearl: 223 12% 88%;
-    --snow: 224 20% 96%;
-    --ui-blue: 230 70% 60%;
-    --ui-purple: 270 70% 65%;
-    --ui-teal: 180 60% 55%;
-    
-    /* Unique Gradients - UI/UX focused */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--ui-blue)), hsl(var(--ui-purple)));
-    --gradient-secondary: linear-gradient(180deg, hsl(var(--deep-blue)), hsl(var(--ocean-blue)));
-    --gradient-accent: linear-gradient(90deg, hsl(var(--ui-teal)), hsl(var(--ui-blue)));
-    --gradient-glow: radial-gradient(circle, hsl(var(--ui-blue) / 0.2), transparent 70%);
-    
-    /* Design System Variables */
-    --background: var(--midnight);
-    --foreground: var(--snow);
-    
-    --card: var(--deep-blue);
-    --card-foreground: var(--pearl);
-    
-    --popover: var(--ocean-blue);
-    --popover-foreground: var(--snow);
-    
-    --primary: var(--ui-blue);
-    --primary-foreground: var(--midnight);
-    
-    --secondary: var(--steel-blue);
-    --secondary-foreground: var(--silver);
-    
-    --muted: var(--slate-blue);
-    --muted-foreground: var(--cool-gray);
-    
-    --accent: var(--ui-purple);
-    --accent-foreground: var(--midnight);
-    
-    --destructive: 0 84% 60%;
-    --destructive-foreground: var(--snow);
-    
-    --border: var(--ocean-blue);
-    --input: var(--steel-blue);
-    --ring: var(--ui-blue);
-    
+  :root,
+  [data-theme="light"] {
+    --background: 0 0% 100%;
+    --surface: 220 20% 97%;
+    --border: 220 13% 89%;
+
+    --foreground: 222 24% 11%;
+    --muted: 220 9% 38%;
+    --subtle: 220 8% 54%;
+
+    --accent: 217 89% 44%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 45%;
+
     --radius: 0.5rem;
-    
-    /* Custom Properties */
-    --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Monaco', monospace;
-    --font-sans: 'Inter Variable', 'Inter', 'SF Pro Text', -apple-system, system-ui, sans-serif;
-    
-    /* Animation Easing */
-    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
-    --ease-in-out-cubic: cubic-bezier(0.4, 0, 0.2, 1);
-    --ease-spring: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    
-    /* Shadows */
-    --shadow-glow: 0 0 20px hsl(var(--ui-blue) / 0.3);
-    --shadow-elegant: 0 8px 32px hsl(var(--midnight) / 0.4);
-    --shadow-depth: 0 4px 16px hsl(var(--midnight) / 0.6);
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   }
-}
 
-@layer base {
-  * {
-    @apply border-border;
+  [data-theme="dark"] {
+    --background: 222 22% 8%;
+    --surface: 222 18% 12%;
+    --border: 220 12% 20%;
+
+    --foreground: 210 20% 96%;
+    --muted: 218 13% 67%;
+    --subtle: 218 10% 50%;
+
+    /* Lifted and desaturated so it clears 4.5:1 on the dark background. */
+    --accent: 213 92% 68%;
+    --accent-foreground: 222 22% 8%;
+    --destructive: 0 65% 60%;
+  }
+
+  html {
+    color-scheme: light dark;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
-    @apply bg-background text-foreground overflow-x-hidden;
+    @apply bg-background text-foreground antialiased;
+    text-rendering: optimizeLegibility;
   }
 
-  /* Enhanced mouse spotlight effect with gradient */
-  .group:hover .group-hover\:bg-gradient-to-r {
-    background: radial-gradient(800px at var(--mouse-x, 0) var(--mouse-y, 0), 
-      hsla(var(--ui-blue), 0.08), 
-      hsla(var(--ui-purple), 0.04) 40%, 
-      transparent 70%);
+  /* Headings carry hierarchy through weight and tracking, not colour. */
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-foreground;
+    text-wrap: balance;
   }
 
-  /* Scrollbar styling */
-  ::-webkit-scrollbar {
-    width: 0.5rem;
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: hsl(var(--deep-blue));
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, hsl(var(--ui-blue)), hsl(var(--ui-purple)));
-    border-radius: 0.25rem;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, hsl(var(--ui-purple)), hsl(var(--ui-teal)));
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-background rounded-sm;
   }
 
-  /* Selection styling */
   ::selection {
-    background: hsl(var(--ui-blue) / 0.3);
-    color: hsl(var(--snow));
+    background: hsl(var(--accent) / 0.25);
+  }
+
+  ::-webkit-scrollbar {
+    width: 0.625rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border: 3px solid hsl(var(--background));
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--subtle));
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
 @layer utilities {
-  /* Enhanced spotlight effect with multiple gradients */
-  .spotlight::before {
-    background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), 
-      hsla(var(--ui-blue), 0.15), 
-      hsla(var(--ui-purple), 0.08) 30%, 
-      transparent 60%);
-    border-radius: inherit;
-    content: "";
-    height: 100%;
-    left: 0px;
-    opacity: 0;
-    position: absolute;
-    top: 0px;
-    transition: opacity 600ms var(--ease-out-quart);
-    width: 100%;
-    z-index: 1;
+  /* Staggers the entrance of stacked sections without a JS animation library. */
+  .animate-delay-100 {
+    animation-delay: 100ms;
   }
-  
-  .spotlight:hover::before {
-    opacity: 1;
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animate-delay-300 {
+    animation-delay: 300ms;
   }
 
-  /* Glow effect for interactive elements */
-  .glow-on-hover {
-    transition: all 0.3s var(--ease-out-quart);
-  }
-  
-  .glow-on-hover:hover {
-    box-shadow: var(--shadow-glow);
-    transform: translateY(-0.125rem);
-  }
-
-  /* Text gradient effect */
-  .text-gradient {
-    background: var(--gradient-primary);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  /* Animated border */
-  .animated-border {
-    position: relative;
-  }
-  
-  .animated-border::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    padding: 1px;
-    background: var(--gradient-accent);
-    border-radius: inherit;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: xor;
-    -webkit-mask-composite: xor;
-    opacity: 0;
-    transition: opacity 0.3s var(--ease-out-quart);
-  }
-  
-  .animated-border:hover::before {
-    opacity: 1;
-  }
-
-  /* Floating animation */
-  .float-animation {
-    animation: float 3s ease-in-out infinite;
-  }
-  
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-0.625rem); }
-  }
-
-  /* Typewriter effect */
-  .typewriter {
-    overflow: hidden;
-    border-right: 0.15em solid hsl(var(--ui-blue));
-    white-space: nowrap;
-    margin: 0 auto;
-    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-  }
-  
-  @keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-  }
-  
-  @keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: hsl(var(--ui-blue)); }
+  /* Pauses both marquee tracks together on hover so they cannot desync. */
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
   }
 }

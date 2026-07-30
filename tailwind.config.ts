@@ -3,82 +3,69 @@ import type { Config } from "tailwindcss";
 export default {
   // Works with either: <html class="dark"> or <html data-theme="dark">
   darkMode: ["class", '[data-theme="dark"]'],
-  content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
-  ],
-  prefix: "",
+  content: ["./index.html", "./src/**/*.{ts,tsx}"],
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
     extend: {
       colors: {
-        border: "hsl(var(--border) / <alpha-value>)",
-        input: "hsl(var(--input) / <alpha-value>)",
-        ring: "hsl(var(--ring) / <alpha-value>)",
+        /**
+         * Semantic tokens. Every value is defined once in src/index.css and
+         * flipped per theme there — never hard-code a hex or a raw hsl() in a
+         * component.
+         */
         background: "hsl(var(--background) / <alpha-value>)",
+        surface: "hsl(var(--surface) / <alpha-value>)",
+        border: "hsl(var(--border) / <alpha-value>)",
         foreground: "hsl(var(--foreground) / <alpha-value>)",
+        muted: "hsl(var(--muted) / <alpha-value>)",
+        subtle: "hsl(var(--subtle) / <alpha-value>)",
+        accent: "hsl(var(--accent) / <alpha-value>)",
 
-        // Demir's Custom Color System – alpha-capable
-        midnight: "hsl(var(--midnight) / <alpha-value>)",
-        "deep-blue": "hsl(var(--deep-blue) / <alpha-value>)",
-        "ocean-blue": "hsl(var(--ocean-blue) / <alpha-value>)",
-        "steel-blue": "hsl(var(--steel-blue) / <alpha-value>)",
-        "slate-blue": "hsl(var(--slate-blue) / <alpha-value>)",
-        "cool-gray": "hsl(var(--cool-gray) / <alpha-value>)",
-        silver: "hsl(var(--silver) / <alpha-value>)",
-        pearl: "hsl(var(--pearl) / <alpha-value>)",
-        snow: "hsl(var(--snow) / <alpha-value>)",
-        "ui-blue": "hsl(var(--ui-blue) / <alpha-value>)",
-        "ui-purple": "hsl(var(--ui-purple) / <alpha-value>)",
-        "ui-teal": "hsl(var(--ui-teal) / <alpha-value>)",
-
+        // shadcn/ui primitives (toaster, tooltip, sonner) resolve against these.
+        input: "hsl(var(--border) / <alpha-value>)",
+        ring: "hsl(var(--accent) / <alpha-value>)",
         primary: {
-          DEFAULT: "hsl(var(--primary) / <alpha-value>)",
-          foreground: "hsl(var(--primary-foreground) / <alpha-value>)",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary) / <alpha-value>)",
-          foreground: "hsl(var(--secondary-foreground) / <alpha-value>)",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive) / <alpha-value>)",
-          foreground: "hsl(var(--destructive-foreground) / <alpha-value>)",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted) / <alpha-value>)",
-          foreground: "hsl(var(--muted-foreground) / <alpha-value>)",
-        },
-        accent: {
           DEFAULT: "hsl(var(--accent) / <alpha-value>)",
           foreground: "hsl(var(--accent-foreground) / <alpha-value>)",
         },
+        secondary: {
+          DEFAULT: "hsl(var(--surface) / <alpha-value>)",
+          foreground: "hsl(var(--foreground) / <alpha-value>)",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive) / <alpha-value>)",
+          foreground: "hsl(var(--background) / <alpha-value>)",
+        },
         popover: {
-          DEFAULT: "hsl(var(--popover) / <alpha-value>)",
-          foreground: "hsl(var(--popover-foreground) / <alpha-value>)",
+          DEFAULT: "hsl(var(--surface) / <alpha-value>)",
+          foreground: "hsl(var(--foreground) / <alpha-value>)",
         },
         card: {
-          DEFAULT: "hsl(var(--card) / <alpha-value>)",
-          foreground: "hsl(var(--card-foreground) / <alpha-value>)",
+          DEFAULT: "hsl(var(--surface) / <alpha-value>)",
+          foreground: "hsl(var(--foreground) / <alpha-value>)",
         },
       },
       fontFamily: {
+        /**
+         * System UI stack — no webfont request, no layout shift, and it renders
+         * as the reader's native interface font on every platform.
+         */
         sans: [
-          "Inter Variable",
-          "Inter",
-          "SF Pro Text",
-          "-apple-system",
           "system-ui",
+          "-apple-system",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
           "sans-serif",
         ],
-        mono: ["JetBrains Mono", "Fira Code", "SF Mono", "Monaco", "monospace"],
+        mono: [
+          "ui-monospace",
+          "SFMono-Regular",
+          "Menlo",
+          "Consolas",
+          "Liberation Mono",
+          "monospace",
+        ],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -86,57 +73,23 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
+        "fade-in": {
+          from: { opacity: "0", transform: "translateY(0.5rem)" },
+          to: { opacity: "1", transform: "translateY(0)" },
         },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
-        "fade-in-up": {
-          "0%": { opacity: "0", transform: "translateY(2rem)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
-        },
-        "slide-in-left": {
-          "0%": { opacity: "0", transform: "translateX(-2rem)" },
-          "100%": { opacity: "1", transform: "translateX(0)" },
-        },
-        "scale-in": {
-          "0%": { opacity: "0", transform: "scale(0.95)" },
-          "100%": { opacity: "1", transform: "scale(1)" },
-        },
-        "glow-pulse": {
-          "0%, 100%": { boxShadow: "0 0 20px hsl(var(--ui-blue) / 0.4)" },
-          "50%": { boxShadow: "0 0 40px hsl(var(--ui-blue) / 0.6)" },
-        },
-        "gradient-shift": {
-          "0%": { backgroundPosition: "0% 50%" },
-          "50%": { backgroundPosition: "100% 50%" },
-          "100%": { backgroundPosition: "0% 50%" },
-        },
-        "bounce-subtle": {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-0.25rem)" },
-        },
-        // YENİ EKLENEN KAYMA EFEKTİ
-        scroll: {
-          to: { transform: "translate(calc(-50% - 0.5rem))" },
+        /**
+         * Shifts one track fully off-screen plus the 2rem gap separating it
+         * from its duplicate, so the duplicate lands exactly where the first
+         * started and the loop is seamless.
+         */
+        marquee: {
+          to: { transform: "translateX(calc(-100% - 2rem))" },
         },
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-        "fade-in-up": "fade-in-up 0.6s var(--ease-out-quart)",
-        "slide-in-left": "slide-in-left 0.6s var(--ease-out-quart)",
-        "scale-in": "scale-in 0.3s var(--ease-spring)",
-        "glow-pulse": "glow-pulse 2s ease-in-out infinite",
-        "gradient-shift": "gradient-shift 3s ease-in-out infinite",
-        "bounce-subtle": "bounce-subtle 2s ease-in-out infinite",
-        // YENİ EKLENEN ANİMASYON
-        scroll: "scroll 40s linear infinite",
+        "fade-in": "fade-in 0.5s var(--ease-out) both",
+        marquee: "marquee 40s linear infinite",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
 } satisfies Config;
