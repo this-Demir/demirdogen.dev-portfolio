@@ -212,35 +212,42 @@ const Layout = ({ children }: LayoutProps) => {
         </div>
       </div>
 
-      {/* Mobile section nav */}
-      <nav
-        className="fixed inset-x-4 bottom-4 z-40 flex items-center justify-around rounded-full border border-border bg-surface/90 px-2 py-2 backdrop-blur lg:hidden"
-        aria-label="Section navigation"
-      >
-        {SECTIONS.map(({ id, icon: Icon }) => (
-          <button
-            key={id}
-            type="button"
-            onClick={() => scrollToSection(id)}
-            aria-label={navLabels[id]}
-            aria-current={activeSection === id ? 'true' : undefined}
-            className={`rounded-full p-2.5 transition-colors ${
-              activeSection === id ? 'text-accent' : 'text-subtle'
-            }`}
-          >
-            <Icon className="h-5 w-5" aria-hidden="true" />
-          </button>
-        ))}
-      </nav>
+      {/*
+        Mobile bar: the four sections plus a menu toggle. The toggle lives in
+        the bar rather than floating over the page, where it covered text.
+      */}
+      <div className="fixed inset-x-4 bottom-4 z-40 flex items-center rounded-full border border-border bg-surface/90 px-2 py-2 backdrop-blur lg:hidden">
+        <nav className="flex flex-1 items-center justify-around" aria-label="Section navigation">
+          {SECTIONS.map(({ id, icon: Icon }) => (
+            <button
+              key={id}
+              type="button"
+              onClick={() => {
+                setIsActionMenuOpen(false);
+                scrollToSection(id);
+              }}
+              aria-label={navLabels[id]}
+              aria-current={activeSection === id ? 'true' : undefined}
+              className={`rounded-full p-2.5 transition-colors ${
+                activeSection === id ? 'text-accent' : 'text-subtle'
+              }`}
+            >
+              <Icon className="h-5 w-5" aria-hidden="true" />
+            </button>
+          ))}
+        </nav>
 
-      {/* Mobile utility menu */}
-      <div className="fixed bottom-24 right-4 z-40 flex flex-col-reverse items-center gap-2 lg:hidden">
+        <span className="mx-1 h-6 w-px bg-border" aria-hidden="true" />
+
         <button
           type="button"
           onClick={() => setIsActionMenuOpen((open) => !open)}
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-surface text-foreground transition-transform active:scale-95"
+          className={`rounded-full p-2.5 transition-colors ${
+            isActionMenuOpen ? 'text-foreground' : 'text-subtle'
+          }`}
           aria-label={isActionMenuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isActionMenuOpen}
+          aria-controls="mobile-utility-menu"
         >
           {isActionMenuOpen ? (
             <X className="h-5 w-5" aria-hidden="true" />
@@ -248,8 +255,12 @@ const Layout = ({ children }: LayoutProps) => {
             <Menu className="h-5 w-5" aria-hidden="true" />
           )}
         </button>
+      </div>
 
+      {/* Mobile utility menu, stacked above the bar's menu toggle. */}
+      <div className="fixed bottom-24 right-6 z-40 lg:hidden">
         <div
+          id="mobile-utility-menu"
           className={`flex flex-col items-center gap-2 transition-all duration-200 ${
             isActionMenuOpen
               ? 'visible translate-y-0 opacity-100'
