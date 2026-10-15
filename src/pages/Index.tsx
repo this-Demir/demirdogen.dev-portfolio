@@ -130,6 +130,7 @@ const Index = () => {
                     {t.education.yasar.gpaValue}
                   </span>
                 </p>
+                <p className="mt-1 text-sm text-muted">{t.education.yasar.scholarship}</p>
                 <p className="mt-2 text-sm leading-relaxed text-muted">
                   <span className="font-medium text-foreground">
                     {t.education.yasar.coursesLabel}:

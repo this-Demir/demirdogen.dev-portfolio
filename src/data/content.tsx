@@ -172,6 +172,7 @@ const en = {
       year: '3rd Year Student',
       gpaLabel: 'GPA',
       gpaValue: '3.34',
+      scholarship: 'Academic Merit Scholarship (GPA-based)',
       coursesLabel: 'Relevant coursework',
       courses:
         'Data Structures, Algorithms, OOP, Design Patterns, Software Architecture, Automata Theory',
@@ -378,6 +379,7 @@ const tr: Dictionary = {
       year: '3. Sınıf Öğrencisi',
       gpaLabel: 'Ortalama',
       gpaValue: '3.34',
+      scholarship: 'Akademik Başarı Bursu (ortalamaya bağlı)',
       coursesLabel: 'İlgili dersler',
       courses:
         'Veri Yapıları, Algoritmalar, OOP, Tasarım Desenleri, Yazılım Mimarisi, Otomata Teorisi',
