@@ -202,6 +202,7 @@ const en = {
     tools: 'Technologies used in projects',
   },
   footer: {
+    contact: 'Get in touch',
     built: 'Built with React, TypeScript and Tailwind CSS',
     design: 'Design inspired by',
     rights: 'Demir Demirdöğen',
@@ -415,6 +416,7 @@ const tr: Dictionary = {
     tools: 'Projelerde kullanılan teknolojiler',
   },
   footer: {
+    contact: 'İletişim',
     built: 'React, TypeScript ve Tailwind CSS ile geliştirildi',
     design: 'Tasarım ilhamı:',
     rights: 'Demir Demirdöğen',
