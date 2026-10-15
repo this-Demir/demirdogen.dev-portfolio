@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   Github,
   Linkedin,
@@ -27,6 +27,28 @@ const SECTIONS = [
 
 type SectionId = (typeof SECTIONS)[number]['id'];
 
+/** How far down the viewport a section's top must pass to become active. */
+const ACTIVATION_LINE = 0.35;
+
+/**
+ * The active section is the last one whose top has scrolled above the
+ * activation line. This is independent of section height and scroll
+ * direction, unlike a visibility threshold. At the very bottom the last
+ * section wins, since a short final section may never reach the line.
+ */
+const getSectionInView = (): SectionId => {
+  const { innerHeight, scrollY } = window;
+  if (innerHeight + scrollY >= document.documentElement.scrollHeight - 2) {
+    return SECTIONS[SECTIONS.length - 1].id;
+  }
+  let current: SectionId = SECTIONS[0].id;
+  for (const { id } of SECTIONS) {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top <= innerHeight * ACTIVATION_LINE) current = id;
+  }
+  return current;
+};
+
 interface LayoutProps {
   children: React.ReactNode;
 }
@@ -49,19 +71,23 @@ const Layout = ({ children }: LayoutProps) => {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
+  // While a nav click is smooth-scrolling, the sections it passes over must
+  // not take the highlight; it stays on the clicked target until scrolling
+  // ends. Holds the pending click's cleanup, or null when no click is active.
+  const navScroll = useRef<(() => void) | null>(null);
+
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveSection(entry.target.id as SectionId);
-        }),
-      { threshold: 0.3 }
-    );
-    SECTIONS.forEach(({ id }) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
+    const sync = () => {
+      if (!navScroll.current) setActiveSection(getSectionInView());
+    };
+    sync();
+    window.addEventListener('scroll', sync, { passive: true });
+    window.addEventListener('resize', sync);
+    return () => {
+      window.removeEventListener('scroll', sync);
+      window.removeEventListener('resize', sync);
+      navScroll.current?.();
+    };
   }, []);
 
   const navLabels: Record<SectionId, string> = {
@@ -72,7 +98,24 @@ const Layout = ({ children }: LayoutProps) => {
   };
 
   const scrollToSection = (id: SectionId) => {
+    navScroll.current?.();
     setActiveSection(id);
+
+    // `scrollend` is missing in older Safari, and never fires when the page is
+    // already in place, so a timeout releases the lock as a fallback.
+    const cleanup = () => {
+      window.clearTimeout(fallback);
+      window.removeEventListener('scrollend', release);
+      navScroll.current = null;
+    };
+    const release = () => {
+      cleanup();
+      setActiveSection(getSectionInView());
+    };
+    const fallback = window.setTimeout(release, 1000);
+    window.addEventListener('scrollend', release);
+    navScroll.current = cleanup;
+
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
