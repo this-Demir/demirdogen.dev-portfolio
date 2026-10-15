@@ -24,7 +24,6 @@
 
     --accent: 217 89% 44%;
     --accent-foreground: 0 0% 100%;
-    --destructive: 0 72% 45%;
 
     --radius: 0.5rem;
     --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -43,7 +42,6 @@
     /* Lifted and desaturated so it clears 4.5:1 on the dark background. */
     --accent: 213 92% 68%;
     --accent-foreground: 222 22% 8%;
-    --destructive: 0 65% 60%;
   }
 
   html {
@@ -104,17 +102,6 @@
 }
 
 @layer utilities {
-  /* Staggers the entrance of stacked sections without a JS animation library. */
-  .animate-delay-100 {
-    animation-delay: 100ms;
-  }
-  .animate-delay-200 {
-    animation-delay: 200ms;
-  }
-  .animate-delay-300 {
-    animation-delay: 300ms;
-  }
-
   /* Pauses both marquee tracks together on hover so they cannot desync. */
   .marquee:hover .marquee-track {
     animation-play-state: paused;

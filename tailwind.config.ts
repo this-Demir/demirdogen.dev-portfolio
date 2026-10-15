@@ -19,30 +19,6 @@ export default {
         muted: "hsl(var(--muted) / <alpha-value>)",
         subtle: "hsl(var(--subtle) / <alpha-value>)",
         accent: "hsl(var(--accent) / <alpha-value>)",
-
-        // shadcn/ui primitives (toaster, tooltip, sonner) resolve against these.
-        input: "hsl(var(--border) / <alpha-value>)",
-        ring: "hsl(var(--accent) / <alpha-value>)",
-        primary: {
-          DEFAULT: "hsl(var(--accent) / <alpha-value>)",
-          foreground: "hsl(var(--accent-foreground) / <alpha-value>)",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--surface) / <alpha-value>)",
-          foreground: "hsl(var(--foreground) / <alpha-value>)",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive) / <alpha-value>)",
-          foreground: "hsl(var(--background) / <alpha-value>)",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--surface) / <alpha-value>)",
-          foreground: "hsl(var(--foreground) / <alpha-value>)",
-        },
-        card: {
-          DEFAULT: "hsl(var(--surface) / <alpha-value>)",
-          foreground: "hsl(var(--foreground) / <alpha-value>)",
-        },
       },
       fontFamily: {
         /**
