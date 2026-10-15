@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import {
   Github,
   Linkedin,
+  Mail,
   User,
   Briefcase,
   Code2,
@@ -13,9 +14,8 @@ import PersonalizedHeader from './PersonalizedHeader';
 import LanguageSwitch from './LanguageSwitch';
 import ThemeSwitch from './ThemeSwitch';
 import { useLanguage } from '../context/language';
+import { EMAIL, GITHUB_URL, LINKEDIN_URL } from '../data/links';
 
-const GITHUB_URL = 'https://github.com/this-Demir';
-const LINKEDIN_URL = 'https://www.linkedin.com/in/demir-demirdöğen-46604a1a0/';
 
 /** Section ids in document order, paired with their mobile-nav icon. */
 const SECTIONS = [
@@ -176,6 +176,14 @@ const Layout = ({ children }: LayoutProps) => {
 
             <div className="mt-10 hidden items-center gap-1 lg:flex">
               <a
+                href={`mailto:${EMAIL}`}
+                className="rounded p-2 text-subtle transition-colors hover:text-foreground"
+                aria-label={`Email ${EMAIL}`}
+                title={EMAIL}
+              >
+                <Mail className="h-5 w-5" aria-hidden="true" />
+              </a>
+              <a
                 href={GITHUB_URL}
                 target="_blank"
                 rel="noreferrer noopener"
@@ -271,6 +279,13 @@ const Layout = ({ children }: LayoutProps) => {
             aria-label="GitHub profile"
           >
             <Github className="h-5 w-5" aria-hidden="true" />
+          </a>
+          <a
+            href={`mailto:${EMAIL}`}
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-surface text-subtle transition-colors hover:text-foreground"
+            aria-label={`Email ${EMAIL}`}
+          >
+            <Mail className="h-5 w-5" aria-hidden="true" />
           </a>
         </div>
       </div>
