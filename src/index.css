@@ -101,9 +101,3 @@
   }
 }
 
-@layer utilities {
-  /* Pauses both marquee tracks together on hover so they cannot desync. */
-  .marquee:hover .marquee-track {
-    animation-play-state: paused;
-  }
-}

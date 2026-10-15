@@ -53,18 +53,9 @@ export default {
           from: { opacity: "0", transform: "translateY(0.5rem)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
-        /**
-         * Shifts one track fully off-screen plus the 2rem gap separating it
-         * from its duplicate, so the duplicate lands exactly where the first
-         * started and the loop is seamless.
-         */
-        marquee: {
-          to: { transform: "translateX(calc(-100% - 2rem))" },
-        },
       },
       animation: {
         "fade-in": "fade-in 0.5s var(--ease-out) both",
-        marquee: "marquee 40s linear infinite",
       },
     },
   },

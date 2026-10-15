@@ -7,12 +7,10 @@ import ExperienceCard from '../components/ExperienceCard';
 import ProjectCard from '../components/ProjectCard';
 import ProjectDetails from '../components/ProjectDetails';
 import TimelineEntry from '../components/TimelineEntry';
-import SkillMarquee from '../components/SkillMarquee';
 import PersonalizedFooter from '../components/PersonalizedFooter';
 
 import { useLanguage } from '../context/language';
 import { PROJECTS } from '../data/projects';
-import { TOOLBELT } from '../data/skills';
 import { DENEYAP_CERTIFICATES } from '../data/certificates';
 
 const Index = () => {
@@ -189,12 +187,6 @@ const Index = () => {
               </TimelineEntry>
             </li>
           </ol>
-
-          {/* Sits well below the education list, closer to the footer. */}
-          <div className="mt-28">
-            <SkillMarquee items={TOOLBELT} />
-            <p className="mt-3 text-center text-xs text-subtle">{t.skills.tools}</p>
-          </div>
         </div>
       </Section>
 

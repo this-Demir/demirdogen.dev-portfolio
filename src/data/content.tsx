@@ -165,10 +165,6 @@ const en = {
       certButton: 'Certificates',
     },
   },
-  skills: {
-    /** Caption shown under the technology marquee. */
-    tools: 'Technologies used in projects',
-  },
   footer: {
     contact: 'Get in touch',
     built: 'Built with React, TypeScript and Tailwind CSS',
@@ -347,9 +343,6 @@ const tr: Dictionary = {
       desc: 'STEM, robotik ve kodlama odaklı ileri teknoloji eğitim programı.',
       certButton: 'Sertifikalar',
     },
-  },
-  skills: {
-    tools: 'Projelerde kullanılan teknolojiler',
   },
   footer: {
     contact: 'İletişim',
