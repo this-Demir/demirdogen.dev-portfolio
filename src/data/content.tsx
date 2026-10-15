@@ -118,15 +118,15 @@ const en = {
       note: 'Built for SE 4458. Two repositories: the .NET backend, and the agent layer that sits on top of it.',
     },
     qa: {
-      title: 'QA Automation & Test Architecture',
-      desc: 'A QA automation suite built by a five-person team to validate critical e-learning platform functionality, delivering black-box coverage under IEEE-compliant methodology.',
+      title: 'E-learning QA Test Automation',
+      desc: 'An end-to-end test suite for an e-learning platform, built by a five-person team with black-box techniques and documented to IEEE 829.',
       detailLabel: 'Scope & team',
       storyTitle: 'Scope and methodology',
       storyDesc:
-        'A black-box strategy aimed at system fragility. Boundary Value Analysis and Equivalence Partitioning defined the test cases, documented under IEEE 829. Autonomous agents replace manual validation with repeatable, precise execution.',
+        'Test cases were derived with Boundary Value Analysis and Equivalence Partitioning, focusing on the flows most likely to break, and documented under IEEE 829.',
       techTitle: 'Technical architecture',
       techDesc:
-        'Built on Java, Selenium WebDriver, and JUnit 5, designed to stay resilient against dynamic DOM elements and anti-bot measures. It exercises end-to-end journeys from search through checkout, verifying data integrity without backend access.',
+        'Built on Java, Selenium WebDriver and JUnit 5, with explicit waits and stable locators so tests stay reliable as page content changes. It runs end-to-end journeys from search to checkout without backend access.',
       teamTitle: 'Engineering team',
       note: 'Developed for academic purposes only.',
     },
@@ -333,15 +333,15 @@ const tr: Dictionary = {
       note: 'SE 4458 için geliştirildi. İki depo: .NET arka ucu ve onun üzerine oturan ajan katmanı.',
     },
     qa: {
-      title: 'QA Otomasyonu & Test Mimarisi',
-      desc: 'Beş kişilik bir ekip tarafından, bir e-öğrenme platformunun kritik işlevlerini doğrulamak için kurulan QA otomasyon paketi; IEEE uyumlu metodolojiyle kara kutu test kapsamı sağlıyor.',
+      title: 'E-öğrenme QA Test Otomasyonu',
+      desc: 'Bir e-öğrenme platformu için beş kişilik bir ekiple, kara kutu teknikleriyle tasarlanıp IEEE 829 standardına göre belgelenen uçtan uca test paketi.',
       detailLabel: 'Kapsam ve ekip',
       storyTitle: 'Kapsam ve metodoloji',
       storyDesc:
-        'Sistemin kırılgan noktalarını hedefleyen bir kara kutu stratejisi. Test senaryoları Sınır Değer Analizi ve Eşdeğerlik Bölümleme ile tanımlandı, IEEE 829 standardına göre belgelendi. Otonom botlar manuel doğrulamanın yerini tekrarlanabilir ve kesin bir yürütmeyle alıyor.',
+        'Test senaryoları, en kırılgan akışlara odaklanılarak Sınır Değer Analizi ve Eşdeğerlik Bölümleme ile türetildi ve IEEE 829 standardına göre belgelendi.',
       techTitle: 'Teknik mimari',
       techDesc:
-        'Java, Selenium WebDriver ve JUnit 5 üzerine kurulu; dinamik DOM yapılarına ve anti-bot önlemlerine karşı dayanıklı olacak şekilde tasarlandı. Aramadan ödemeye kadar uçtan uca kullanıcı akışlarını çalıştırarak veri bütünlüğünü arka uç erişimi olmadan doğruluyor.',
+        'Java, Selenium WebDriver ve JUnit 5 üzerine kurulu; açık beklemeler (explicit wait) ve kararlı seçicilerle sayfa içeriği değişse de güvenilir çalışıyor. Aramadan ödemeye kadar uçtan uca kullanıcı akışlarını arka uç erişimi olmadan yürütüyor.',
       teamTitle: 'Mühendislik ekibi',
       note: 'Yalnızca akademik amaçlarla geliştirilmiştir.',
     },
