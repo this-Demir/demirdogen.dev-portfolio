@@ -41,12 +41,17 @@ const en = {
   },
   experience: {
     title: 'Experience',
-    broadangle: {
-      period: 'Jul 2026 - Present',
+    broadanglePartTime: {
+      period: 'Sep 2026 - Present',
+      title: 'Software Developer (Part-time)',
+      company: 'broadAngle',
+      desc: 'Develop customer-facing production software and design solutions as part of an agile team.',
+    },
+    broadangleIntern: {
+      period: 'Jul 2026 - Sep 2026',
       title: 'Software Engineering Intern',
-      company: 'BroadAngle',
-      // TODO: replace with a real summary of the work and the stack you used.
-      desc: '',
+      company: 'broadAngle',
+      desc: 'Shipped production code for .NET web projects within an agile team.',
     },
     yusync: {
       period: '2025 - Present',
@@ -242,12 +247,17 @@ const tr: Dictionary = {
   },
   experience: {
     title: 'Deneyim',
-    broadangle: {
-      period: 'Tem 2026 - Günümüz',
+    broadanglePartTime: {
+      period: 'Eyl 2026 - Günümüz',
+      title: 'Yazılım Geliştirici (Yarı Zamanlı)',
+      company: 'broadAngle',
+      desc: 'Çevik bir ekipte, müşterilere sunulan canlı yazılımlar geliştiriyor ve çözümler tasarlıyorum.',
+    },
+    broadangleIntern: {
+      period: 'Tem 2026 - Eyl 2026',
       title: 'Yazılım Mühendisliği Stajyeri',
-      company: 'BroadAngle',
-      // TODO: yaptığın işin ve kullandığın teknolojilerin gerçek özetiyle değiştir.
-      desc: '',
+      company: 'broadAngle',
+      desc: 'Çevik bir ekipte, .NET web projelerinde canlıya çıkan kod yazdım.',
     },
     yusync: {
       period: '2025 - Günümüz',

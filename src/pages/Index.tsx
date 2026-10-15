@@ -50,11 +50,22 @@ const Index = () => {
         <ol className="space-y-12">
           <li>
             <ExperienceCard
-              period={t.experience.broadangle.period}
-              title={t.experience.broadangle.title}
-              company={t.experience.broadangle.company}
+              period={t.experience.broadanglePartTime.period}
+              title={t.experience.broadanglePartTime.title}
+              company={t.experience.broadanglePartTime.company}
               companyUrl="https://www.broadangle.com/"
-              description={t.experience.broadangle.desc}
+              description={t.experience.broadanglePartTime.desc}
+              technologies={['.NET', 'C#', 'EF Core', 'SQL', 'TypeScript']}
+            />
+          </li>
+          <li>
+            <ExperienceCard
+              period={t.experience.broadangleIntern.period}
+              title={t.experience.broadangleIntern.title}
+              company={t.experience.broadangleIntern.company}
+              companyUrl="https://www.broadangle.com/"
+              description={t.experience.broadangleIntern.desc}
+              technologies={['.NET', 'C#', 'SQL', 'TypeScript']}
             />
           </li>
           <li>
