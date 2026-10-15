@@ -58,9 +58,8 @@ const en = {
       title: 'Volunteer Developer & Project Lead',
       company: 'YU-Sync',
       desc: 'Architected and developed a volunteer scheduling application to help Yaşar University students generate conflict-free course timetables. Led the project from initial concept to a fully functional web application.',
-      metricUsers: '7,000+ unique visitors',
-      metricLive: 'Live in production',
-      metricVolunteer: 'Volunteer project',
+      metricUnique: '10,000+ unique visitors in 30 days',
+      metricSearch: '10,000+ Google Search clicks in 28 days',
     },
   },
   projects: {
@@ -70,14 +69,14 @@ const en = {
       'Lower-level work built to understand how things run underneath: graphics pipelines, distributed simulation, and rendering maths.',
     yusync: {
       title: 'YU-Sync: Academic Scheduler',
-      desc: 'An algorithmic solution to the course-selection scramble. It helped 7,000+ unique visitors generate conflict-free timetables during enrolment week, using an automated Python data pipeline and a custom constraint solver.',
+      desc: 'An algorithmic solution to the course-selection scramble. It served 12,900+ visits during the Fall 2026 enrolment week and 10,000+ unique visitors over the following month, generating conflict-free timetables with an automated Python data pipeline and a custom constraint solver.',
       detailLabel: 'Technical & impact report',
       whatTitle: 'The problem and the solution',
       whatDesc:
         'Course selection is a stressful, time-critical process. YU-Sync turns that manual burden into an automated one: a Python pipeline parses university data to surface 1,000+ sections, with custom filters, time blocks, and instant conflict detection.',
-      statsTitle: 'Impact at scale',
+      statsTitle: 'Adoption',
       statsDesc:
-        'Reached 7,000+ unique visitors in a single week and became the de-facto tool for the university community, absorbing high-traffic spikes on Vercel without degradation.',
+        'Fall 2026 enrolment week (8-15 Sep) brought 12,900+ visits, more than 8,400 of them from Google Search, and the following 30 days added 10,000+ unique visitors. Search Console recorded 10,000+ clicks in the 28 days to 22 September.',
       perfTitle: 'Engineering: backtracking and bitmasking',
       perfDesc:
         'The core is a constraint-satisfaction solver built on backtracking. Representing time slots as bitmasks reduces collision detection to a single bitwise AND, which is what makes generating valid schedules from millions of permutations feasible in milliseconds.',
@@ -265,9 +264,8 @@ const tr: Dictionary = {
       title: 'Gönüllü Geliştirici & Proje Lideri',
       company: 'YU-Sync',
       desc: 'Yaşar Üniversitesi öğrencilerinin çakışmasız ders programları oluşturmasına yardımcı olmak için gönüllü bir uygulama tasarladım ve geliştirdim. Projeyi fikir aşamasından çalışan bir web uygulamasına taşıdım.',
-      metricUsers: '7.000+ tekil ziyaretçi',
-      metricLive: 'Yayında',
-      metricVolunteer: 'Gönüllü proje',
+      metricUnique: '30 günde 10.000+ tekil ziyaretçi',
+      metricSearch: '28 günde 10.000+ Google Arama tıklaması',
     },
   },
   projects: {
@@ -277,14 +275,14 @@ const tr: Dictionary = {
       'İşlerin alt katmanda nasıl çalıştığını anlamak için yazılmış düşük seviyeli çalışmalar: grafik hatları, dağıtık simülasyon ve render matematiği.',
     yusync: {
       title: 'YU-Sync: Akademik Planlayıcı',
-      desc: 'Ders seçim kaosuna algoritmik bir çözüm. Otomatik bir Python veri hattı ve özel bir kısıt çözücü kullanarak, kayıt haftasında 7.000+ tekil ziyaretçinin çakışmasız ders programı oluşturmasını sağladı.',
+      desc: 'Ders seçim kaosuna algoritmik bir çözüm. Otomatik bir Python veri hattı ve özel bir kısıt çözücü kullanarak, 2026 Güz kayıt haftasında 12.900+ ziyaret, takip eden ayda 10.000+ tekil ziyaretçi için çakışmasız ders programı üretti.',
       detailLabel: 'Teknik detaylar ve etki',
       whatTitle: 'Problem ve çözüm',
       whatDesc:
         'Ders seçimi stresli ve zamana karşı yürüyen bir süreçtir. YU-Sync bu manuel yükü otomatiğe çevirir: bir Python hattı üniversite verisini ayrıştırarak 1.000+ şubeyi görünür kılar; özel filtreler, zaman blokları ve anlık çakışma tespiti sunar.',
-      statsTitle: 'Ölçek ve etki',
+      statsTitle: 'Kullanım ve etki',
       statsDesc:
-        'Tek bir haftada 7.000+ tekil ziyaretçiye ulaştı ve üniversite topluluğunun fiili aracı hâline geldi; yoğun trafik anlarını Vercel üzerinde sorunsuz karşıladı.',
+        '2026 Güz kayıt haftasında (8-15 Eylül), 8.400’den fazlası Google Arama’dan gelmek üzere 12.900+ ziyaret aldı; takip eden 30 günde 10.000+ tekil ziyaretçiye ulaştı. Search Console, 22 Eylül’e kadarki 28 günde 10.000+ tıklama kaydetti.',
       perfTitle: 'Mühendislik: backtracking ve bitmasking',
       perfDesc:
         'Çekirdekte backtracking tabanlı bir kısıt sağlama çözücüsü var. Zaman dilimlerini bit maskesi olarak temsil etmek, çakışma tespitini tek bir bitwise AND işlemine indirger; milyonlarca permütasyon arasından geçerli programları milisaniyeler içinde üretmeyi mümkün kılan da budur.',

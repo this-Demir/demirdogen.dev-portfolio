@@ -76,9 +76,8 @@ const Index = () => {
               companyUrl="https://yu-sync.com"
               description={t.experience.yusync.desc}
               metrics={[
-                t.experience.yusync.metricUsers,
-                t.experience.yusync.metricLive,
-                t.experience.yusync.metricVolunteer,
+                t.experience.yusync.metricUnique,
+                t.experience.yusync.metricSearch,
               ]}
               technologies={['React', 'TypeScript', 'Tailwind CSS', 'Python']}
             />

@@ -8,7 +8,7 @@ interface ExperienceCardProps {
   company: string;
   companyUrl?: string;
   description?: React.ReactNode;
-  /** Short outcome statements, e.g. "7,000+ unique visitors". */
+  /** Short outcome statements, e.g. "10,000+ unique visitors in 30 days". */
   metrics?: string[];
   technologies?: string[];
 }
