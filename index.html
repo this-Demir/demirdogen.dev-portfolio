@@ -12,6 +12,25 @@
     <meta name="author" content="Demir Demirdöğen" />
     <link rel="canonical" href="https://demirdogen.dev/" />
 
+    <!--
+      Applies the theme before first paint. Without this, the page renders in
+      the :root (light) palette until React mounts, so a dark-theme visit
+      flashes white and routes outside Layout (the 404) never get a theme.
+      Keep the default and storage key in sync with Layout.tsx.
+    -->
+    <script>
+      (function () {
+        var theme = 'dark';
+        try {
+          var saved = localStorage.getItem('theme');
+          if (saved === 'light' || saved === 'dark') theme = saved;
+        } catch (e) {}
+        var root = document.documentElement;
+        root.setAttribute('data-theme', theme);
+        root.classList.toggle('dark', theme === 'dark');
+      })();
+    </script>
+
     <!-- Matches --background in src/index.css for each theme. -->
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#10141c" />

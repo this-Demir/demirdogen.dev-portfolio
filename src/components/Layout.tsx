@@ -58,17 +58,20 @@ const Layout = ({ children }: LayoutProps) => {
   const [isActionMenuOpen, setIsActionMenuOpen] = useState(false);
   const { lang, setLang, t } = useLanguage();
 
-  // Dark is the default; an explicit choice is remembered across visits.
-  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
-    if (typeof localStorage === 'undefined') return 'dark';
-    const saved = localStorage.getItem('theme');
-    return saved === 'light' || saved === 'dark' ? saved : 'dark';
-  });
+  // The inline script in index.html has already resolved the theme (dark by
+  // default, or the visitor's saved choice) before first paint; start from it.
+  const [theme, setTheme] = useState<'light' | 'dark'>(() =>
+    document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark'
+  );
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     document.documentElement.classList.toggle('dark', theme === 'dark');
-    localStorage.setItem('theme', theme);
+    try {
+      localStorage.setItem('theme', theme);
+    } catch {
+      // Storage can be unavailable (blocked cookies); the choice just won't persist.
+    }
   }, [theme]);
 
   // While a nav click is smooth-scrolling, the sections it passes over must
