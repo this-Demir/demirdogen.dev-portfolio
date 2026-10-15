@@ -164,11 +164,6 @@ const en = {
       desc: 'Advanced technology program focused on STEM, robotics, and coding.',
       certButton: 'Certificates',
     },
-    highschool: {
-      date: '2019 - 2023',
-      title: 'Science High School',
-      school: 'Doğa Koleji Fen Lisesi',
-    },
   },
   skills: {
     /** Caption shown under the technology marquee. */
@@ -351,11 +346,6 @@ const tr: Dictionary = {
       org: 'DENEYAP Teknoloji Atölyeleri',
       desc: 'STEM, robotik ve kodlama odaklı ileri teknoloji eğitim programı.',
       certButton: 'Sertifikalar',
-    },
-    highschool: {
-      date: '2019 - 2023',
-      title: 'Fen Lisesi',
-      school: 'Doğa Koleji Fen Lisesi',
     },
   },
   skills: {

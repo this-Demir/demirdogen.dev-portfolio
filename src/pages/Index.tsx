@@ -188,14 +188,6 @@ const Index = () => {
                 )}
               </TimelineEntry>
             </li>
-
-            <li>
-              <TimelineEntry period={t.education.highschool.date}>
-                <h3 className="text-base font-semibold leading-snug text-foreground">
-                  {t.education.highschool.title}, {t.education.highschool.school}
-                </h3>
-              </TimelineEntry>
-            </li>
           </ol>
 
           {/* Sits well below the education list, closer to the footer. */}
