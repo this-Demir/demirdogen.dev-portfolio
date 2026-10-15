@@ -1,4 +1,4 @@
-import { MapPin, Code2 } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 import { useLanguage } from '../context/language';
 
 const PersonalizedHeader = () => {
@@ -14,16 +14,10 @@ const PersonalizedHeader = () => {
 
       <p className="mt-3 text-lg font-medium text-muted">{t.hero.role}</p>
 
-      <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm text-subtle">
-        <li className="flex items-center gap-2">
-          <MapPin className="h-4 w-4 shrink-0" aria-hidden="true" />
-          {t.hero.location}
-        </li>
-        <li className="flex items-center gap-2">
-          <Code2 className="h-4 w-4 shrink-0" aria-hidden="true" />
-          {t.hero.techStack}
-        </li>
-      </ul>
+      <p className="mt-5 flex items-center gap-2 text-sm text-subtle">
+        <MapPin className="h-4 w-4 shrink-0" aria-hidden="true" />
+        {t.hero.location}
+      </p>
     </header>
   );
 };

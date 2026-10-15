@@ -19,7 +19,6 @@ const en = {
   hero: {
     role: 'Software Engineering Student',
     location: 'İzmir, Türkiye',
-    techStack: 'Java · .NET · React',
   },
   about: {
     title: 'About',
@@ -225,7 +224,6 @@ const tr: Dictionary = {
   hero: {
     role: 'Yazılım Mühendisliği Öğrencisi',
     location: 'İzmir, Türkiye',
-    techStack: 'Java · .NET · React',
   },
   about: {
     title: 'Hakkımda',
