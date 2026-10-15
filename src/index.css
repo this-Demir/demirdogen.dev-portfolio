@@ -19,7 +19,8 @@
 
     --foreground: 222 24% 11%;
     --muted: 220 9% 38%;
-    --subtle: 220 8% 54%;
+    /* Darkest tone that still reads as secondary; clears 4.5:1 on both background and surface. */
+    --subtle: 220 8% 45%;
 
     --accent: 217 89% 44%;
     --accent-foreground: 0 0% 100%;
@@ -36,7 +37,8 @@
 
     --foreground: 210 20% 96%;
     --muted: 218 13% 67%;
-    --subtle: 218 10% 50%;
+    /* Clears 4.5:1 on both background and surface. */
+    --subtle: 218 10% 54%;
 
     /* Lifted and desaturated so it clears 4.5:1 on the dark background. */
     --accent: 213 92% 68%;
