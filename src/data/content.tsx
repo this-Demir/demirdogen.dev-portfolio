@@ -74,7 +74,7 @@ const en = {
     title: 'Selected Projects',
     curiosityTitle: 'Just Curiosity',
     curiosityIntro:
-      'Lower-level work built to understand how things run underneath: graphics pipelines, distributed simulation, and rendering maths.',
+      'Lower-level work built to understand how things run underneath: graphics pipelines and rendering maths.',
     yusync: {
       title: 'YU-Sync: Academic Scheduler',
       desc: 'An algorithmic solution to the course-selection scramble. It served 12,900+ visits during the Fall 2026 enrolment week and 10,000+ unique visitors over the following month, generating conflict-free timetables with an automated Python data pipeline and a custom constraint solver.',
@@ -140,34 +140,7 @@ const en = {
       f3: 'Triple-thread architecture: UI, render engine, and scene builder decoupled onto separate threads.',
       f4: 'Interactive experience: fully dynamic camera and live material editing.',
       quote:
-        'This project is the step from understanding the maths (the CPU version) to working with the hardware (the Vulkan version).',
-    },
-    aerolink: {
-      title: 'AERO-LINK: UAV Simulation & Ground Control',
-      desc: 'A client-server simulation in which a virtual UAV acts as a server processing commands. Built with Java and the Vulkan API, it carries real-time telemetry and simulates the interaction between ground control and the aircraft end to end.',
-      detailLabel: 'System architecture',
-      arch1Title: 'Distributed architecture',
-      arch1Desc:
-        'The UAV runs as a server handling inbound commands, with flight modes managed through the State pattern.',
-      arch2Title: 'Real-time telemetry',
-      arch2Desc:
-        'The Observer pattern carries telemetry to the control station without polling.',
-      arch3Title: 'Vulkan integration',
-      arch3Desc:
-        'Physical interactions in the simulation are rendered live through the Vulkan API.',
-    },
-    legacyRay: {
-      title: 'Legacy Ray Tracer: Java/CPU Engine',
-      desc: 'A raw implementation of ray tracing physics written from scratch in Java. It simulates light transport, including reflections and shadows, and became a pointed lesson in the limits of CPU rendering.',
-      detailLabel: 'Post-mortem',
-      archTitle: 'Core architecture',
-      archDesc:
-        'A 3D engine built without graphics libraries. It simulates how light behaves in the real world, bouncing off mirrors and casting shadows, to produce realistic images.',
-      limitsTitle: 'Why I moved to the GPU',
-      limitsDesc:
-        'The CPU could not carry millions of simultaneous ray calculations. The load froze the interface and blacked out the screen mid-render.',
-      takeaway:
-        'That performance wall is what pushed me into Vulkan and GPU compute shaders.',
+        'It began as a CPU ray tracer in Java; moving the work onto the GPU with Vulkan compute is what made it real-time.',
     },
   },
   education: {
@@ -289,7 +262,7 @@ const tr: Dictionary = {
     title: 'Seçilmiş Projeler',
     curiosityTitle: 'Sadece Merak',
     curiosityIntro:
-      'İşlerin alt katmanda nasıl çalıştığını anlamak için yazılmış düşük seviyeli çalışmalar: grafik hatları, dağıtık simülasyon ve render matematiği.',
+      'İşlerin alt katmanda nasıl çalıştığını anlamak için yazılmış düşük seviyeli çalışmalar: grafik hatları ve render matematiği.',
     yusync: {
       title: 'YU-Sync: Akademik Planlayıcı',
       desc: 'Ders seçim kaosuna algoritmik bir çözüm. Otomatik bir Python veri hattı ve özel bir kısıt çözücü kullanarak, 2026 Güz kayıt haftasında 12.900+ ziyaret, takip eden ayda 10.000+ tekil ziyaretçi için çakışmasız ders programı üretti.',
@@ -355,34 +328,7 @@ const tr: Dictionary = {
       f3: 'Üçlü thread mimarisi: arayüz, render motoru ve sahne oluşturucu ayrı thread’lere bölünmüş durumda.',
       f4: 'Etkileşimli deneyim: tamamen dinamik kamera ve canlı materyal düzenleme.',
       quote:
-        'Bu proje, matematiği anlamaktan (CPU sürümü) donanımla çalışmaya (Vulkan sürümü) geçilen adımı temsil ediyor.',
-    },
-    aerolink: {
-      title: 'AERO-LINK: İHA Simülasyonu & Yer Kontrol',
-      desc: 'Sanal bir İHA’nın komutları işleyen bir sunucu gibi davrandığı istemci-sunucu simülasyonu. Java ve Vulkan API ile geliştirildi; gerçek zamanlı telemetri taşıyor ve yer kontrol istasyonu ile hava aracı arasındaki etkileşimi uçtan uca simüle ediyor.',
-      detailLabel: 'Sistem mimarisi',
-      arch1Title: 'Dağıtık mimari',
-      arch1Desc:
-        'İHA, gelen komutları işleyen bir sunucu olarak çalışıyor; uçuş modları State deseniyle yönetiliyor.',
-      arch2Title: 'Gerçek zamanlı telemetri',
-      arch2Desc:
-        'Observer deseni, telemetriyi yoklama yapmadan kontrol istasyonuna taşıyor.',
-      arch3Title: 'Vulkan entegrasyonu',
-      arch3Desc:
-        'Simülasyondaki fiziksel etkileşimler Vulkan API üzerinden canlı olarak render ediliyor.',
-    },
-    legacyRay: {
-      title: 'Legacy Ray Tracer: Java/CPU Motoru',
-      desc: 'Java ile sıfırdan yazılmış saf bir ışın izleme uygulaması. Yansımalar ve gölgeler dâhil ışık taşınımını simüle ediyor; CPU render’ının sınırları konusunda net bir ders oldu.',
-      detailLabel: 'Değerlendirme',
-      archTitle: 'Çekirdek mimari',
-      archDesc:
-        'Grafik kütüphanesi kullanmadan kurulmuş bir 3D motor. Işığın gerçek dünyadaki davranışını, aynalardan yansımasını ve gölge oluşturmasını taklit ederek gerçekçi görüntüler üretiyor.',
-      limitsTitle: 'Neden GPU’ya geçtim',
-      limitsDesc:
-        'CPU, aynı anda milyonlarca ışın hesabını taşıyamadı. Bu yük arayüzü dondurdu ve render sırasında ekranı kararttı.',
-      takeaway:
-        'Bu performans duvarı, beni Vulkan ve GPU compute shader’lara iten şey oldu.',
+        'Java’da bir CPU ışın izleyicisi olarak başladı; işi Vulkan compute ile GPU’ya taşımak onu gerçek zamanlı yaptı.',
     },
   },
   education: {

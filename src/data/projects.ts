@@ -92,22 +92,4 @@ export const PROJECTS: ProjectMeta[] = [
       },
     ],
   },
-  {
-    id: 'aerolink',
-    tier: 'curiosity',
-    technologies: ['Java', 'Vulkan', 'Sockets', 'Design patterns'],
-    links: [
-      {
-        label: 'GitHub',
-        url: 'https://github.com/this-Demir/aero-link-uav',
-        type: 'github',
-      },
-    ],
-  },
-  {
-    id: 'legacyRay',
-    tier: 'curiosity',
-    technologies: ['Java', 'JavaFX', 'Multithreading', 'CPU rendering'],
-    links: [],
-  },
 ];

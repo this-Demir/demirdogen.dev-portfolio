@@ -5,9 +5,6 @@ import type { ProjectId } from '../data/projects';
 import vulkanShot1 from '../assets/projects/raytracer/vulkan-render-1.webp';
 import vulkanShot2 from '../assets/projects/raytracer/vulkan-render-2.webp';
 import vulkanShot3 from '../assets/projects/raytracer/vulkan-render-3.webp';
-import rayShot1 from '../assets/projects/raytracer/solarsystem.webp';
-import rayShot2 from '../assets/projects/raytracer/rays-ui.webp';
-import rayShot3 from '../assets/projects/raytracer/glass-metal.webp';
 
 const QA_TEAM = [
   'Demir Demirdöğen',
@@ -116,30 +113,6 @@ const DETAILS: Partial<Record<ProjectId, (t: Dictionary) => React.ReactNode>> = 
     </>
   ),
 
-  aerolink: (t) => (
-    <>
-      <Block title={t.projects.aerolink.arch1Title}>{t.projects.aerolink.arch1Desc}</Block>
-      <Block title={t.projects.aerolink.arch2Title}>{t.projects.aerolink.arch2Desc}</Block>
-      <Block title={t.projects.aerolink.arch3Title}>{t.projects.aerolink.arch3Desc}</Block>
-    </>
-  ),
-
-  legacyRay: (t) => (
-    <>
-      <Shots
-        images={[
-          { src: rayShot1, alt: 'Solar-system style scene' },
-          { src: rayShot2, alt: 'Ray debug view with UI panel' },
-          { src: rayShot3, alt: 'Glass and metal materials' },
-        ]}
-      />
-      <Block title={t.projects.legacyRay.archTitle}>{t.projects.legacyRay.archDesc}</Block>
-      <Block title={t.projects.legacyRay.limitsTitle}>
-        {t.projects.legacyRay.limitsDesc}
-      </Block>
-      <Note>{t.projects.legacyRay.takeaway}</Note>
-    </>
-  ),
 };
 
 interface ProjectDetailsProps {
