@@ -40,10 +40,7 @@ const Index = () => {
   return (
     <Layout>
       <Section id="about" title={t.about.title}>
-        <div className="animate-fade-in space-y-4">
-          <p className="leading-relaxed text-muted">{t.about.p1}</p>
-          <p className="leading-relaxed text-muted">{t.about.p2}</p>
-        </div>
+        <p className="animate-fade-in leading-relaxed text-muted">{t.about.intro}</p>
       </Section>
 
       <Section id="experience" title={t.experience.title}>

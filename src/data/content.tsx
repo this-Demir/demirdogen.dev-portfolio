@@ -22,19 +22,28 @@ const en = {
   },
   about: {
     title: 'About',
-    p1: "I'm a Software Engineering student who enjoys turning ideas into functional, well-designed products. I strive to develop myself by focusing on clear problem definition, user experience, and reliable engineering.",
-    p2: (
+    intro: (
       <>
-        Currently pursuing my{' '}
+        I'm a final-year Software Engineering student at{' '}
         <a
           className={linkClass}
           href="https://www.yasar.edu.tr/"
           target="_blank"
           rel="noreferrer noopener"
         >
-          Bachelor's degree in Software Engineering at Yaşar University
-        </a>
-        .
+          Yaşar University
+        </a> and a
+        part-time Software Developer at{' '}
+        <a
+          className={linkClass}
+          href="https://www.broadangle.com/"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          broadAngle
+        </a>, working on
+        production .NET applications. On the side I built and maintain YU-Sync, a
+        course scheduler that thousands of students use every enrolment period.
       </>
     ),
   },
@@ -227,19 +236,28 @@ const tr: Dictionary = {
   },
   about: {
     title: 'Hakkımda',
-    p1: 'Fikirleri işlevsel ve iyi tasarlanmış ürünlere dönüştürmekten keyif alan bir Yazılım Mühendisliği öğrencisiyim. Problemleri net bir şekilde tanımlamaya, kullanıcı deneyimine ve güvenilir mühendisliğe odaklanarak kendimi geliştirmeye çalışıyorum.',
-    p2: (
+    intro: (
       <>
-        Şu anda{' '}
         <a
           className={linkClass}
           href="https://www.yasar.edu.tr/"
           target="_blank"
           rel="noreferrer noopener"
         >
-          Yaşar Üniversitesi'nde Yazılım Mühendisliği lisans eğitimime
-        </a>{' '}
-        devam ediyorum.
+          Yaşar Üniversitesi
+        </a>
+        'nde son sınıf Yazılım Mühendisliği öğrencisiyim ve{' '}
+        <a
+          className={linkClass}
+          href="https://www.broadangle.com/"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          broadAngle
+        </a>
+        'da canlıdaki .NET uygulamaları üzerinde yarı zamanlı Yazılım Geliştirici
+        olarak çalışıyorum. Bunun yanında, her kayıt döneminde binlerce öğrencinin
+        kullandığı ders planlayıcısı YU-Sync'i geliştirip sürdürüyorum.
       </>
     ),
   },
