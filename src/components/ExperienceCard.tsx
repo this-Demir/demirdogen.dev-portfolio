@@ -51,14 +51,20 @@ const ExperienceCard = ({
       )}
 
       {metrics.length > 0 && (
-        <ul className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-subtle">
-          {metrics.map((metric, index) => (
-            <li key={metric} className="flex items-center gap-3">
-              {index > 0 && <span aria-hidden="true">·</span>}
-              {metric}
-            </li>
-          ))}
-        </ul>
+        // Every item carries a leading separator; the list is pulled left by
+        // that width and clipped, so no wrapped line ever starts with a dot.
+        <div className="mt-3 overflow-hidden">
+          <ul className="-ml-5 flex flex-wrap gap-y-1 text-xs text-subtle">
+            {metrics.map((metric) => (
+              <li
+                key={metric}
+                className="before:inline-block before:w-5 before:text-center before:content-['·']"
+              >
+                {metric}
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
 
       {technologies.length > 0 && (
