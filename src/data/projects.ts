@@ -42,18 +42,7 @@ export const PROJECTS: ProjectMeta[] = [
   {
     id: 'hotel',
     tier: 'featured',
-    technologies: [
-      '.NET 9',
-      'Next.js',
-      'Ocelot',
-      'RabbitMQ',
-      'PostgreSQL',
-      'MongoDB',
-      'Redis',
-      'Docker',
-      'Azure',
-      'AWS Lambda',
-    ],
+    technologies: ['.NET 9', 'Next.js', 'RabbitMQ', 'PostgreSQL', 'Docker', 'Azure'],
     links: [
       {
         label: 'GitHub',
@@ -65,16 +54,7 @@ export const PROJECTS: ProjectMeta[] = [
   {
     id: 'airline',
     tier: 'featured',
-    technologies: [
-      '.NET 8',
-      'Clean Architecture',
-      'EF Core',
-      'MySQL',
-      'FastAPI',
-      'Ollama',
-      'Docker',
-      'k6',
-    ],
+    technologies: ['.NET 8', 'EF Core', 'MySQL', 'FastAPI', 'Ollama', 'Docker'],
     links: [
       {
         label: 'Backend API',
@@ -91,7 +71,7 @@ export const PROJECTS: ProjectMeta[] = [
   {
     id: 'qa',
     tier: 'featured',
-    technologies: ['Java', 'Selenium', 'JUnit 5', 'IEEE 829', 'Black-box testing'],
+    technologies: ['Java', 'Selenium', 'JUnit 5'],
     links: [
       {
         label: 'GitHub',
@@ -103,7 +83,7 @@ export const PROJECTS: ProjectMeta[] = [
   {
     id: 'vulkan',
     tier: 'curiosity',
-    technologies: ['Java 21', 'Vulkan', 'LWJGL', 'GLSL compute', 'Multithreading'],
+    technologies: ['Java 21', 'Vulkan', 'LWJGL', 'GLSL'],
     links: [
       {
         label: 'GitHub',
